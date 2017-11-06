@@ -32,6 +32,12 @@ public function test(Request $request, $userName, $test)
     return json_encode($data);
 }
 
+
+public function test3()
+{
+ return ("can you see?");
+}
+
     /**post data
      * @param Request $request
      * @return string
