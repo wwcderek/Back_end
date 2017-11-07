@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\Permission;
 use App\Models\User;
-use DB ;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests ;
 use Illuminate\Http\Request;
 use App\Providers\Validator;
+
 
 class LoginController extends Controller
 {
@@ -35,7 +36,8 @@ public function test(Request $request, $userName, $test)
 
 public function test3()
 {
- return ("can you see?");
+    $user = User::all();
+ dd($user);
 }
 
     /**post data
