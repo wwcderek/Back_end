@@ -19,3 +19,5 @@ Route::get('/{userName}/{test}', 'LoginController@test');
 Route::get('test3', 'LoginController@test3');
 Route::post('/registration', 'UserController@registration');
 Route::post('/login', 'UserController@login');
+Route::get('film','FilmController@route')->name('upload.file');
+Route::post('film','FilmController@store');

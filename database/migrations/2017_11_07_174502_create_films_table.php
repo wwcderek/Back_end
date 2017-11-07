@@ -20,6 +20,8 @@ class CreateFilmsTable extends Migration
             $table->string('language');
             $table->integer('running_time');
             $table->dateTime('publish_time');
+            $table->string('file_name');
+            $table->string('path');
             $table->timestamps();
         });
     }
