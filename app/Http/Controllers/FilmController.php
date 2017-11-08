@@ -16,13 +16,13 @@ class FilmController extends Controller
     //
     public function route()
     {
-        $review = new Review();
-        $review->title = 'Iron';
-        $review->description = 'SO good';
-        $review->rating = 10;
-        $review->save();
-        return "success";
-        //return view('upload');
+//        $review = new Review();
+//        $review->title = 'Iron';
+//        $review->description = 'SO good';
+//        $review->rating = 10;
+//        $review->save();
+//        return "success";
+        return view('upload');
     }
 
 
@@ -41,9 +41,9 @@ class FilmController extends Controller
             $film->title = $request->title;
             $film->description = $request->description;
             $film->language = $request->language;
-            $film->running_time = $request->run;
-            $date = new DateTime('2000-01-01');
-            $film->publish_time = $date->format('Y-m-d H:i:s');
+            $film->running_time = 100;
+            $date = date("Y-m-d H:i:s");
+            $film->publish_time = $date;
             $film->file_name = $fileName;
             $film->path = $path;
             $film->save();
