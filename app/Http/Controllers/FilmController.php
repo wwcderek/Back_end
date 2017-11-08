@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Film;
+use App\Models\Account;
+use App\Models\Genre;
 use Illuminate\Support\Facades\App;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -14,7 +16,11 @@ class FilmController extends Controller
     //
     public function route()
     {
-        return view('upload');
+        $genre = new Genre();
+        $genre->name = 'Action';
+        $genre->save();
+        return "success";
+        //return view('upload');
     }
 
 
