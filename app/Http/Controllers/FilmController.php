@@ -30,7 +30,7 @@ class FilmController extends Controller
     {
 
         if($request->hasFile('file')) {
-            $fileName = date('Y-m-d H-i-s');
+            $fileName = date('Y-m-d-H-i-s');
             $fileSize = filesize($request->file);
             $extension = $request->file->getClientOriginalExtension();
             $path = 'storage/upload/'.$fileName.'.'.$extension;
@@ -51,5 +51,11 @@ class FilmController extends Controller
             return 'Success';
         }
         return  $request->all();
+    }
+
+
+    public function show()
+    {
+
     }
 }
