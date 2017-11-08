@@ -37,13 +37,13 @@ public function test(Request $request, $userName, $test)
 
 public function login(Request $request)
 {
-    $attempt = Auth::attempt([
-        'name' => $request->name,
-        'password' => $request->password
-    ]);
-    if($attempt)
+//    $attempt = Auth::attempt([
+//        'name' => $request->name,
+//        'password' => $request->password
+//    ]);
+//    if($attempt)
         return json_encode(true);
-    return json_encode(false);
+    //return json_encode(false);
 }
 
 
