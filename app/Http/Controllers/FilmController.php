@@ -22,7 +22,6 @@ class FilmController extends Controller
     {
 
         if($request->hasFile('file')) {
-            dd($request);
             $fileName = date('Y-m-d H-i-s');
             $fileSize = filesize($request->file);
             $extension = $request->file->getClientOriginalExtension();
@@ -34,7 +33,7 @@ class FilmController extends Controller
             $film->title = $request->title;
             $film->description = $request->description;
             $film->language = $request->language;
-            $film->running_time = $request->run;    
+            $film->running_time = $request->run;
             $date = new DateTime('2000-01-01');
             $film->publish_time = $date->format('Y-m-d H:i:s');
             $film->file_name = $fileName;
