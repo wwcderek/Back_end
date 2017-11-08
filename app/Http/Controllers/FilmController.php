@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Account;
-use App\Models\Genre;
+use App\Models\Review;
 use Illuminate\Support\Facades\App;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,9 +16,11 @@ class FilmController extends Controller
     //
     public function route()
     {
-        $genre = new Genre();
-        $genre->name = 'Action';
-        $genre->save();
+        $review = new Review();
+        $review->title = 'Iron';
+        $review->description = 'SO good';
+        $review->rating = 10;
+        $review->save();
         return "success";
         //return view('upload');
     }
