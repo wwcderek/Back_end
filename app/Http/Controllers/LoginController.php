@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests ;
 use Illuminate\Http\Request;
 use App\Providers\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller
@@ -31,6 +33,17 @@ public function test(Request $request, $userName, $test)
         'data' => $test
     );
     return json_encode($data);
+}
+
+public function login(Request $request)
+{
+    $attempt = Auth::attempt([
+        'name' => $request->name,
+        'password' => $request->password
+    ]);
+    if($attempt)
+        return json_encode(true);
+    return json_encode(false);
 }
 
 
@@ -65,13 +78,5 @@ public function test2(Request $request) {
     $permission->save();
     return json_encode($data);
 }
-
-
-public function login(Request $request) {
-
-    return "false";
-   // $user = App\Models\User::where('name')
-}
-
 
 }
