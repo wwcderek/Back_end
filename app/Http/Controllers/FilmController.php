@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use Illuminate\Support\Facades\App;
@@ -21,6 +22,7 @@ class FilmController extends Controller
     {
 
         if($request->hasFile('file')) {
+            dd($request);
             $fileName = date('Y-m-d H-i-s');
             $fileSize = filesize($request->file);
             $extension = $request->file->getClientOriginalExtension();
@@ -29,6 +31,12 @@ class FilmController extends Controller
                 return "Only accept png/jpeg";
             $request->file->storeAs('public/upload', $fileName.'.'.$extension);
             $film = new Film();
+            $film->title = $request->title;
+            $film->description = $request->description;
+            $film->language = $request->language;
+            $film->running_time = $request->run;    
+            $date = new DateTime('2000-01-01');
+            $film->publish_time = $date->format('Y-m-d H:i:s');
             $film->file_name = $fileName;
             $film->path = $path;
             $film->save();

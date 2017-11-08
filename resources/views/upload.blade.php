@@ -6,17 +6,38 @@
                 <form role="form" action="{{route('upload.file')}}" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
 
-                        <label for="exampleInputEmail1">
+                        <label for="title">
                             Film Title
                         </label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" />
+                        <input type="text" class="form-control" id="title" name="title" />
                     </div>
                     <div class="form-group">
 
-                        <label for="exampleInputPassword1">
+                        <label for="description">
                             Description
                         </label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" />
+                        <input type="text" class="form-control" id="description" name="description" />
+                    </div>
+                    <div class="form-group">
+
+                        <label for="language">
+                            Language
+                        </label>
+                        <input type="text" class="form-control" id="language" name="language" />
+                    </div>
+                    <div class="form-group">
+
+                        <label for="run">
+                            Running Time
+                        </label>
+                        <input type="text" class="form-control" id="run" name="run" />
+                    </div>
+                    <div class="form-group">
+
+                        <label for="publish">
+                            Publish Time
+                        </label>
+                        <input type="text" class="form-control" id="publish" name="publish" />
                     </div>
                     <div class="form-group">
 
