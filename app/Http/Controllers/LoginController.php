@@ -37,13 +37,19 @@ public function test(Request $request, $userName, $test)
 
 public function login(Request $request)
 {
+    $username = $request->name;
+    $password = $request->password;
+
+    $checkLogin = User::where(['username'=>$username, 'password'=>$password])->get();
+    if(count($checkLogin)>0)
+        return json_encode(true);
 //    $attempt = Auth::attempt([
 //        'name' => $request->name,
 //        'password' => $request->password
 //    ]);
 //    if($attempt)
-        return json_encode(true);
-    //return json_encode(false);
+
+    return json_encode(false);
 }
 
 
