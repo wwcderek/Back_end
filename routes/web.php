@@ -11,11 +11,11 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/{userName}/{test}', 'LoginController@test');
+Route::get('/test', 'LoginController@test');
 Route::get('test3', 'LoginController@test3');
 Route::post('/registration', 'UserController@registration');
 //Route::post('/login', 'UserController@login');

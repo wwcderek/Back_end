@@ -22,28 +22,27 @@ class LoginController extends Controller
      * @param $test
      * @return string
      */
-    public function test(Request $request, $userName, $test)
+    public function test(Request $request)
     {
-        $data[] = array(
-            'accountName' => $userName,
-            'amount' => 'try',
-            'data' => $test
-        );
-        return json_encode($data);
+//        $data[] = array(
+//            'accountName' => $userName,
+//            'amount' => 'try',
+//            'data' => $test
+//        );
+        $password = Hash::make('a12345678');
+        if(Hash::check('a123456789', $password))
+            dd("true");
+        dd('false');
+
+       // return json_encode($data);
     }
 
     public function login(Request $request)
     {
         $username = $request->name;
         $password = $request->password;
-//        $userInfo = User::where(['username'=>$username])->get();
-//        if(count($userInfo)>0 && Hash::check($password, $userInfo->password))
-        $attempt = Auth::attempt([
-            'username' => $username,
-            'password' => $password
-        ]);
-        if($attempt) {
-            $userInfo = User::where(['username' => $username])->get();
+        $userInfo = User::where(['username'=>$username])->get();
+        if(count($userInfo) > 0) {
             return json_encode($userInfo);
         }
         return json_encode(false);
@@ -60,6 +59,7 @@ class LoginController extends Controller
         $user = new User();
         $user->username = $username;
         $user->password = Hash::make($password);
+        $user->email = 'example.gmail.com';
         $user->role = 'user';
         $user->save();
         return json_encode(true);
