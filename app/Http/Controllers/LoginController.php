@@ -1,14 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Account;
 use App\Models\Permission;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests ;
 use Illuminate\Http\Request;
 use App\Providers\Validator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -24,34 +21,43 @@ class LoginController extends Controller
      * @param $test
      * @return string
      */
-public function test(Request $request, $userName, $test)
-{
-    //error_log(print_r($input,true), 3,"/Applications/XAMPP/xamppfiles/htdocs/ionic3_project/test.log" );
-    $data[] = array(
-        'accountName' => $userName,
-        'amount' => 'try',
-        'data' => $test
-    );
-    return json_encode($data);
-}
+    public function test(Request $request, $userName, $test)
+    {
+        $data[] = array(
+            'accountName' => $userName,
+            'amount' => 'try',
+            'data' => $test
+        );
+        return json_encode($data);
+    }
 
-public function login(Request $request)
-{
-    $username = $request->name;
-    $password = $request->password;
+    public function login(Request $request)
+    {
+        $username = $request->name;
+        $password = $request->password;
 
-    $userInfo = User::where(['username'=>$username, 'password'=>$password])->get();
-    if(count($userInfo)>0)
-        return json_encode($userInfo);
-    return json_encode(false);
-}
+        $userInfo = User::where(['username'=>$username, 'password'=>$password])->get();
+        if(count($userInfo)>0)
+            return json_encode($userInfo);
+        return json_encode(false);
+    }
 
+    public function register(Request $request)
+    {
+        $username = $request->name;
+        $password = $request->password;
 
-public function test3()
-{
-    $user = User::all();
- dd($user);
-}
+        $userInfo = User::where(['username'=>$username, 'password'=>$password])->get();
+        if(count($userInfo)>0)
+            return json_encode(false);
+        $user = new User();
+        $user->username = $username;
+        $user->password = Hash::make($password);
+        $user->email = 'example.gmail.com';
+        $user->role = 'user';
+        $user->save();
+        return json_encode(true);
+    }
 
     /**post data
      * @param Request $request
