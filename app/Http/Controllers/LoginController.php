@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Permission;
 use App\Models\User;
 use App\Http\Requests ;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Providers\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -34,10 +35,12 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $username = $request->name;
-        $password = $request->password;
-
-        $userInfo = User::where(['username'=>$username, 'password'=>$password])->get();
-        if(count($userInfo)>0)
+        $attempt = Auth::attempt([
+            'name' => $request->name,
+            'password' => $request->password
+        ]);
+        if($attempt)
+        $userInfo = User::where(['username'=>$request->name])->get();
             return json_encode($userInfo);
         return json_encode(false);
     }
