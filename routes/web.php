@@ -23,6 +23,5 @@ Route::post('/login', 'LoginController@login');
 Route::post('/registration', 'LoginController@register');
 Route::get('film','FilmController@route')->name('upload.file');
 Route::post('film','FilmController@store');
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
