@@ -53,7 +53,7 @@ class LoginController extends Controller
         $username = $request->name;
         $password = $request->password;
 
-        $userInfo = User::where(['username'=>$username, 'password'=>$password])->get();
+        $userInfo = User::where(['username'=>$username])->get();
         if(count($userInfo)>0)
             return json_encode(false);
         $user = new User();
