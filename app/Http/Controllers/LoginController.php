@@ -40,15 +40,9 @@ public function login(Request $request)
     $username = $request->name;
     $password = $request->password;
 
-    $checkLogin = User::where(['username'=>$username, 'password'=>$password])->get();
-    if(count($checkLogin)>0)
-        return json_encode(true);
-//    $attempt = Auth::attempt([
-//        'name' => $request->name,
-//        'password' => $request->password
-//    ]);
-//    if($attempt)
-
+    $userInfo = User::where(['username'=>$username, 'password'=>$password])->get();
+    if(count($userInfo)>0)
+        return json_encode($userInfo);
     return json_encode(false);
 }
 
