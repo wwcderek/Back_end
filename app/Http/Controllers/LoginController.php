@@ -41,7 +41,12 @@ class LoginController extends Controller
         $password = $request->password;
         $userInfo = User::where(['username'=>$username])->get();
         if(count($userInfo) > 0 && (Hash::check($password, $userInfo[0]->password))) {
-            return json_encode($userInfo[0]);
+            $data[] = array(
+            'username' => $userInfo[0]->username,
+            'email' => $userInfo[0]->password,
+            'role' => $userInfo[0]->role
+        );
+            return json_encode($data);
         }
         return json_encode(false);
     }
