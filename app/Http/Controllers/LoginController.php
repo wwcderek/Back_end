@@ -60,7 +60,6 @@ class LoginController extends Controller
         $user = new User();
         $user->username = $username;
         $user->password = Hash::make($password);
-        $user->email = 'example.gmail.com';
         $user->role = 'user';
         $user->save();
         return json_encode(true);
