@@ -59,7 +59,7 @@ class FilmController extends Controller
     {
         //$url = Storage::url('2017-11-12-01-34-22.png');
        $url =  Storage::disk('local')->url('2017-11-12-01-34-22.png');
-        return "<img src='".$url."'/>";
+        return $url;
 
     }
 }
