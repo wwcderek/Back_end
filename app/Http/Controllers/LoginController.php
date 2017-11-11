@@ -43,7 +43,7 @@ class LoginController extends Controller
         if(count($userInfo) > 0 && (Hash::check($password, $userInfo[0]->password))) {
             $data[] = array(
             'username' => $userInfo[0]->username,
-            'email' => $userInfo[0]->password,
+            'email' => $userInfo[0]->email,
             'role' => $userInfo[0]->role
         );
             return json_encode($data);
@@ -63,6 +63,7 @@ class LoginController extends Controller
         $user->username = $username;
         $user->password = Hash::make($password);
         $user->email = 'example.gmail.com';
+        $user->icon_path = 'example';
         $user->role = 'user';
         $user->save();
         return json_encode(true);

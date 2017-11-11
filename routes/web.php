@@ -15,13 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'LoginController@test');
-Route::get('test3', 'LoginController@test3');
-Route::post('/registration', 'UserController@registration');
-//Route::post('/login', 'UserController@login');
+
+//User
+Route::post('/uploadIcon', 'UserController@uploadIcon');
+
+
+//Account
 Route::post('/login', 'LoginController@login');
 Route::post('/registration', 'LoginController@register');
+
+
+//Film
 Route::get('film','FilmController@route')->name('upload.file');
 Route::post('film','FilmController@store');
 
-Route::get('/home', 'HomeController@index')->name('home');
