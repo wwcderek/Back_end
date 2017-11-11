@@ -19,9 +19,12 @@ class UserController extends Controller
         $username = $request->username;
         $path = $request->path;
         $iconname = $request->iconname;
-        User::where('username', $username)
-        ->update(['icon_path' => $path]);
-        return json_encode(true);
+        $user = User::where('username','=', $username)->first();
+        if(!is_null($user)) {
+            $user->icon_path = $path;
+            return json_encode(true);
+        }
+        return json_encode(false);
     }
 
 
