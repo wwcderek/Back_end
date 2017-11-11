@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/routes/web.php" description="Route" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6209ee-6ff6-421c-b521-8f30621ac993" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-    </list>
+    <list default="true" id="eb6209ee-6ff6-421c-b521-8f30621ac993" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -291,12 +288,12 @@
       <workItem from="1510281547771" duration="12000" />
       <workItem from="1510333257159" duration="2141000" />
       <workItem from="1510374508155" duration="2280000" />
-      <workItem from="1510398104684" duration="2649000" />
+      <workItem from="1510398104684" duration="2678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89225000" />
+    <option name="totallyTimeSpent" value="89254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="900" extended-state="0" />
