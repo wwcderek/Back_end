@@ -22,7 +22,7 @@ class UserController extends Controller
         $user = User::where(['username'=>$username])->get();
         if(count($user) > 0 ) {
             $user[0]->icon_path = $path;
-            $user->save();
+            $user[0]->save();
             return json_encode(true);
         }
         return json_encode(false);
