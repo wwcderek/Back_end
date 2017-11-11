@@ -19,13 +19,9 @@ class UserController extends Controller
         $username = $request->username;
         $path = $request->path;
         $iconname = $request->iconname;
-        $user = User::where(['username'=>$username])->get();
-        if(count($user) > 0 ) {
-            $user[0]->icon_path = $path;
-            $user[0]->save();
-            return json_encode(true);
-        }
-        return json_encode(false);
+        User::where('username', $username)
+        ->update(['icon_path' => $path]);
+        return json_encode(true);
     }
 
 
