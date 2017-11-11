@@ -8,6 +8,7 @@ use App\Models\Film;
 use App\Models\Account;
 use App\Models\Review;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
@@ -36,18 +37,18 @@ class FilmController extends Controller
             $path = 'storage/upload/'.$fileName.'.'.$extension;
             if($extension!=='png'&&$extension!=='jpeg')
                 return "Only accept png/jpeg";
-            $request->file->storeAs('public/upload', $fileName.'.'.$extension);
-            $film = new Film();
-            $film->title = $request->title;
-            $film->description = $request->description;
-            $film->language = $request->language;
-            $film->running_time = intval($request->run);
-            $date = $request->publish;
-            $timestamp = date('Y-m-d H:i:s',strtotime($date));
-            $film->publish_time = $timestamp;
-            $film->file_name = $fileName;
-            $film->path = $path;
-            $film->save();
+            $request->file->storeAs('public/', $fileName.'.'.$extension);
+//            $film = new Film();
+//            $film->title = $request->title;
+//            $film->description = $request->description;
+//            $film->language = $request->language;
+//            $film->running_time = intval($request->run);
+//            $date = $request->publish;
+//            $timestamp = date('Y-m-d H:i:s',strtotime($date));
+//            $film->publish_time = $timestamp;
+//            $film->file_name = $fileName;
+//            $film->path = $path;
+//            $film->save();
             return 'Success';
         }
         return  $request->all();
@@ -56,6 +57,9 @@ class FilmController extends Controller
 
     public function show()
     {
+        //$url = Storage::url('2017-11-12-01-10-08.png');
+       $url =  Storage::disk('local')->url('2017-11-12-01-30-01.png');
+        return "<img src='".$url."'/>";
 
     }
 }
