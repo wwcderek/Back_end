@@ -36,6 +36,7 @@ class FilmController extends Controller
             $film->title = $request->title;
             $film->description = $request->description;
             $film->language = $request->language;
+            $film->rating = 0;
             $film->running_time = intval($request->run);
             $date = $request->publish;
             $timestamp = date('Y-m-d',strtotime($date));
