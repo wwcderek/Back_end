@@ -37,7 +37,12 @@
                         <label for="publish">
                             Publish Time
                         </label>
-                        <input type="text" class="form-control" id="publish" name="publish" />
+                        <input class="form-control" id="publish" name="publish"
+                               placeholder="YYYY-MM-DD" type="text"
+                               value="{{empty($_GET['publish']) ? "" : $_GET['publish']}}"
+                               autocomplete="off"
+                               style="position: relative;"
+                        />
                     </div>
                     <div class="form-group">
 
@@ -62,8 +67,12 @@
             </div>
             <div>
                 <h2>Show Image</h2>
-                <img src="{{ asset('storage/publish/upload/') }}"
+                <img src="{{ asset('storage/publish/upload/') }}"/>
             </div>
         </div>
     </div>
-@stop
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/upload.js') }}"></script>
+@endsection
