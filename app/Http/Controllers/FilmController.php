@@ -38,7 +38,7 @@ class FilmController extends Controller
             $film->language = $request->language;
             $film->running_time = intval($request->run);
             $date = $request->publish;
-            $timestamp = date('Y-m-d H:i:s',strtotime($date));
+            $timestamp = date('Y-m-d',strtotime($date));
             $film->publish_time = $timestamp;
             $film->file_name = $fileName;
             $film->path = $path;
