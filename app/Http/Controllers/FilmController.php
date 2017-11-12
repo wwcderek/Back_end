@@ -49,7 +49,7 @@ class FilmController extends Controller
         return  $request->all();
     }
 
-    public function showFilm()
+    public function showFilm(Request $request)
     {
         $film = Film::all();
         return json_encode($film);
