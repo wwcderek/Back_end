@@ -15,9 +15,11 @@ class CreateUserHasDiscountTable extends Migration
     {
         Schema::create('user_has_discount', function (Blueprint $table) {
             $table->increments('user_has_discount_id');
-            $table->integer('user_id');
-            $table->integer('discount_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('discount_id')->unsigned();
             $table->timestamps();
+            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('discount_id')->references('discount_id')->on('discounts');
         });
     }
 

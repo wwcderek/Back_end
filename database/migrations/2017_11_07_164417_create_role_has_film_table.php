@@ -15,8 +15,10 @@ class CreateRoleHasFilmTable extends Migration
     {
         Schema::create('role_has_film', function (Blueprint $table) {
             $table->increments('role_has_film_id');
-            $table->integer('film_id');
-            $table->integer('role_id');
+            $table->integer('film_id')->unsigned();
+            $table->integer('role_id')->unsigned();
+            $table->foreign('film_id')->references('film_id')->on('films');
+            $table->foreign('role_id')->references('role_id')->on('roles');
         });
     }
 

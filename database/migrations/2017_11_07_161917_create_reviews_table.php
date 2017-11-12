@@ -18,7 +18,11 @@ class CreateReviewsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->integer('rating');
+            $table->integer('user_id')->unsigned();
+            $table->integer('film_id')->unsigned();
             $table->timestamps();
+            $table->foreign('film_id')->references('film_id')->on('films');
+            $table->foreign('user_id')->references('user_id')->on('users');
         });
     }
 

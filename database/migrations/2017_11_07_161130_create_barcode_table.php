@@ -17,8 +17,10 @@ class CreateBarcodeTable extends Migration
             $table->increments('barcode_id');
             $table->string('value');
             $table->dateTime('expired_time');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
+            $table->foreign('user_id')->references('user_id')->on('users');
+
         });
     }
 
