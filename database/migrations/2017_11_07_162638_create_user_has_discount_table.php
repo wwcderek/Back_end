@@ -18,6 +18,9 @@ class CreateUserHasDiscountTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('discount_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('user_has_discount', function($table) {
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->foreign('discount_id')->references('discount_id')->on('discounts');
         });
