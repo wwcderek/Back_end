@@ -13,14 +13,18 @@ class CreateUserHasDiscountTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('user_has_discount', function (Blueprint $table) {
             $table->increments('user_has_discount_id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->integer('discount_id')->unsigned();
+            $table->unsignedInteger('discount_id');
             $table->foreign('discount_id')->references('discount_id')->on('discounts');
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -30,6 +34,11 @@ class CreateUserHasDiscountTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::dropIfExists('user_has_discount');
+
+        Schema::enableForeignKeyConstraints();
+
     }
 }

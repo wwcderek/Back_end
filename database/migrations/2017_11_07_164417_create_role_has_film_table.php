@@ -13,13 +13,18 @@ class CreateRoleHasFilmTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('role_has_film', function (Blueprint $table) {
             $table->increments('role_has_film_id');
-            $table->integer('film_id')->unsigned();
+            $table->unsignedInteger('film_id');
             $table->foreign('film_id')->references('film_id')->on('films');
-            $table->integer('role_id')->unsigned();
+            $table->unsignedInteger('role_id');
             $table->foreign('role_id')->references('role_id')->on('roles');
         });
+
+        Schema::enableForeignKeyConstraints();
+
     }
 
     /**
@@ -29,6 +34,11 @@ class CreateRoleHasFilmTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::dropIfExists('role_has_film');
+
+        Schema::enableForeignKeyConstraints();
+
     }
 }

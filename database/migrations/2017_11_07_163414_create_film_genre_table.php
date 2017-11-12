@@ -13,13 +13,18 @@ class CreateFilmGenreTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('film_genre', function (Blueprint $table) {
             $table->increments('film__genre_id');
-            $table->integer('film_id')->unsigned();
+            $table->unsignedInteger('film_id');
             $table->foreign('film_id')->references('film_id')->on('films');
-            $table->integer('genre_id')->unsigned();
+            $table->unsignedInteger('genre_id');
             $table->foreign('genre_id')->references('genre_id')->on('genres');
         });
+
+        Schema::enableForeignKeyConstraints();
+
     }
 
     /**
@@ -29,6 +34,11 @@ class CreateFilmGenreTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::dropIfExists('film_genre');
+
+        Schema::enableForeignKeyConstraints();
+
     }
 }

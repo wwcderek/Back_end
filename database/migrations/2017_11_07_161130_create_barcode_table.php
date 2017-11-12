@@ -13,15 +13,20 @@ class CreateBarcodeTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('barcodes', function (Blueprint $table) {
             $table->increments('barcode_id');
             $table->string('value');
             $table->dateTime('expired_time');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('user_id')->on('users');
 
         });
+
+        Schema::enableForeignKeyConstraints();
+
     }
 
     /**
@@ -31,6 +36,11 @@ class CreateBarcodeTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::dropIfExists('barcodes');
+
+        Schema::enableForeignKeyConstraints();
+
     }
 }
