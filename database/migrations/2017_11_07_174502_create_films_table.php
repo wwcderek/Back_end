@@ -18,6 +18,7 @@ class CreateFilmsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('language');
+            $table->integer('rating');
             $table->integer('running_time');
             $table->dateTime('publish_time');
             $table->string('file_name');
