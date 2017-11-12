@@ -17,12 +17,6 @@ class FilmController extends Controller
     //
     public function route()
     {
-//        $review = new Review();
-//        $review->title = 'Iron';
-//        $review->description = 'SO good';
-//        $review->rating = 10;
-//        $review->save();
-//        return "success";
         return view('upload');
     }
 
@@ -34,21 +28,21 @@ class FilmController extends Controller
             $fileName = date('Y-m-d-H-i-s');
             $fileSize = filesize($request->file);
             $extension = $request->file->getClientOriginalExtension();
-            $path = 'storage/upload/'.$fileName.'.'.$extension;
+            $path = 'http://101.78.175.101:6780/storage/'.$fileName.'.'.$extension;
             if($extension!=='png'&&$extension!=='jpeg')
                 return "Only accept png/jpeg";
             $request->file->storeAs('public/', $fileName.'.'.$extension);
-//            $film = new Film();
-//            $film->title = $request->title;
-//            $film->description = $request->description;
-//            $film->language = $request->language;
-//            $film->running_time = intval($request->run);
-//            $date = $request->publish;
-//            $timestamp = date('Y-m-d H:i:s',strtotime($date));
-//            $film->publish_time = $timestamp;
-//            $film->file_name = $fileName;
-//            $film->path = $path;
-//            $film->save();
+            $film = new Film();
+            $film->title = $request->title;
+            $film->description = $request->description;
+            $film->language = $request->language;
+            $film->running_time = intval($request->run);
+            $date = $request->publish;
+            $timestamp = date('Y-m-d H:i:s',strtotime($date));
+            $film->publish_time = $timestamp;
+            $film->file_name = $fileName;
+            $film->path = $path;
+            $film->save();
             return 'Success';
         }
         return  $request->all();
@@ -59,9 +53,5 @@ class FilmController extends Controller
     {
         $url =  Storage::url('2017-11-12-14-47-21.png');
         return "<img src='".$url."'/>";
-        //$url = Storage::url('2017-11-12-01-34-22.png');
-       //$url =  Storage::disk('local')->url('2017-11-12-01-30-01.png');
-        //return storage_path();
-
     }
 }
