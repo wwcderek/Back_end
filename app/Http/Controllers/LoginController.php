@@ -66,7 +66,6 @@ class LoginController extends Controller
     public function fbLogin(Request $request)
     {
         $username = $request->name;
-        $email = $request->email;
         $iconPath = $request->iconPath;
 
         $condition = ['username'=> $username, 'category'=> 'facebook'];
@@ -85,7 +84,7 @@ class LoginController extends Controller
         $user = new User();
         $user->username = $username;
         $user->password = Hash::make("facebookUser");
-        $user->email = $email;
+        $user->email = 'example.gmail.com';
         $user->icon_path = $iconPath;
         $user->role = 'user';
         $user->category = 'general';
