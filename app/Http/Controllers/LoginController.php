@@ -87,7 +87,7 @@ class LoginController extends Controller
         $user->email = 'example.gmail.com';
         $user->icon_path = $iconPath;
         $user->role = 'user';
-        $user->category = 'general';
+        $user->category = 'facebook';
         $user->save();
 
         $data[] = array(
