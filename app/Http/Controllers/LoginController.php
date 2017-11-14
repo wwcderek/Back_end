@@ -14,49 +14,38 @@ class LoginController extends Controller
     public function __construct() {
     }
 
-    /** get request
+    /**
      * @param Request $request
-     * @param $userName
-     * @param $test
      * @return string
      */
-    public function test(Request $request)
-    {
-//        $data[] = array(
-//            'accountName' => $userName,
-//            'amount' => 'try',
-//            'data' => $test
-//        );
-        $password = Hash::make('a12345678');
-        if(Hash::check('a123456789', $password))
-            dd("true");
-        dd('false');
-
-       // return json_encode($data);
-    }
-
     public function login(Request $request)
     {
         $username = $request->name;
         $password = $request->password;
-        $userInfo = User::where(['username'=>$username])->get();
+        $condition = ['username'=> $username, 'category'=> 'general'];
+        $userInfo = User::where($condition)->get();
         if(count($userInfo) > 0 && (Hash::check($password, $userInfo[0]->password))) {
             $data[] = array(
             'username' => $userInfo[0]->username,
             'email' => $userInfo[0]->email,
-            'role' => $userInfo[0]->role
+            'role' => $userInfo[0]->role,
+            'iconPath' => $userInfo[0]->icon_path
         );
             return json_encode($data);
         }
         return json_encode(false);
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function register(Request $request)
     {
         $username = $request->name;
         $password = $request->password;
-
-        $userInfo = User::where(['username'=>$username])->get();
+        $condition = ['username'=> $username, 'category'=> 'general'];
+        $userInfo = User::where($condition)->get();
         if(count($userInfo)>0)
             return json_encode(false);
         $user = new User();
@@ -65,8 +54,50 @@ class LoginController extends Controller
         $user->email = 'example.gmail.com';
         $user->icon_path = 'example';
         $user->role = 'user';
+        $user->category = 'general';
         $user->save();
         return json_encode(true);
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function fbLogin(Request $request)
+    {
+        $username = $request->name;
+        $email = $request->email;
+        $iconPath = $request->iconPath;
+
+        $condition = ['username'=> $username, 'category'=> 'facebook'];
+        $userInfo = User::where($condition)->get();
+        if(count($userInfo) > 0) {
+            $data[] = array(
+                'username' => $userInfo[0]->username,
+                'email' => $userInfo[0]->email,
+                'iconPath' => $userInfo[0]->icon_path,
+                'role' => $userInfo[0]->role
+            );
+            return json_encode($data);
+        }
+
+        //FB user first time login
+        $user = new User();
+        $user->username = $username;
+        $user->password = Hash::make("facebookUser");
+        $user->email = $email;
+        $user->icon_path = $iconPath;
+        $user->role = 'user';
+        $user->category = 'general';
+        $user->save();
+
+        $data[] = array(
+            'username' => $username,
+            'email' => $email,
+            'iconPath' => $iconPath,
+            'role' => 'user'
+        );
+        return json_encode($data);
     }
 
     /**post data

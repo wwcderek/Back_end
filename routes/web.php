@@ -22,6 +22,7 @@ Route::post('/uploadIcon', 'UserController@uploadIcon');
 
 //Account
 Route::post('/login', 'LoginController@login');
+Route::post('/fbLogin', 'LoginController@fbLogin');
 Route::post('/registration', 'LoginController@register');
 
 

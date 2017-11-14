@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('icon_path');
             $table->string('role');
+            $table->string('category');
             $table->rememberToken();
             $table->timestamps();
         });
