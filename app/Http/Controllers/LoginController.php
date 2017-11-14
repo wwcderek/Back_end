@@ -92,7 +92,7 @@ class LoginController extends Controller
 
         $data[] = array(
             'username' => $username,
-            'email' => $email,
+            'email' => 'example.gmail.com',
             'iconPath' => $iconPath,
             'role' => 'user'
         );
