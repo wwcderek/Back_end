@@ -49,6 +49,13 @@ class FilmController extends Controller
         return  $request->all();
     }
 
+
+    public function mostPopular()
+    {
+       $film = Film::where('rating','>=',8)->get();
+       return json_encode($film);
+    }
+
     public function showFilm(Request $request)
     {
         $film = Film::all();
