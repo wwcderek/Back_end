@@ -29,8 +29,8 @@ class FilmController extends Controller
             $fileSize = filesize($request->file);
             $extension = $request->file->getClientOriginalExtension();
             $path = 'http://101.78.175.101:6780/storage/'.$fileName.'.'.$extension;
-            if($extension!=='png'&&$extension!=='jpeg')
-                return "Only accept png/jpeg";
+            if($extension!=='png'&&$extension!=='jpeg'&&$extension!=='jpg')
+                return "Only accept png/jpeg/jpg";
             $request->file->storeAs('public/', $fileName.'.'.$extension);
             $film = new Film();
             $film->title = $request->title;
