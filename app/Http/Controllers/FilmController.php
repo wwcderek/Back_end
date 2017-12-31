@@ -29,8 +29,8 @@ class FilmController extends Controller
             $fileSize = filesize($request->file);
             $extension = $request->file->getClientOriginalExtension();
             $path = 'http://101.78.175.101:6780/storage/'.$fileName.'.'.$extension;
-            if($extension!=='png'&&$extension!=='jpeg'&&$extension!=='jpg')
-                return "Only accept png/jpeg/jpg";
+            if($extension!=='png'&&$extension!=='jpeg')
+                return "Only accept png/jpeg";
             $request->file->storeAs('public/', $fileName.'.'.$extension);
             $film = new Film();
             $film->title = $request->title;
@@ -58,8 +58,7 @@ class FilmController extends Controller
 
     public function show()
     {
-        return "see?";
-//        $url =  Storage::url('2017-11-12-14-47-21.png');
-//        return "<img src='".$url."'/>";
+        $url =  Storage::url('2017-11-12-14-47-21.png');
+        return "<img src='".$url."'/>";
     }
 }

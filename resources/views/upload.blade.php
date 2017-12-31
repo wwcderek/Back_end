@@ -65,10 +65,10 @@
                     </button>
                 </form>
             </div>
-            <div>
-                <h2>Show Image</h2>
-                <img src="{{ asset('storage/publish/upload/') }}"/>
-            </div>
+            {{--<div>--}}
+                {{--<h2>Show Image</h2>--}}
+                {{--<img src="{{ asset('storage/publish/upload/') }}"/>--}}
+            {{--</div>--}}
         </div>
     </div>
 @endsection
