@@ -63,10 +63,10 @@ class FilmController extends Controller
     }
 
 
-    public function specificFilms(){
+    public function specificFilms(Request $request)
+    {
         $record = DB::table('film_genre')->join('films', 'film_genre.film_id', '=', 'films.film_id')->where('genre_id', '=', 1)->get();
-    return json_encode($record);
-        //return 1;
+        return json_encode($request);
     }
 
 
