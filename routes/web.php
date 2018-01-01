@@ -30,6 +30,7 @@ Route::post('/registration', 'LoginController@register');
 Route::get('film','FilmController@route')->name('upload.file');
 Route::get('showFilm','FilmController@showFilm');
 Route::get('mostPopular','FilmController@mostPopular');
+Route::get('specificFilms', 'FilmController@specificFilms');
 Route::post('film','FilmController@store');
 Route::get('show','FilmController@show');
 
