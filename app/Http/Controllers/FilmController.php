@@ -10,7 +10,7 @@ use App\Models\Review;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
+use Illuminate\Support\Facades\DB;
 
 class FilmController extends Controller
 {
@@ -64,9 +64,9 @@ class FilmController extends Controller
 
 
     public function specificFilms(){
-        //$record = Film('film_genre')->join('films', 'film_genre.film_id', '=', 'films.film_id')->where('genre_id', '=', 1)->get();
-    //return json_encode($record);
-        return 1;
+        $record = DB::table('film_genre')->join('films', 'film_genre.film_id', '=', 'films.film_id')->where('genre_id', '=', 1)->get();
+    return json_encode($record);
+        //return 1;
     }
 
 
