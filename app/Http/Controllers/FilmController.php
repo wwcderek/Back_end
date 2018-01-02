@@ -76,7 +76,7 @@ class FilmController extends Controller
         $record = Film::where('title', '=', $filmName)->get();
         If(!is_null($record))
             return json_encode($record);
-        return json_encode(false);
+       // return json_encode(false);
     }
 
 
