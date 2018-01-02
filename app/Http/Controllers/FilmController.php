@@ -72,9 +72,8 @@ class FilmController extends Controller
     public function search(Request $request)
     {
         $filmName = $request->keyword;
-        //$record = Film::all();
-        $record = Film::where('title', '=', "cat")->get();
-            return json_encode($record);
+        //$record = Film::where('title', '=', "cat")->get();
+            return json_encode($filmName);
         //return json_encode(false);
     }
 
