@@ -9,6 +9,7 @@ use App\Models\Account;
 use App\Models\Review;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Scalar\String_;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\DB;
 
@@ -72,9 +73,9 @@ class FilmController extends Controller
     public function search(Request $request)
     {
         $filmName = $request->keyword;
-        //$record = Film::where('title', '=', "cat")->get();
-            return json_encode($filmName);
-        //return json_encode(false);
+        $record = Film::where('title', '=', $filmName)->get();
+            return json_encode($record);
+        return json_encode(false);
     }
 
 
