@@ -74,10 +74,9 @@ class FilmController extends Controller
         $filmName = $request->keyword;
         $condition = ['title'=> $filmName];
         $record = Film::where($condition)->get();
-//        if($record)
-//            return json_encode($record);
-//        return false;
-        return "see?";
+        if($record)
+            return json_encode($record);
+        return json_encode(false);
     }
 
 
