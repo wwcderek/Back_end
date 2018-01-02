@@ -31,7 +31,7 @@ Route::get('film','FilmController@route')->name('upload.file');
 Route::get('showFilm','FilmController@showFilm');
 Route::get('mostPopular','FilmController@mostPopular');
 Route::get('specificFilms', 'FilmController@specificFilms');
-Route::get('search', 'FilmController@search');
+Route::post('search', 'FilmController@search');
 Route::post('film','FilmController@store');
 Route::get('show','FilmController@show');
 
