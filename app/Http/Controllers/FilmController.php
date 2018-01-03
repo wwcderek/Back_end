@@ -84,17 +84,14 @@ class FilmController extends Controller
     public function show()
     {
         $query = DB::table('films')
-            ->select('films.title'
+            ->select('films.path'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ' ')) as 'role_name'"))
-            ->groupBy('films.title')
+            ->groupBy('films.path')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
-            ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id');
-
-        $record = $query->addSelect('films.path')
+            ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
             ->where('film_genre.genre_id', '=', 1)
             ->get();
-
 
 //        $shares = DB::table('shares')
 //            ->join('users', 'users.id', '=', 'shares.user_id')
