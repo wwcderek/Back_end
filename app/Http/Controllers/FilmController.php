@@ -84,7 +84,7 @@ class FilmController extends Controller
     public function show()
     {
         $record = DB::table('films')
-            ->select('films.title' ,DB::raw("group_concat(films.title)"))
+            ->select('films.title' ,DB::raw("group_concat(film_genre.role_id)"))
             ->groupBy('films.title')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
