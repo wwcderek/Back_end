@@ -83,33 +83,17 @@ class FilmController extends Controller
 
     public function show()
     {
-        $query = DB::table('films')
-//            ->select('films.title' ,DB::raw("group_concat(role_has_film.role_id)"))
-            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path'
+        $record = DB::table('films')
+            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ',')) as 'role_name'"))
-            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path')
+            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
-            ->where([
-                ['film_genre.genre_id', '=', 1],
-                ['roles.type', '=', 'Director']
-                ])
+            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+            ->where('film_genre.genre_id', '=', 1)
             ->get();
-
-        $record = $query->addSelect('roles.name as Actor')
-            ->where('roles.type', '=', 'Actor')
-            ->get();
-
-//        $shares = DB::table('shares')
-//            ->join('users', 'users.id', '=', 'shares.user_id')
-//            ->join('follows', 'follows.user_id', '=', 'users.id')
-//            ->where('follows.follower_id', '=', 3)
-//            ->get();
         return json_encode($record);
         //return json_encode($record[0]->role_id);
-        //return $record;
-//        $url =  Storage::url('2017-11-12-14-47-21.png');
-//        return "<img src='".$url."'/>";
     }
 }
