@@ -85,7 +85,7 @@ class FilmController extends Controller
     {
         $record = DB::table('films')
 //            ->select('films.title' ,DB::raw("group_concat(role_has_film.role_id)"))
-            ->select('films.title',DB::raw("(group_concat(role_has_film.role_id SEPARATOR ' ')) as 'role_id'"))
+            ->select('films.title','roles.name',DB::raw("(group_concat(role_has_film.role_id SEPARATOR ' ')) as 'role_id'"))
             ->groupBy('films.title')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
@@ -98,7 +98,8 @@ class FilmController extends Controller
 //            ->join('follows', 'follows.user_id', '=', 'users.id')
 //            ->where('follows.follower_id', '=', 3)
 //            ->get();
-        return json_encode($record[0]->role_id);
+        return json_encode($record);
+        //return json_encode($record[0]->role_id);
         //return $record;
 //        $url =  Storage::url('2017-11-12-14-47-21.png');
 //        return "<img src='".$url."'/>";
