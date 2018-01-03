@@ -83,8 +83,8 @@ class FilmController extends Controller
 
     public function show()
     {
-        $record = DB::table('film_genre')
-            ->join('films', 'film_genre.film_id', '=', 'films.film_id')
+        $record = DB::table('films')
+            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->where('film_genre.genre_id', '=', 1)
             ->get();
