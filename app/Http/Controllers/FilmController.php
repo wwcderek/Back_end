@@ -73,7 +73,7 @@ class FilmController extends Controller
     public function search(Request $request)
     {
         $filmName = $request->keyword;
-       // $condition = ['title'=> $filmName];
+        $condition = ['films.title'=> $filmName];
 //        $record = Film::where($condition)->get();
         $record = DB::table('films')
             ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
@@ -83,9 +83,7 @@ class FilmController extends Controller
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
             ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
-            ->where(
-                'films.title', '=', $filmName
-            )
+            ->where($condition)
             ->get();
         if(count($record)>0)
             return json_encode($record);
