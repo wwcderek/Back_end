@@ -89,11 +89,11 @@ class FilmController extends Controller
             ->where('film_genre.genre_id', '=', 1)
             ->get();
 
-        $shares = DB::table('shares')
-            ->join('users', 'users.id', '=', 'shares.user_id')
-            ->join('follows', 'follows.user_id', '=', 'users.id')
-            ->where('follows.follower_id', '=', 3)
-            ->get();
+//        $shares = DB::table('shares')
+//            ->join('users', 'users.id', '=', 'shares.user_id')
+//            ->join('follows', 'follows.user_id', '=', 'users.id')
+//            ->where('follows.follower_id', '=', 3)
+//            ->get();
         return json_encode($record);
 //        $url =  Storage::url('2017-11-12-14-47-21.png');
 //        return "<img src='".$url."'/>";
