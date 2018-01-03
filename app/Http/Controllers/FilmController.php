@@ -84,10 +84,11 @@ class FilmController extends Controller
     public function show()
     {
         $record = DB::table('films')
-            ->select(DB::raw("group_concat(role_has_film.role_id)"))
+            ->select(DB::raw("group_concat(films.title)"))
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->where('film_genre.genre_id', '=', 1)
+            ->groupBy('films.title')
             ->get();
 
 //        $shares = DB::table('shares')
