@@ -53,8 +53,18 @@ class FilmController extends Controller
 
     public function mostPopular()
     {
-       $film = Film::where('rating','>=',8)->get();
-       return json_encode($film);
+       //$film = Film::where('rating','>=',8)->get();
+        $record = DB::table('films')
+            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+                ,DB::raw("(group_concat(roles.name SEPARATOR ',')) as 'role_name'"))
+            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
+            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
+            ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
+            ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
+            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+            ->where('films.rating', '>=', 8)
+            ->get();
+       return json_encode($record);
     }
 
     public function showFilm(Request $request)
