@@ -85,7 +85,7 @@ class FilmController extends Controller
     {
         $record = DB::table('films')
 //            ->select('films.title' ,DB::raw("group_concat(role_has_film.role_id)"))
-            ->select('films.title',DB::raw("(group_concat(role_has_film.role_id SEPARATOR ' ')) as 'role_id'"))
+            ->select('films.title',DB::raw("(group_concat(roles.name SEPARATOR ' ')) as 'role_id'"))
             ->groupBy('films.title')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
