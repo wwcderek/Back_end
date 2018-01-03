@@ -89,8 +89,8 @@ class FilmController extends Controller
             ->groupBy('films.title')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
-            ->join('roles')
+            ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
+            ->select('films.*')
             ->where('film_genre.genre_id', '=', 1)
             ->get();
 
