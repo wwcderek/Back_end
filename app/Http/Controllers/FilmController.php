@@ -83,10 +83,9 @@ class FilmController extends Controller
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
             ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
-            ->where([
-                ['film_genre.genre_id', '=', 1].
-                ['films.title', '=', $filmName]
-            ])
+            ->where(
+                'films.title', '=', $filmName
+            )
             ->get();
         if(count($record)>0)
             return json_encode($record);
