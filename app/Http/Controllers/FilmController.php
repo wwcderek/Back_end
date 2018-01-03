@@ -97,8 +97,8 @@ class FilmController extends Controller
 //            ->join('follows', 'follows.user_id', '=', 'users.id')
 //            ->where('follows.follower_id', '=', 3)
 //            ->get();
-        //return json_encode($record);
-        return $record[0];
+        return json_encode($record);
+        //return $record;
 //        $url =  Storage::url('2017-11-12-14-47-21.png');
 //        return "<img src='".$url."'/>";
     }
