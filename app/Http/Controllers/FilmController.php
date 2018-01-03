@@ -75,7 +75,6 @@ class FilmController extends Controller
         $filmName = $request->keyword;
         $condition = ['title'=> $filmName];
         $record = Film::where($condition)->get();
-       // $record = Film::where('title', '=', $filmName)->get();
         if(count($record)>0)
             return json_encode($record);
         return json_encode(false);
@@ -84,7 +83,11 @@ class FilmController extends Controller
 
     public function show()
     {
-        $url =  Storage::url('2017-11-12-14-47-21.png');
-        return "<img src='".$url."'/>";
+        $record = DB::table('film')->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')->where('genre_id', '=', 1)
+            ->join('role_has_film', 'role_has_film.film_id', '=', 'film.film_id')
+            ->get();
+        return json_encode($record);
+//        $url =  Storage::url('2017-11-12-14-47-21.png');
+//        return "<img src='".$url."'/>";
     }
 }
