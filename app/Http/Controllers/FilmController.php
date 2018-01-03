@@ -91,7 +91,11 @@ class FilmController extends Controller
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
-            ->where('film_genre.genre_id', '=', 1)
+            ->where(
+                ['film_genre.genre_id', '=', 1],
+                ['roles.type', '=', 'Director']
+                )
+
             ->get();
 
 //        $shares = DB::table('shares')
