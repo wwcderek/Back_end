@@ -84,9 +84,15 @@ class FilmController extends Controller
     public function show()
     {
         $record = DB::table('film_genre')
-            ->join('film', 'film_genre.film_id', '=', 'films.film_id')
+            ->join('films', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->where('film_genre.genre_id', '=', 1)
+            ->get();
+
+        $shares = DB::table('shares')
+            ->join('users', 'users.id', '=', 'shares.user_id')
+            ->join('follows', 'follows.user_id', '=', 'users.id')
+            ->where('follows.follower_id', '=', 3)
             ->get();
         return json_encode($record);
 //        $url =  Storage::url('2017-11-12-14-47-21.png');
