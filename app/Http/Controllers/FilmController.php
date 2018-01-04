@@ -123,7 +123,7 @@ class FilmController extends Controller
 //            ->where('film_genre.genre_id', '=', 1)
 //            ->get();
         //return json_encode($record);
-$film = Film::where('title', '=', 'Hunger Games')->first();
+$film = Film::where('title', '=', 'CatMan')->first();
      return json_encode($film->roles);
 
         //return json_encode($record[0]->role_id);
