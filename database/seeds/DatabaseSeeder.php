@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call('FilmAppSeeder');
+        $this->command->info('done');
         // $this->call(UsersTableSeeder::class);
     }
 
@@ -35,7 +36,7 @@ class FilmAppSeeder extends Seeder {
             'path' => 'http://101.78.175.101:6780/storage/2018-01-01-15-17-45.jpg'
         ));
 
-
+        $this->command->info('created Film');
         $role = \App\Models\Role::create(array(
             'name' => 'Derek',
             'gender' => 'Male',
@@ -47,11 +48,12 @@ class FilmAppSeeder extends Seeder {
             'gender' => 'Male',
             'type' => 'Actor'
         ));
+        $this->command->info('Adding relationship');
 
         $film->role()->attach($role->id);
         $film->role()->attach($role->id);
 
-
+        $this->command->info('They are doing');
     }
 
 }
