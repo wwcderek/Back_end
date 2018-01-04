@@ -134,7 +134,7 @@ class FilmController extends Controller
 
 //        $film->roles()->attach($role->id);
 //        $film->roles()->attach($role2->id);
-        $films = Film::find(44)->roles()->orderBy('name')->get();
+        $films = Film::find(44)->roles;
             return json_encode($films);
 
 
