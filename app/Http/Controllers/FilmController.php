@@ -123,8 +123,11 @@ class FilmController extends Controller
 //            ->where('film_genre.genre_id', '=', 1)
 //            ->get();
         //return json_encode($record);
-        $film = Film::where('title', '=', 'Testing2')->roles;
-       return json_encode($film);
+        $films = Film::find(43)->roles;
+        foreach ($films as $film) {
+            return json_encode($film);
+        }
+
      //return json_encode($film->roles);
 
 
