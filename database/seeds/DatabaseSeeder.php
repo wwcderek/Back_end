@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Role;
-use App\Models\Film;
+use App\Film;
+use App\Role;
 class DatabaseSeeder extends Seeder
 {
     /**
