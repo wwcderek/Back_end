@@ -125,9 +125,10 @@ class FilmController extends Controller
 //            ->get();
         //return json_encode($record);
         $film = Film::where('title', '=','Testing2')->first();
-       // return json_encode($film);
-        foreach ($film->roles as $fi)
-            echo $fi->name . ' ' . $fi->type;
+        return json_encode($film->roles());
+
+//        foreach ($film->roles() as $fi)
+//            echo $fi->name . ' ' . $fi->type;
 
 
 
