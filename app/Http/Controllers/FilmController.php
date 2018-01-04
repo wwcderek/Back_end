@@ -125,7 +125,7 @@ class FilmController extends Controller
         //return json_encode($record);
         $films = Film::find(43)->roles;
         foreach ($films as $film) {
-            return json_encode($film);
+            //return json_encode($film);
         }
 
      //return json_encode($film->roles);
