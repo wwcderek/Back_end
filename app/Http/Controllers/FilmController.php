@@ -124,24 +124,9 @@ class FilmController extends Controller
 //            ->where('film_genre.genre_id', '=', 1)
 //            ->get();
         //return json_encode($record);
-//        $film = Film::find(44);
-//
-//        $role2 = Role::find(92);
-//
-//        $film->roles()->attach($role2->role_id);
-//        $film->roles()->
+        $film = Film::find(45)->roles();
+return $film;
 
 
-
-//        $film->roles()->attach($role->id);
-//        $film->roles()->attach($role2->id);
-//        $films = Film::find(44)->roles;
-//            return json_encode($films);
-return "success";
-
-     //return json_encode($film->roles);
-
-
-        //return json_encode($record[0]->role_id);
     }
 }
