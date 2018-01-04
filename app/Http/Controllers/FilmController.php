@@ -112,17 +112,21 @@ class FilmController extends Controller
 
     public function show()
     {
-        $record = DB::table('films')
-            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
-                ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
-            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
-            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
-            ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
-            ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
-            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
-            ->where('film_genre.genre_id', '=', 1)
-            ->get();
-        return json_encode($record);
+//        $record = DB::table('films')
+//            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+//                ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
+//            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
+//            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
+//            ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
+//            ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
+//            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+//            ->where('film_genre.genre_id', '=', 1)
+//            ->get();
+        //return json_encode($record);
+$film = Film::where('title', '=', 'Hunger Games');
+        foreach ($film->roles as $role)
+            echo $role->name . ' ' . $role->type;
+
         //return json_encode($record[0]->role_id);
     }
 }
