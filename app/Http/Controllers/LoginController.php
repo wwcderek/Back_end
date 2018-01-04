@@ -52,7 +52,7 @@ class LoginController extends Controller
         $user->username = $username;
         $user->password = Hash::make($password);
         $user->email = 'example.gmail.com';
-        $user->icon_path = 'example';
+        $user->icon_path = 'http://101.78.175.101:6780/storage/2018-01-05-00-19-01.jpeg';
         $user->role = 'user';
         $user->category = 'general';
         $user->save();
