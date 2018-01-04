@@ -11,7 +11,7 @@ class Role extends Model
     protected $table = 'roles';
     public $timestamps = false;
 
-    public function film() {
+    public function films() {
        return $this->belongsToMany('App\Models\Film', 'role_has_film', 'role_id', 'film_id');
     }
 }

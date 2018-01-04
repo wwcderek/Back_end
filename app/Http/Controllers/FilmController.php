@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Film;
@@ -123,6 +124,10 @@ class FilmController extends Controller
 //            ->where('film_genre.genre_id', '=', 1)
 //            ->get();
         //return json_encode($record);
+
+
+//        $film->roles()->attach($role->id);
+//        $film->roles()->attach($role2->id);
         $films = Film::find(43)->roles()->orderBy('name')->get();
             return json_encode($films);
 
