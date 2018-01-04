@@ -27,7 +27,7 @@ class FilmAppSeeder extends Seeder {
     {
         $date = new DateTime('2000-01-01');
         $film = Film::create(array(
-            'title' => 'Testing',
+            'title' => 'Testing2',
             'description' => 'Look this is good',
             'language' => 'English',
             'rating' => 0,
@@ -39,13 +39,13 @@ class FilmAppSeeder extends Seeder {
 
         $this->command->info('created Film');
         $role = Role::create(array(
-            'name' => 'A',
+            'name' => 'C',
             'gender' => 'Male',
             'type' => 'Actor'
         ));
 
         $role2 = Role::create(array(
-            'name' => 'B',
+            'name' => 'D',
             'gender' => 'Male',
             'type' => 'Actor'
         ));
