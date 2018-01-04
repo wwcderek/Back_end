@@ -124,8 +124,9 @@ class FilmController extends Controller
 //            ->get();
         //return json_encode($record);
 $film = Film::where('title', '=', 'Hunger Games');
- foreach ($film->roles as $role)
-     return $role->name;
+return $film;
+// foreach ($film->roles as $role)
+//     return $role->name;
 
         //return json_encode($record[0]->role_id);
     }
