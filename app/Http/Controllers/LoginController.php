@@ -77,6 +77,8 @@ class LoginController extends Controller
                 'iconPath' => $iconPath,
                 'role' => $userInfo[0]->role
             );
+            $userInfo->icon_path = $iconPath;
+            $userInfo->save();
             return json_encode($data);
         }
 
