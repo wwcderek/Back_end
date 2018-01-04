@@ -10,6 +10,6 @@ class Role extends Model
     protected $table = 'roles';
 
     public function film() {
-        $this->belongsToMany('Film', 'role_has_film', 'role_id', 'film_id');
+       return $this->belongsToMany('Film', 'role_has_film', 'role_id', 'film_id');
     }
 }
