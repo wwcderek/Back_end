@@ -51,8 +51,8 @@ class FilmAppSeeder extends Seeder {
         ));
         $this->command->info('Adding relationship');
 
-//        $film->role()->attach($role->id);
-//        $film->role()->attach($role2->id);
+        $film->role()->attach($role->id);
+        $film->role()->attach($role2->id);
 
         $this->command->info('They are doing');
     }
