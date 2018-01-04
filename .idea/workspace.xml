@@ -20,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="529">
-              <caret line="126" column="36" lean-forward="true" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+              <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
               <folding>
                 <element signature="e#40#60#0#PHP" expanded="true" />
               </folding>
@@ -334,12 +334,12 @@
       <workItem from="1514822911593" duration="2575000" />
       <workItem from="1514902666554" duration="4659000" />
       <workItem from="1514950131803" duration="16150000" />
-      <workItem from="1515034082186" duration="7515000" />
+      <workItem from="1515034082186" duration="7585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153848000" />
+    <option name="totallyTimeSpent" value="153918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="39" width="1179" height="821" extended-state="0" />
@@ -729,7 +729,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
-          <caret line="126" column="36" lean-forward="true" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+          <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
           <folding>
             <element signature="e#40#60#0#PHP" expanded="true" />
           </folding>
