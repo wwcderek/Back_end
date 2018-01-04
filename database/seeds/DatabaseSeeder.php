@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models;
+use App\Models\Role;
+use App\Models\Film;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -25,7 +26,7 @@ class FilmAppSeeder extends Seeder {
     public function run()
     {
         $date = new DateTime('2000-01-01');
-        $film = \App\Models\Film::create(array(
+        $film = Film::create(array(
             'title' => 'CatMan',
             'description' => 'Look this is good',
             'language' => 'English',
@@ -37,13 +38,13 @@ class FilmAppSeeder extends Seeder {
         ));
 
         $this->command->info('created Film');
-        $role = \App\Models\Role::create(array(
+        $role = Role::create(array(
             'name' => 'Derek',
             'gender' => 'Male',
             'type' => 'Actor'
         ));
 
-        $role2 = \App\Models\Role::create(array(
+        $role2 = Role::create(array(
             'name' => 'Tom',
             'gender' => 'Male',
             'type' => 'Actor'
