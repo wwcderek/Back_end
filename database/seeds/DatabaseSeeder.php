@@ -23,13 +23,14 @@ class DatabaseSeeder extends Seeder
 class FilmAppSeeder extends Seeder {
     public function run()
     {
+        $date = new DateTime('2000-01-01');
         $film = \App\Models\Film::create(array(
             'title' => 'CatMan',
             'description' => 'Look this is good',
             'language' => 'English',
             'rating' => 0,
             'running_time' => 130,
-            'publish_time' => date(2017-12-31-17-25-30),
+            'publish_time' => $date,
             'file_name' => 'look',
             'path' => 'http://101.78.175.101:6780/storage/2018-01-01-15-17-45.jpg'
         ));
