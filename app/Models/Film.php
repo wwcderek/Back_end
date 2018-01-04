@@ -10,7 +10,7 @@ class Film extends Model
     //
     protected $table = 'films';
 
-    public function roles() {
+    public function role() {
         return $this->belongsToMany('App\Models\Role', 'role_has_film', 'film_id', 'role_id');
     }
 }
