@@ -115,12 +115,12 @@ class FilmController extends Controller
     public function show()
     {
         $time = date("Y-m-d_H-i-s");
-        $filePath =  '/Applications/XAMPP/xamppfiles/htdocs/qr_code/'.$time.'.png'; //It is server's local path, so it is not https
-        $storePath = 'http://localhost:8100/qr_code/'.$time.'.png';
+        $filePath =  'public/qr_code/'.$time.'.png'; //It is server's local path, so it is not https
+        $storePath = 'http://101.78.175.101:6780/storage/qr_code/'.$time.'.png';
         $qrcode2 = new BaconQrCodeGenerator();
         try {
-            if (!file_exists("/Applications/XAMPP/xamppfiles/htdocs/qr_code")){
-                mkdir("/Applications/XAMPP/xamppfiles/htdocs/qr_code", 0777);
+            if (!file_exists("public/qr_code")){
+                mkdir("public/qr_code", 0777);
             }
             $qrcode2->format('png')
                 ->size(400)
@@ -128,15 +128,12 @@ class FilmController extends Controller
                 //->backgroundColor(255,255,0)
                 //->margin(100)
                 ->errorCorrection('H')
-                ->generate($data, $filePath);
-            $sqldata = serialize($qrcode2);
-            $sql = "INSERT INTO Barcode (qr_code, data, path, created_at, expired_time, user_id) VALUES ('$sqldata', '$data', '$storePath', NOW(), NOW()+(500), '$id')";
-            $result = mysqli_query($dbconn, $sql);
+                ->generate('test', $filePath);
         }catch(Exception $e){
             echo "error";
         }
-
-        return view('testing');
+return json_encode($storePath);
+        //return view('testing');
 //        $film = Film::where('title', '=','Testing2')->first();
 //        dd($film->roles());
 
