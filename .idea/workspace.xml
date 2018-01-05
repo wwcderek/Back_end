@@ -42,9 +42,9 @@
         <entry file="file://$PROJECT_DIR$/resources/views/testing.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+              <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
               <folding>
-                <marker date="1515129008000" expanded="true" signature="55:120" ph="..." />
+                <marker date="1515129088000" expanded="true" signature="57:78" ph="..." />
               </folding>
             </state>
           </provider>
@@ -331,7 +331,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169970000" />
+    <option name="totallyTimeSpent" value="170049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="26" width="1179" height="821" extended-state="0" />
@@ -745,9 +745,9 @@
     <entry file="file://$PROJECT_DIR$/resources/views/testing.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding>
-            <marker date="1515129008000" expanded="true" signature="55:120" ph="..." />
+            <marker date="1515129088000" expanded="true" signature="57:78" ph="..." />
           </folding>
         </state>
       </provider>
