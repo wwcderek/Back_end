@@ -117,7 +117,7 @@ class FilmController extends Controller
     public function show()
     {
         $time = date("Y-m-d_H-i-s");
-        $filePath =  'public/upload/'.$time.'.png'; //It is server's local path, so it is not https
+        $filePath =  'public/'.$time.'.png'; //It is server's local path, so it is not https
         $storePath = 'http://101.78.175.101:6780/storage/upload/'.$time.'.png';
         $qrcode2 = new BaconQrCodeGenerator();
         try {
