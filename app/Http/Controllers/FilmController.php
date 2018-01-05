@@ -117,24 +117,24 @@ class FilmController extends Controller
 
     public function show()
     {
-//        $time = date("Y-m-d_H-i-s");
-//        $filePath =  'public/'.$time.'.png'; //It is server's local path, so it is not https
-//        $storePath = 'http://101.78.175.101:6780/storage/upload/'.$time.'.png';
-//
-//        try {
-//            $qrcode2 = new BaconQrCodeGenerator();
-//            $qrcode2->format('png')
-//                ->size(400)
-//                ->color(255,0,255)
-//                //->backgroundColor(255,255,0)
-//                //->margin(100)
-//                ->errorCorrection('H')
-//                ->generate('test', $filePath);
-//        }catch(Exception $e){
-//            echo "error";
-//        }
-//return json_encode($storePath);
-        return view('testing');
+        $time = date("Y-m-d_H-i-s");
+        $filePath =  'public/'.$time.'.png'; //It is server's local path, so it is not https
+        $storePath = 'http://101.78.175.101:6780/storage/upload/'.$time.'.png';
+
+        try {
+            $qrcode2 = new BaconQrCodeGenerator();
+            $qrcode2->format('png')
+                ->size(400)
+                ->color(255,0,255)
+                //->backgroundColor(255,255,0)
+                //->margin(100)
+                ->errorCorrection('H')
+                ->generate('test', $filePath);
+        }catch(Exception $e){
+            echo "error";
+        }
+return json_encode($storePath);
+        //return view('testing');
 //        $film = Film::where('title', '=','Testing2')->first();
 //        dd($film->roles());
 
