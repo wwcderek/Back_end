@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
+use Exception;
 
 
 class FilmController extends Controller
@@ -119,8 +120,9 @@ class FilmController extends Controller
         $time = date("Y-m-d_H-i-s");
         $filePath =  'public/'.$time.'.png'; //It is server's local path, so it is not https
         $storePath = 'http://101.78.175.101:6780/storage/upload/'.$time.'.png';
-        $qrcode2 = new BaconQrCodeGenerator();
+
         try {
+            $qrcode2 = new BaconQrCodeGenerator();
             $qrcode2->format('png')
                 ->size(400)
                 ->color(255,0,255)
@@ -131,7 +133,7 @@ class FilmController extends Controller
         }catch(Exception $e){
             echo "error";
         }
-return json_encode($storePath);
+//return json_encode($storePath);
         //return view('testing');
 //        $film = Film::where('title', '=','Testing2')->first();
 //        dd($film->roles());
