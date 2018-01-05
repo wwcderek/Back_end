@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Scalar\String_;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\DB;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class FilmController extends Controller
 {
@@ -113,25 +114,9 @@ class FilmController extends Controller
 
     public function show()
     {
-//        $record = DB::table('films')
-//            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
-//                ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
-//            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
-//            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
-//            ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
-//            ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
-//            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
-//            ->where('film_genre.genre_id', '=', 1)
-//            ->get();
-        //return json_encode($record);
-        $film = Film::where('title', '=','Testing2')->first();
-        dd($film->roles());
-        //return json_encode($film->roles());
-
-//        foreach ($film->roles() as $fi)
-//            echo $fi->name . ' ' . $fi->type;
-
-
+        return view('testing');
+//        $film = Film::where('title', '=','Testing2')->first();
+//        dd($film->roles());
 
     }
 }
