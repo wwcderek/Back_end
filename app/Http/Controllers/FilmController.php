@@ -14,6 +14,8 @@ use PhpParser\Node\Scalar\String_;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
+
 
 class FilmController extends Controller
 {
