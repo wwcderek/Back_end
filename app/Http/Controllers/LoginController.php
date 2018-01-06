@@ -27,6 +27,7 @@ class LoginController extends Controller
         if(count($userInfo) > 0 && (Hash::check($password, $userInfo[0]->password))) {
             $data[] = array(
             'username' => $userInfo[0]->username,
+            'displayname' => $userInfo[0]->displayname,
             'email' => $userInfo[0]->email,
             'role' => $userInfo[0]->role,
             'iconPath' => $userInfo[0]->icon_path
@@ -50,6 +51,7 @@ class LoginController extends Controller
             return json_encode(false);
         $user = new User();
         $user->username = $username;
+        $user->displayname = $username;
         $user->password = Hash::make($password);
         $user->email = 'example.gmail.com';
         $user->icon_path = 'http://101.78.175.101:6780/storage/2018-01-05-00-19-01.jpeg';
@@ -74,6 +76,7 @@ class LoginController extends Controller
         if(count($userInfo) > 0) {
             $data[] = array(
                 'username' => $userInfo[0]->username,
+                'displayname' => $userInfo[0]->displayname,
                 'email' => $userInfo[0]->email,
                 'iconPath' => $iconPath,
                 'role' => $userInfo[0]->role
@@ -84,6 +87,7 @@ class LoginController extends Controller
         //FB user first time login
         $user = new User();
         $user->username = $username;
+        $user->displayname = $username;
         $user->password = Hash::make("facebookUser");
         $user->email = $email;
         $user->icon_path = $iconPath;
@@ -93,6 +97,7 @@ class LoginController extends Controller
 
         $data[] = array(
             'username' => $username,
+            'displayname' => $username,
             'email' => $email,
             'iconPath' => $iconPath,
             'role' => 'user'
