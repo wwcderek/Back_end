@@ -23,7 +23,16 @@ class UserController extends Controller
             return json_encode(false);
         User::where('username', $username)
         ->update(['icon_path' => $path]);
-        return json_encode(true);
+
+        $user = User::where('username', $username)->first();
+        $data[] = array(
+            'username' => $user->username,
+            'displayname' =>$user->displayname,
+            'email' => $user->email,
+            'iconPath' => $user->icon_path,
+            'role' => $user->role
+        );
+        return json_encode($data);
     }
 
 
