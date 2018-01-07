@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 //User
 Route::post('/uploadIcon', 'UserController@uploadIcon');
+Route::post('/updateProfile', 'UserController@updateProfile');
 
 
 //Account

@@ -27,6 +27,22 @@ class UserController extends Controller
     }
 
 
+    public function updateProfile(Request $request)
+    {
+        $username = $request->username;
+        $displayname = $request->displayname;
+        $email = $request->email;
+        if(is_null($username))
+            return json_encode(false);
+        User::where('username', $username)
+            ->update(
+                ['displayname' => $displayname],
+                ['email' => $email]
+                );
+        return json_encode(true);
+    }
+
+
 
 
 
