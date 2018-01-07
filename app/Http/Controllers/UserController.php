@@ -44,10 +44,7 @@ class UserController extends Controller
         if(is_null($username))
             return json_encode(false);
         User::where('username', $username)
-            ->update(
-                ['displayname' => $displayname],
-                ['email' => $email]
-                );
+            ->update(['displayname' => $displayname, 'email' => $email]);
         $user = User::where('username', $username)->first();
         $data[] = array(
             'username' => $user->username,
