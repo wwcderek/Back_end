@@ -78,7 +78,7 @@ class LoginController extends Controller
                 'username' => $userInfo[0]->username,
                 'displayname' => $userInfo[0]->displayname,
                 'email' => $userInfo[0]->email,
-                'iconPath' => $userInfo[0]->iconPath,
+                'iconPath' => $userInfo[0]->icon_path,
                 'role' => $userInfo[0]->role
             );
             return json_encode($data);
