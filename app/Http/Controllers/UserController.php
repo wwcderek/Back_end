@@ -48,7 +48,15 @@ class UserController extends Controller
                 ['displayname' => $displayname],
                 ['email' => $email]
                 );
-        return json_encode(true);
+        $user = User::where('username', $username)->first();
+        $data[] = array(
+            'username' => $user->username,
+            'displayname' =>$user->displayname,
+            'email' => $user->email,
+            'iconPath' => $user->icon_path,
+            'role' => $user->role
+        );
+        return json_encode($data);
     }
 
 
