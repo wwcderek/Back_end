@@ -26,6 +26,7 @@ class LoginController extends Controller
         $userInfo = User::where($condition)->get();
         if(count($userInfo) > 0 && (Hash::check($password, $userInfo[0]->password))) {
             $data[] = array(
+            'user_id' => $userInfo[0]->user_id,
             'username' => $userInfo[0]->username,
             'displayname' => $userInfo[0]->displayname,
             'email' => $userInfo[0]->email,
@@ -75,6 +76,7 @@ class LoginController extends Controller
         $userInfo = User::where($condition)->get();
         if(count($userInfo) > 0) {
             $data[] = array(
+                'user_id' => $userInfo[0]->user_id,
                 'username' => $userInfo[0]->username,
                 'displayname' => $userInfo[0]->displayname,
                 'email' => $userInfo[0]->email,
@@ -96,6 +98,7 @@ class LoginController extends Controller
         $user->save();
 
         $data[] = array(
+            'user_id' => $user->user_id,
             'username' => $username,
             'displayname' => $username,
             'email' => $email,

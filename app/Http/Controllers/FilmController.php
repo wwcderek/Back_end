@@ -60,9 +60,9 @@ class FilmController extends Controller
     {
        //$film = Film::where('rating','>=',8)->get();
         $record = DB::table('films')
-            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+            ->select('films.film_id','films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
-            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
+            ->groupBy('films.film_id','films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
@@ -83,9 +83,9 @@ class FilmController extends Controller
     {
         //$record = DB::table('film_genre')->join('films', 'film_genre.film_id', '=', 'films.film_id')->where('genre_id', '=', $request->category)->get();
         $record = DB::table('films')
-            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+            ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
-            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
+            ->groupBy('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
@@ -100,9 +100,9 @@ class FilmController extends Controller
         $filmName = $request->keyword;
         $condition = ['films.title'=> $filmName];
         $record = DB::table('films')
-            ->select('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+            ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
-            ->groupBy('films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
+            ->groupBy('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
@@ -112,6 +112,20 @@ class FilmController extends Controller
         if(count($record)>0)
             return json_encode($record);
         return json_encode(false);
+    }
+
+
+
+    public function review(Request $request){
+//         $username = $request->username;
+//         $id = $request->id;
+//         $title = $request->title;
+//         $review = $request->review;
+//         $rating = $request->rating;
+//        $condition = ['films.id'=> $id];
+//        $review = new Review();
+//        $review->
+
     }
 
 
