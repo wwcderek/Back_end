@@ -126,10 +126,22 @@ class FilmController extends Controller
         $review->title = $title;
         $review->description = $film_review;
         $review->rating = $rating;
+        $review->favorite = 0;
+        $review->dislike = 0;
         $review->film_id = $film_id;
         $review->user_id = $user_id;
         $review->save();
         return json_encode(true);
+    }
+
+
+    public function popularReview() {
+        $record = DB::table('users')
+            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike')
+            ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
+            ->where('reviews.favorite', '>=', 2)
+            ->get();
+        return json_encode($record);
     }
 
 
