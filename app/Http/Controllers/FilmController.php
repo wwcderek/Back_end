@@ -117,18 +117,18 @@ class FilmController extends Controller
 
 
     public function review(Request $request){
-//         $user_id = $request->user_id;
-//         $film_id = $request->film_id;
-//         $title = $request->title;
-//         $film_review = $request->review;
-//         $rating = $request->rating;
-//        $review = new Review();
-//        $review->title = $title;
-//        $review->description = $film_review;
-//        $review->rating = $rating;
-//        $review->film_id = $film_id;
-//        $review->user_id = $user_id;
-//        $review->save();
+         $user_id = $request->user_id;
+         $film_id = $request->film_id;
+         $title = $request->title;
+         $film_review = $request->review;
+         $rating = $request->rating;
+        $review = new Review();
+        $review->title = $title;
+        $review->description = $film_review;
+        $review->rating = $rating;
+        $review->film_id = $film_id;
+        $review->user_id = $user_id;
+        $review->save();
         return json_encode(true);
     }
 
