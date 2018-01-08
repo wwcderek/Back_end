@@ -8,6 +8,5 @@ class Review extends Model
 {
     //
     protected $table = 'reviews';
-    public $timestamps = false;
 
 }
