@@ -26,6 +26,7 @@ class UserController extends Controller
 
         $user = User::where('username', $username)->first();
         $data[] = array(
+            'user_id' => $user->user_id,
             'username' => $user->username,
             'displayname' =>$user->displayname,
             'email' => $user->email,
@@ -47,6 +48,7 @@ class UserController extends Controller
             ->update(['displayname' => $displayname, 'email' => $email]);
         $user = User::where('username', $username)->first();
         $data[] = array(
+            'user_id' => $user->user_id,
             'username' => $user->username,
             'displayname' =>$user->displayname,
             'email' => $user->email,
