@@ -138,7 +138,7 @@ class FilmController extends Controller
     public function popularReview(Request $request) {
         $film_id = $request->film_id;
         $record = DB::table('users')
-            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at')
+            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.review_id','reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at', 'films.film_id')
             ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
             ->join('films', 'films.film_id', '=' ,'reviews.film_id')
             ->where([
@@ -149,12 +149,14 @@ class FilmController extends Controller
         return json_encode($record);
     }
 
-
-    public function show(Request $request)
-    {
+    public function like(Request $request) {
+        $review_id = $request->review_id;
         $film_id = $request->film_id;
+        Review::where('review_id', $review_id)
+            ->increment('like');
+
         $record = DB::table('users')
-            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike')
+            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at')
             ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
             ->join('films', 'films.film_id', '=' ,'reviews.film_id')
             ->where([
@@ -163,6 +165,15 @@ class FilmController extends Controller
             ])
             ->get();
         return json_encode($record);
+    }
+
+
+    public function show(Request $request)
+    {
+        $review_id = $request->review_id;
+        //$film_id = $request->film_id;
+        Review::where('review_id', $review_id)
+            ->increment('like');
         //return view('testing');
 //        $film = Film::where('title', '=','Testing2')->first();
 //        dd($film->roles());
