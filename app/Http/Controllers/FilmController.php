@@ -149,34 +149,45 @@ class FilmController extends Controller
         return json_encode($record);
     }
 
-    public function like(Request $request) {
-        $review_id = $request->review_id;
+    public function latestReview(Request $request) {
         $film_id = $request->film_id;
-        Review::where('review_id', $review_id)
-            ->increment('favorite');
-
         $record = DB::table('users')
-            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at')
+            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.review_id','reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at', 'films.film_id')
             ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
             ->join('films', 'films.film_id', '=' ,'reviews.film_id')
+            >orderBy('created_at', 'desc')
             ->where([
-                ['reviews.favorite', '>=', 2],
                 ['films.film_id', '=', $film_id],
             ])
             ->get();
         return json_encode($record);
     }
 
+    public function like(Request $request) {
+        $review_id = $request->review_id;
+        Review::where('review_id', $review_id)
+            ->increment('favorite');
+    }
+
+    public function dislike(Request $request) {
+        $review_id = $request->review_id;
+        Review::where('review_id', $review_id)
+            ->increment('dislike');
+    }
+
 
     public function show(Request $request)
     {
-        $review_id = $request->review_id;
-        //$film_id = $request->film_id;
-        Review::where('review_id', $review_id)
-            ->increment('favorite');
-        //return view('testing');
-//        $film = Film::where('title', '=','Testing2')->first();
-//        dd($film->roles());
-
+        $film_id = $request->film_id;
+        $record = DB::table('users')
+            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.review_id','reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at', 'films.film_id')
+            ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
+            ->join('films', 'films.film_id', '=' ,'reviews.film_id')
+            >orderBy('created_at', 'desc')
+            ->where([
+                ['films.film_id', '=', $film_id],
+            ])
+            ->get();
+        return json_encode($record);
     }
 }

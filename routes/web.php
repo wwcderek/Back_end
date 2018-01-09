@@ -34,8 +34,11 @@ Route::get('mostPopular','FilmController@mostPopular');
 Route::get('specificFilms', 'FilmController@specificFilms');
 Route::get('show','FilmController@show');
 Route::post('popularReview', 'FilmController@popularReview');
+Route::post('latestReview', 'FilmController@latestReview');
 Route::post('search', 'FilmController@search');
 Route::post('film','FilmController@store');
 Route::post('review','FilmController@review');
+Route::post('like','FilmController@like');
+Route::post('dislike','FilmController@dislike');
 
 
