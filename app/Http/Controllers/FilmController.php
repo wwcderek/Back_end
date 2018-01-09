@@ -153,7 +153,7 @@ class FilmController extends Controller
         $review_id = $request->review_id;
         $film_id = $request->film_id;
         Review::where('review_id', $review_id)
-            ->increment('like');
+            ->increment('favorite');
 
         $record = DB::table('users')
             ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at')
@@ -173,7 +173,7 @@ class FilmController extends Controller
         $review_id = $request->review_id;
         //$film_id = $request->film_id;
         Review::where('review_id', $review_id)
-            ->increment('like');
+            ->increment('favorite');
         //return view('testing');
 //        $film = Film::where('title', '=','Testing2')->first();
 //        dd($film->roles());
