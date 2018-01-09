@@ -155,7 +155,7 @@ class FilmController extends Controller
             ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.review_id','reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at', 'films.film_id')
             ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
             ->join('films', 'films.film_id', '=' ,'reviews.film_id')
-            >orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'desc')
             ->where([
                 ['films.film_id', '=', $film_id],
             ])
@@ -183,7 +183,7 @@ class FilmController extends Controller
             ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.review_id','reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at', 'films.film_id')
             ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
             ->join('films', 'films.film_id', '=' ,'reviews.film_id')
-            >orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'desc')
             ->where([
                 ['films.film_id', '=', $film_id],
             ])
