@@ -55,7 +55,7 @@ class LoginController extends Controller
         $user->displayname = $username;
         $user->password = Hash::make($password);
         $user->email = 'example.gmail.com';
-        $user->icon_path = 'http://101.78.175.101:6780/storage/2018-01-05-00-19-01.jpeg';
+        $user->icon_path = 'http://101.78.175.101:6780/storage/2018-01-06-15-02-53.png';
         $user->role = 'user';
         $user->category = 'general';
         $user->save();

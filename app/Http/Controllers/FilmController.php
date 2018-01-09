@@ -138,7 +138,7 @@ class FilmController extends Controller
     public function popularReview(Request $request) {
         $film_id = $request->film_id;
         $record = DB::table('users')
-            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike')
+            ->select('users.user_id', 'users.displayname', 'users.icon_path', 'reviews.title', 'reviews.description', 'reviews.rating', 'reviews.favorite', 'reviews.dislike', 'reviews.created_at')
             ->join('reviews', 'users.user_id', '=', 'reviews.user_id')
             ->join('films', 'films.film_id', '=' ,'reviews.film_id')
             ->where([
