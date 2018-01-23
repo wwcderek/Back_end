@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 //User
 Route::post('/uploadIcon', 'UserController@uploadIcon');
 Route::post('/updateProfile', 'UserController@updateProfile');
