@@ -28,6 +28,7 @@ class BarcodeController extends Controller
                 ->errorCorrection('H')
                 ->generate($data, $filePath);
 //            $sqldata = serialize($qrcode);
+            return 'Success';
         }catch(Exception $e){
             echo "error";
         }

@@ -40,4 +40,8 @@ Route::post('review','FilmController@review');
 Route::post('like','FilmController@like');
 Route::post('dislike','FilmController@dislike');
 
+//Barcode
+Route::get('createCode','BarcodeController@createCode');
+
+
 
