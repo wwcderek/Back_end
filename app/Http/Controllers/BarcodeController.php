@@ -15,8 +15,8 @@ class BarcodeController extends Controller
     {
         $data = $request->data;
         $user_id = $request->user_id;
-        $now = time();
-        $five_minutes = $now + (5 * 60);
+        $now = new DateTime('Y-m-d H-i-s');
+        $now->modify("+5 minutes");
         $time = date("Y-m-d_H-i-s");
         $path = storage_path().'/qr_code/';
         if(!is_dir($path))
@@ -37,7 +37,7 @@ class BarcodeController extends Controller
 
             $barcode = new Barcode();
             $barcode->value = $randomNum;
-            $barcode->expired_time = date('m-d-Y H:i:s', $five_minutes);
+            $barcode->expired_time = $now;
             $barcode->user_id = $user_id;
             $barcode->path = 'http://101.78.175.101:6780/storage/qr_code'.$time.'png';
             $barcode->save();
