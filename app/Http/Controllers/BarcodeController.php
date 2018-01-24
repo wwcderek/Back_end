@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 use Prophecy\Exception\Exception;
 use File;
+use DateTime;
 
 class BarcodeController extends Controller
 {
