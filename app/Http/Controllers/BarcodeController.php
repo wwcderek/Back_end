@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barcode;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 use Prophecy\Exception\Exception;
+use File;
 
 class BarcodeController extends Controller
 {
@@ -13,22 +15,32 @@ class BarcodeController extends Controller
     {
         $data = $request->data;
         $user_id = $request->user_id;
+        $now = time();
+        $five_minutes = $now + (5 * 60);
         $time = date("Y-m-d_H-i-s");
-        $filePath =  '/public/qr_code/'.$time.'.png'; //It is server's local path, so it is not https
+        $path = storage_path().'/qr_code/';
+        if(!is_dir($path))
+        File::makeDirectory($path, $mode = 0777, true, true);
+        $filePath =  storage_path().'/qr_code/'.$time.'.png'; //It is server's local path, so it is not https
         $qrcode = new BaconQrCodeGenerator();
+        do {
+            $randomNum = rand(10000, 99999);
+            $record = Barcode::where('value', '=', $randomNum)->get();
+        } while(count($record) > 0);
         try {
-            if (!file_exists("/public/qr_code")){
-                mkdir("/public/qr_code", 0777);
-            }
             $qrcode->format('png')
                 ->size(400)
-                ->color(255,0,255)
-                //->backgroundColor(255,255,0)
-                //->margin(100)
+                ->color(51, 187, 255)
+                ->margin(1)
                 ->errorCorrection('H')
-                ->generate($data, $filePath);
-//            $sqldata = serialize($qrcode);
-            return 'Success';
+                ->generate($randomNum, $filePath);
+
+            $barcode = new Barcode();
+            $barcode->value = $randomNum;
+            $barcode->expired_time = date('m-d-Y H:i:s', $five_minutes);
+            $barcode->user_id = $user_id;
+            $barcode->path = 'http://101.78.175.101:6780/storage/qr_code'.$time.'png';
+            $barcode->save();
         }catch(Exception $e){
             echo "error";
         }
