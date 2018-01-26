@@ -20,10 +20,10 @@ class BarcodeController extends Controller
 //        $now = $now->format('Y-m-d H:i:s');
 //        $now->modify("+5 minutes");
         $time = date("Y-m-d_H-i-s");
-        $path = storage_path().'/qr_code/';
+        $path = storage_path().'/app/public/qr_code/';
         if(!is_dir($path))
         File::makeDirectory($path, $mode = 0777, true, true);
-        $filePath =  storage_path().'/qr_code/'.$time.'.png'; //It is server's local path, so it is not https
+        $filePath =  storage_path().'/app/public/qr_code/'.$time.'.png'; //It is server's local path, so it is not https
         $qrcode = new BaconQrCodeGenerator();
         do {
             $randomNum = rand(10000, 99999);
@@ -41,7 +41,7 @@ class BarcodeController extends Controller
             $barcode->value = $randomNum;
             $barcode->expired_time = $now;
             $barcode->user_id = $user_id;
-            $barcode->path = 'http://101.78.175.101:6780/storage/qr_code'.$time.'png';
+            $barcode->path = 'http://101.78.175.101:6780/storage/qr_code/'.$time.'.png';
             $barcode->save();
         }catch(Exception $e){
             echo "error";
