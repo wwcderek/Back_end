@@ -18,7 +18,7 @@ class BarcodeController extends Controller
         $user_id = $request->user_id;
         $now = new DateTime();
 //        $now = $now->format('Y-m-d H:i:s');
-//        $now->modify("+5 minutes");
+        $now->modify("+5 minutes");
         $time = date("Y-m-d_H-i-s");
         $path = storage_path().'/app/public/qr_code/';
         if(!is_dir($path))
