@@ -41,7 +41,9 @@ Route::post('like','FilmController@like');
 Route::post('dislike','FilmController@dislike');
 
 //Barcode
-Route::get('createCode','BarcodeController@createCode');
+Route::post('createCode','BarcodeController@createCode');
+Route::get('test','BarcodeController@test');
+
 
 
 
