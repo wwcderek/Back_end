@@ -70,14 +70,14 @@ class BarcodeController extends Controller
                             ->update(['scan_count' => 2]);
                         return $duration;
                     case 2:
-                        return json_encode(false);
+                        return "Two time already";
                     default:
-                        return json_encode(false);
+                        return 'count error';
                 }
             }
-            return json_encode(false);
+            return 'time expired';
         }
-        return json_encode(false);
+        return 'no Record';
     }
 
     public function test()
