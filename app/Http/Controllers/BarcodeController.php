@@ -41,6 +41,7 @@ class BarcodeController extends Controller
             $barcode->expired_time = $now;
             $barcode->user_id = $user_id;
             $barcode->path = $url;
+            $barcode->scan_count = 0;
             $barcode->save();
             return json_encode($barcode);
         }catch(Exception $e){
@@ -48,13 +49,33 @@ class BarcodeController extends Controller
         }
     }
 
+    public function scanCode(Request $request)
+    {
+        $data = $request->data;
+        $user_id = $request->user_id;
+        $record = Barcode::where('value', '=', $data)->get();
+        if(count($record) > 0) {
+            if($record->scan_count==0) {
+                $extented_time = date('Y-m-d H:i:s', strtotime($record->expired_time.'+120 minutes'));
+                User::where('value', $data)
+                    ->update(['scan_count' => 1, 'expired_time' => $extented_time]);
+                return "Success";
+            }
+            return "Invaild QR Code";
+        }
+    }
+
     public function test()
     {
         $time1 =   strtotime(date('Y-m-d H:i:s', strtotime('now +5 minutes')));
-        $time2 =   strtotime(date('Y-m-d H:i:s', strtotime('now +6 minutes')));
-        $seconds_diff = $time2 - $time1;
-        $time = ($seconds_diff/3600);
-        return $seconds_diff;
+        $now = date('Y-m-d H:i:s', strtotime('now +5 minutes'));
+        $new = date('Y-m-d H:i:s', strtotime($now .'+120 minutes'));
+
+//        $time2 =   strtotime(date('Y-m-d H:i:s', strtotime('now +6 minutes')));
+//        $seconds_diff = $time2 - $time1;
+//        $time = ($seconds_diff/3600);
+//        return $seconds_diff;
+        return $new;
     }
 
 
