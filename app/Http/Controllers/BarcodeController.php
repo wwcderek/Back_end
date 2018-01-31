@@ -53,30 +53,42 @@ class BarcodeController extends Controller
     {
         $data = $request->data;
         $user_id = $request->user_id;
+        $now = strtotime(date('Y-m-d H:i:s'));
         $record = Barcode::where('value', '=', $data)->first();
         if(count($record) > 0) {
-            if($record->scan_count==0) {
-                $extented_time = date('Y-m-d H:i:s', strtotime($record->expired_time.'+120 minutes'));
-                Barcode::where('value', $data)
-                    ->update(['scan_count' => 1, 'expired_time' => $extented_time]);
-                return "Success";
+            $remain_time = $now - strtotime($record->expired_time);
+            if($remain_time>0) {
+                switch ($record->scan_count){
+                    case 0:
+                        $extented_time = date('Y-m-d H:i:s', strtotime($record->expired_time.'+120 minutes'));
+                        Barcode::where('value', $data)
+                            ->update(['scan_count' => 1, 'expired_time' => $extented_time]);
+                        return json_encode(true);
+                    case 1:
+                        $duration = ($now - strtotime($record->updated_at))/60;
+                        Barcode::where('value', $data)
+                            ->update(['scan_count' => 2]);
+                        return $duration;
+                    case 2:
+                        return json_encode(false);
+                    default:
+                        return json_encode(false);
+                }
             }
-            return "Invaild QR Code";
+            return json_encode(false);
         }
-        return "No record";
+        return json_encode(false);
     }
 
     public function test()
     {
-        $time1 =   strtotime(date('Y-m-d H:i:s', strtotime('now +5 minutes')));
-        $now = date('Y-m-d H:i:s', strtotime('now +5 minutes'));
-        $new = date('Y-m-d H:i:s', strtotime($now .'+120 minutes'));
-
-//        $time2 =   strtotime(date('Y-m-d H:i:s', strtotime('now +6 minutes')));
-//        $seconds_diff = $time2 - $time1;
-//        $time = ($seconds_diff/3600);
+        $now = strtotime(date('Y-m-d H:i:s'));
+        //$time2 = date('Y-m-d H:i:s', strtotime($now .'+120 minutes'));
+        $time2 =   strtotime(date('Y-m-d H:i:s', strtotime('now +6 minutes')));
+        $seconds_diff = $time2 - $now;
+        $time = ($seconds_diff/60);
 //        return $seconds_diff;
-        return $new;
+        return $time;
     }
 
 
