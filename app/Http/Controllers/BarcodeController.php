@@ -33,7 +33,7 @@ class BarcodeController extends Controller
                 ->size(400)
                 ->color(51, 187, 255)
                 ->margin(1)
-                ->backgroundColor(255, 255, 255)
+                ->backgroundColor(38, 40, 51)
                 ->errorCorrection('H')
                 ->generate($randomNum, $filePath);
 
