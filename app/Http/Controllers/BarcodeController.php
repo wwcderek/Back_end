@@ -53,7 +53,7 @@ class BarcodeController extends Controller
     {
         $data = $request->data;
         $user_id = $request->user_id;
-        $record = Barcode::where('value', '=', $data)->get();
+        $record = Barcode::where('value', '=', $data)->first();
         if(count($record) > 0) {
             if($record->scan_count==0) {
                 $extented_time = date('Y-m-d H:i:s', strtotime($record->expired_time.'+120 minutes'));
