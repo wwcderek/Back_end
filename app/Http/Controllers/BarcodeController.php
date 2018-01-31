@@ -31,7 +31,7 @@ class BarcodeController extends Controller
         try {
             $qrcode->format('png')
                 ->size(400)
-                ->color(51, 187, 255)
+                ->color(255, 255, 255)
                 ->margin(1)
                 ->backgroundColor(38, 40, 51)
                 ->errorCorrection('H')
