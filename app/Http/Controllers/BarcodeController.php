@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barcode;
-use App\Models\Discount;
+use App\Models\UserDiscount;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 use Prophecy\Exception\Exception;
@@ -70,7 +70,7 @@ class BarcodeController extends Controller
                         $duration = ($now - strtotime($record->updated_at))/60;
                         Barcode::where('value', $data)
                             ->update(['scan_count' => 2]);
-                        $discount = new Discount();
+                        $discount = new UserDiscount();
                         $discount->user_id = $user_id;
                         if($duration<=30){
                            $discount->discount_id = 1;
