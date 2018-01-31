@@ -56,7 +56,7 @@ class BarcodeController extends Controller
         $now = strtotime(date('Y-m-d H:i:s'));
         $record = Barcode::where('value', '=', $data)->first();
         if(count($record) > 0) {
-            $remain_time = $now - strtotime($record->expired_time);
+            $remain_time = strtotime($record->expired_time) - $now;
             if($remain_time>0) {
                 switch ($record->scan_count){
                     case 0:
