@@ -63,6 +63,7 @@ class BarcodeController extends Controller
             }
             return "Invaild QR Code";
         }
+        return "No record";
     }
 
     public function test()
