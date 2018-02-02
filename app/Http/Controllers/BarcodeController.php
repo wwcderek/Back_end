@@ -94,6 +94,14 @@ class BarcodeController extends Controller
         return json_encode(false);
     }
 
+    public function getCode(Request $request)
+    {
+        $user_id = $request->user_id;
+        $barcode = Barcode::where('user_id', '=', $user_id)->get();
+        return json_encode($barcode);
+
+    }
+
     public function test()
     {
         $now = strtotime(date('Y-m-d H:i:s'));
