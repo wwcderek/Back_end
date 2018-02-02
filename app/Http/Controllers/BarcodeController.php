@@ -96,8 +96,12 @@ class BarcodeController extends Controller
 
     public function getCode(Request $request)
     {
+        $now = date('Y-m-d H:i:s');
         $user_id = $request->user_id;
-        $barcode = Barcode::where('user_id', '=', $user_id)->get();
+        $barcode = Barcode::where([
+            ['user_id', '=', $user_id],
+            ['expired_time', '>', $now]
+        ])->get();
         return json_encode($barcode);
 
     }
