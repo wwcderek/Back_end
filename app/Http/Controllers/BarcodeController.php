@@ -100,6 +100,7 @@ class BarcodeController extends Controller
         $user_id = $request->user_id;
         $barcode = Barcode::where([
             ['user_id', '=', $user_id],
+            ['scan_count','<', 2],
             ['expired_time', '>', $now]
         ])->get();
         return json_encode($barcode);
