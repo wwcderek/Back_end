@@ -12,6 +12,10 @@ use DateTime;
 
 class BarcodeController extends Controller
 {
+    const INVAILD_CODE = 0;
+    const DISCOUNT_GIVEN = 1;
+    const NO_DISCOUNT = 2;
+    const TIME_EXTEND = 3;
     //
     public function createCode(Request $request)
     {
@@ -54,7 +58,6 @@ class BarcodeController extends Controller
     public function scanCode(Request $request)
     {
         $data = $request->data;
-        $user_id = $request->user_id;
         $now = strtotime(date('Y-m-d H:i:s'));
         $record = Barcode::where('value', '=', $data)->first();
         $expired_time = date('Y-m-d H:i:s', strtotime('now +10080 minutes'));
@@ -66,13 +69,13 @@ class BarcodeController extends Controller
                         $extented_time = date('Y-m-d H:i:s', strtotime($record->expired_time.'+120 minutes'));
                         Barcode::where('value', $data)
                             ->update(['scan_count' => 1, 'expired_time' => $extented_time]);
-                        return json_encode(true);
+                        return json_encode(static::TIME_EXTEND);
                     case 1:
                         $duration = ($now - strtotime($record->updated_at))/60;
                         Barcode::where('value', $data)
                             ->update(['scan_count' => 2]);
                         $discount = new UserDiscount();
-                        $discount->user_id = $user_id;
+                        $discount->user_id = $record->user_id;
                         if($duration<=30){
                            $discount->discount_id = 1;
                         }else if($duration>30&&$duration<=60){
@@ -80,21 +83,21 @@ class BarcodeController extends Controller
                         }else if($duration>60&&$duration<=90){
                             $discount->discount_id = 3;
                         }else{
-                            return json_encode(false);
+                            return json_encode(static::NO_DISCOUNT);
                         }
                         $discount->expired_time = $expired_time;
                         $discount->path = $this->createDiscount();
                         $discount->save();
-                        return json_encode(true);
+                        return json_encode(static::DISCOUNT_GIVEN);
                     case 2:
-                        return json_encode(false);
+                        return json_encode(static::INVAILD_CODE);
                     default:
-                        return json_encode(false);
+                        return json_encode(static::INVAILD_CODE);
                 }
             }
-            return json_encode(false);
+            return json_encode(static::INVAILD_CODE);
         }
-        return json_encode(false);
+        return json_encode(static::INVAILD_CODE);
     }
 
     public function getCode(Request $request)
