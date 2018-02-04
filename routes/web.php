@@ -44,8 +44,11 @@ Route::post('dislike','FilmController@dislike');
 Route::post('createCode','BarcodeController@createCode');
 Route::post('scanCode','BarcodeController@scanCode');
 Route::get('getCode','BarcodeController@getCode');
-
 Route::get('test','BarcodeController@test');
+
+//Discount
+Route::get('getDiscount','DiscountController@getDiscount');
+
 
 
 

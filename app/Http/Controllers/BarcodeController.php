@@ -57,6 +57,7 @@ class BarcodeController extends Controller
         $user_id = $request->user_id;
         $now = strtotime(date('Y-m-d H:i:s'));
         $record = Barcode::where('value', '=', $data)->first();
+        $expired_time = date('Y-m-d H:i:s', strtotime('now +10080 minutes'));
         if(count($record) > 0) {
             $remain_time = strtotime($record->expired_time) - $now;
             if($remain_time>0) {
@@ -74,14 +75,16 @@ class BarcodeController extends Controller
                         $discount->user_id = $user_id;
                         if($duration<=30){
                            $discount->discount_id = 1;
-                           $discount->save();
                         }else if($duration>30&&$duration<=60){
                             $discount->discount_id = 2;
-                            $discount->save();
                         }else if($duration>60&&$duration<=90){
                             $discount->discount_id = 3;
-                            $discount->save();
+                        }else{
+                            return json_encode(false);
                         }
+                        $discount->expired_time = $expired_time;
+                        $discount->path = $this->createDiscount();
+                        $discount->save();
                         return json_encode(true);
                     case 2:
                         return json_encode(false);
@@ -105,6 +108,33 @@ class BarcodeController extends Controller
         ])->get();
         return json_encode($barcode);
 
+    }
+
+
+    public function createDiscount()
+    {
+        $time = date("Y-m-d_H-i-s");
+        $url = 'http://101.78.175.101:6780/storage/qr_code/discount_' . $time . '.png';
+        $path = storage_path() . '/app/public/qr_code/';
+        if (!is_dir($path))     //check whether the directory exist or not
+            File::makeDirectory($path, $mode = 0777, true, true);
+        $filePath = storage_path() . '/app/public/qr_code/discount_' . $time . '.png'; //It is server's local path, so it is not https
+        $qrcode = new BaconQrCodeGenerator();
+        $randomNum = rand(1000, 9999);
+
+        try {
+            $qrcode->format('png')
+                ->size(400)
+                ->color(255, 255, 255)
+                ->margin(1)
+                ->backgroundColor(38, 40, 51)
+                ->errorCorrection('H')
+                ->generate($randomNum, $filePath);
+
+            return $url;
+        } catch (Exception $e) {
+            echo "error";
+        }
     }
 
     public function test()
