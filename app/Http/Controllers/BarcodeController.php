@@ -36,9 +36,8 @@ class BarcodeController extends Controller
         try {
             $qrcode->format('png')
                 ->size(400)
-                ->color(255, 255, 255)
+                ->color(0, 0, 0)
                 ->margin(1)
-                ->backgroundColor(38, 40, 51)
                 ->errorCorrection('H')
                 ->generate($randomNum, $filePath);
 
@@ -128,9 +127,8 @@ class BarcodeController extends Controller
         try {
             $qrcode->format('png')
                 ->size(400)
-                ->color(255, 255, 255)
+                ->color(0, 0, 0)
                 ->margin(1)
-                ->backgroundColor(38, 40, 51)
                 ->errorCorrection('H')
                 ->generate($randomNum, $filePath);
 
