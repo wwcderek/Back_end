@@ -47,7 +47,7 @@ Route::get('getCode','BarcodeController@getCode');
 Route::get('test','BarcodeController@test');
 
 //Discount
-Route::get('getDiscount','DiscountController@getDiscount');
+Route::post('getDiscount','DiscountController@getDiscount');
 
 
 
