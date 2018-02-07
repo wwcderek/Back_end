@@ -50,6 +50,7 @@ Route::get('test','BarcodeController@test');
 Route::post('getDiscount','DiscountController@getDiscount');
 
 
-
+//Event
+Route::get('showEvent', 'EventController@show');
 
 
