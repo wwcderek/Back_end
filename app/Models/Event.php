@@ -8,5 +8,6 @@ class Event extends Model
 {
     //
     protected $table = 'events';
+    public $timestamps = false;
 
 }
