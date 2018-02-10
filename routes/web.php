@@ -44,7 +44,6 @@ Route::post('dislike','FilmController@dislike');
 Route::post('createCode','BarcodeController@createCode');
 Route::post('scanCode','BarcodeController@scanCode');
 Route::get('getCode','BarcodeController@getCode');
-Route::get('test','BarcodeController@test');
 
 //Discount
 Route::post('getDiscount','DiscountController@getDiscount');
@@ -52,5 +51,7 @@ Route::post('getDiscount','DiscountController@getDiscount');
 
 //Event
 Route::get('showEvent', 'EventController@show');
+Route::get('test', 'EventController@test');
+Route::post('createEvent', 'EventController@store');
 
 

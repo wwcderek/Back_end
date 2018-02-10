@@ -35,7 +35,12 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = new Event();
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->film_id = $request->filmId;
+        $event->event_start_date = date($request->startDate.' '.'00:00:00');
+        return json_encode(TRUE);
     }
 
     /**
@@ -86,5 +91,14 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function test()
+    {
+        $date2 = date('Y-m-d H:i:s');
+        $date = date( '2018-01-01'.' '.'00:00:00');
+        $date3 = date('2018-01-01'.' '.'00:00:00');
+        return $date3;
     }
 }
