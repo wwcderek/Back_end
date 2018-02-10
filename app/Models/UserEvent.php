@@ -8,5 +8,6 @@ class UserEvent extends Model
 {
     //
     protected $table = 'user_has_event';
+    public $timestamps = false;
 
 }
