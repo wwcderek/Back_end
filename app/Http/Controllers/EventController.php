@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\UserEvent;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -41,7 +42,12 @@ class EventController extends Controller
         $event->film_id = $request->filmId;
         $event->event_start_date = date($request->startDate.' '.'00:00:00');
         $event->save();
-        return json_encode($event->id);
+        $userEvent = new UserEvent();
+        $userEvent->user_id = $request->user_id;
+        $userEvent->event_id = $event->id;
+        $userEvent->role = $request->role;
+        $userEvent->save();
+        return json_encode(true);
     }
 
     /**
