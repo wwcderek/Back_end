@@ -40,6 +40,7 @@ class EventController extends Controller
         $event->description = $request->description;
         $event->film_id = $request->filmId;
         $event->event_start_date = date($request->startDate.' '.'00:00:00');
+        $event->save();
         return json_encode(TRUE);
     }
 
