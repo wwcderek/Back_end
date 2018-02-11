@@ -64,7 +64,6 @@ class EventController extends Controller
         $record = DB::table('events')
             ->select('events.title', 'events.description','events.quota', 'events.event_start_date', 'films.path', 'films.title')
             ->join('films', 'films.film_id', '=' ,'events.film_id')
-            ->orderBy('event_start_date', 'desc')
             ->where([
                 ['films.film_id', '=', 'events.film_id'],
             ])
