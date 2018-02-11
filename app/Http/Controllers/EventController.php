@@ -62,7 +62,7 @@ class EventController extends Controller
     {
         //
         $record = DB::table('events')
-            ->select('events.title AS eventTitle', 'events.description','events.quota', 'events.event_start_date', 'events.created_at', 'films.path', 'films.title AS filmTitle')
+            ->select('events.event_id'.'events.title AS eventTitle', 'events.description','events.quota', 'events.event_start_date', 'events.created_at', 'films.path', 'films.title AS filmTitle')
             ->join('films', 'films.film_id', '=' ,'events.film_id')
             ->orderBy('event_start_date', 'desc')
             ->get();
@@ -94,15 +94,17 @@ class EventController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function getCreator(Request $request)
     {
-        //
+        $record = DB::table('user_has_event')
+            ->select('users.displayname', 'users.icon_path')
+            ->join('users', 'user_has_event.user_id', '=' ,'user.user_id')
+            ->where([
+                ['user_has_event.event_id', '=', $request->event_id],
+                ['user_has_event.role', '=', 'creator']
+            ])
+            ->first();
+            return json_encode($record);
     }
 
 
