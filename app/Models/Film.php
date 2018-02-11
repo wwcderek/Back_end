@@ -14,11 +14,4 @@ class Film extends Model
     {
         return $this->belongsToMany('App\Models\Role', 'role_has_film', 'film_id', 'role_id');
     }
-
-    public function event()
-    {
-        return $this->hasOne(Event::class, 'film_id');
-    }
-
-
 }

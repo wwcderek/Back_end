@@ -60,11 +60,17 @@ class EventController extends Controller
     public function show()
     {
         //
-        $record = Event::all();
+        $record = DB::table('events')
+            ->select('events.title', 'events.description','events.quota', 'events.event_start_date', 'films.path', 'films.title')
+            ->join('films', 'films.film_id', '=' ,'events.film_id')
+            ->orderBy('event_start_date', 'desc')
+            ->where([
+                ['films.film_id', '=', 'events.film_id'],
+            ])
+            ->get();
         if (count($record) > 0)
-            return $record;
-
-        return "No record";
+            return json_encode($record);
+        return json_encode(false);
     }
 
     /**
@@ -112,13 +118,5 @@ class EventController extends Controller
 //        return $date3;
     }
 
-    public function test2()
-    {
-        $event = Film::find(1)->event;
-        return $event;
-//        $date2 = date('Y-m-d H:i:s');
-//        $date = date( '2018-01-01'.' '.'00:00:00');
-//        $date3 = date('2018-01-01'.' '.'00:00:00');
-//        return $date3;
-    }
+
 }
