@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Film;
 use App\Models\UserEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
