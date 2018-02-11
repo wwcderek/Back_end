@@ -10,4 +10,7 @@ class Event extends Model
     protected $table = 'events';
     public $timestamps = false;
 
+    public function film(){
+       return $this->hasOne(Film::class);
+    }
 }
