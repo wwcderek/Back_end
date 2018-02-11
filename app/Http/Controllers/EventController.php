@@ -98,7 +98,7 @@ class EventController extends Controller
     {
         $record = DB::table('user_has_event')
             ->select('users.displayname', 'users.icon_path')
-            ->join('users', 'user_has_event.user_id', '=' ,'user.user_id')
+            ->join('users', 'user_has_event.user_id', '=' ,'users.user_id')
             ->where([
                 ['user_has_event.event_id', '=', $request->event_id],
                 ['user_has_event.role', '=', 'creator']
