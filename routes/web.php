@@ -52,6 +52,7 @@ Route::post('getDiscount','DiscountController@getDiscount');
 //Event
 Route::get('showEvent', 'EventController@show');
 Route::get('test', 'EventController@test');
+Route::get('test2', 'EventController@test2');
 Route::post('createEvent', 'EventController@store');
 
 

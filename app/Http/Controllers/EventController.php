@@ -111,4 +111,14 @@ class EventController extends Controller
 //        $date3 = date('2018-01-01'.' '.'00:00:00');
 //        return $date3;
     }
+
+    public function test2()
+    {
+        $event = Film::find(1)->event;
+        return $event;
+//        $date2 = date('Y-m-d H:i:s');
+//        $date = date( '2018-01-01'.' '.'00:00:00');
+//        $date3 = date('2018-01-01'.' '.'00:00:00');
+//        return $date3;
+    }
 }
