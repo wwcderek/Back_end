@@ -17,7 +17,7 @@ class Film extends Model
 
     public function event()
     {
-        return $this->hasOne(Event::class);
+        return $this->hasOne(Event::class, 'film_id');
     }
 
 
