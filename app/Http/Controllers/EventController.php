@@ -38,11 +38,14 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $time = strtotime(date($request->time));
         $event = new Event();
         $event->title = $request->title;
         $event->description = $request->description;
         $event->film_id = $request->filmId;
-        $event->event_start_date = date($request->startDate.' '.'00:00:00');
+        $event->event_start_date = date($request->startDate.' '.$request->time);
+        $event->event_date =  date($request->startDate);
+        $event->event_time = date('H:i', $time);
         $event->save();
         $userEvent = new UserEvent();
         $userEvent->user_id = $request->user_id;
@@ -110,10 +113,13 @@ class EventController extends Controller
 
     public function test()
     {
-        $event = Event::find(1)->film;
-        return $event;
+//        $event = Event::find(1)->film;
+//        return $event;
 //        $date2 = date('Y-m-d H:i:s');
-//        $date = date( '2018-01-01'.' '.'00:00:00');
+        $date = date( '00:05:30');
+        $time = strtotime($date);
+        $date2 = date('i:s', $time);
+        return $date2;
 //        $date3 = date('2018-01-01'.' '.'00:00:00');
 //        return $date3;
     }
