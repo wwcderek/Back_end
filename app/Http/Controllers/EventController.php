@@ -111,7 +111,7 @@ class EventController extends Controller
 
     public function test()
     {
-        $event = Event::find(6);
+        $event = Event::where('event_id', '=', 6)->first();
         $time = strtotime($event->event_start_date);
         $date = date('i:s', $time);
         return $date;
