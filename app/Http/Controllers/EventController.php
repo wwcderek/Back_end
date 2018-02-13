@@ -45,7 +45,7 @@ class EventController extends Controller
         $event->film_id = $request->filmId;
         $event->event_start_date = date($request->startDate.' '.$request->time);
         $event->event_date =  date($request->startDate);
-        $event->event_time = date('H:i', $time);
+        $event->event_time = date($request->time);
         $event->save();
         $userEvent = new UserEvent();
         $userEvent->user_id = $request->user_id;
