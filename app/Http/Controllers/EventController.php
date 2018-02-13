@@ -111,13 +111,17 @@ class EventController extends Controller
 
     public function test()
     {
-//        $event = Event::find(1)->film;
+        $event = Event::find(6);
+        $time = strtotime($event->event_start_date);
+        $date = date('i:s', $time);
+        return $date;
+
 //        return $event;
 //        $date2 = date('Y-m-d H:i:s');
-        $date = date( '00:05:30');
-        $time = strtotime($date);
-        $date2 = date('i:s', $time);
-        return $date2;
+//        $date = date( '00:05:30');
+//        $time = strtotime($date);
+//        $date2 = date('i:s', $time);
+//        return $date2;
 //        $date3 = date('2018-01-01'.' '.'00:00:00');
 //        return $date3;
     }
