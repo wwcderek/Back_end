@@ -114,7 +114,7 @@ class EventController extends Controller
         $event = Event::where('event_id', '=', 6)->first();
         $time = strtotime($event->event_start_date);
         $date = array("time" => date('i:s', $time));
-        $newArr = array_merge($event, $date);
+        $newArr = array_merge((array) $event, $date);
         return $newArr;
 
 //        return $event;
