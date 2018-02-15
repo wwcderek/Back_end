@@ -108,15 +108,29 @@ class EventController extends Controller
             return json_encode($record);
     }
 
+    public function getDetail(Request $request)
+    {
+        $event = Event::where('event_id', '=', $request->event_id)->first();
+        $date = strtotime($event->event_start_date);
+        $time = date('i:s A', $date);
+        $eventDate = date('d F', $date);
+        $weekDay = date('l', $date);
+
+
+    }
+
 
     public function test()
     {
         $event = Event::where('event_id', '=', 6)->first();
-        $time = strtotime($event->event_start_date);
-        $date = array("time" => date('i:s', $time));
+        $date = strtotime($event->event_start_date);
+        $time = date('i:s A', $date);
+        $eventDate = date('d F', $date);
+        $weekDay = date('l', $date);
         $data = [
-          'time' => $date,
-          'date' => $event->event_start_date
+          'time' => $time,
+          'date' => $eventDate,
+            'weekDay' => $weekDay
         ];
         return $data;
 
