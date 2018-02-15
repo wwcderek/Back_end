@@ -112,8 +112,8 @@ class EventController extends Controller
     {
         $event = Event::where('event_id', '=', $request->event_id)->first();
         $date = strtotime($event->event_start_date);
-        $time = date('i:s A', $date);
-        $eventDate = date('d F', $date);
+        $time = date('H:i A', $date);
+        $eventDate = date('j F', $date);
         $weekDay = date('l', $date);
 
 
@@ -125,7 +125,7 @@ class EventController extends Controller
         $event = Event::where('event_id', '=', 6)->first();
         $date = strtotime($event->event_start_date);
         $time = date('i:s A', $date);
-        $eventDate = date('d F', $date);
+        $eventDate = date('j F', $date);
         $weekDay = date('l', $date);
         $data = [
           'time' => $time,
