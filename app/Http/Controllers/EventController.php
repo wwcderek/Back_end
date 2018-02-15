@@ -110,13 +110,31 @@ class EventController extends Controller
 
     public function getDetail(Request $request)
     {
+        $result = DB::table('user_has_event')
+            ->select('users.displayname', 'users.icon_path')
+            ->join('users', 'user_has_event.user_id', '=' ,'users.user_id')
+            ->where([
+                ['user_has_event.event_id', '=', $request->event_id],
+                ['user_has_event.role', '=', 'creator']
+            ])
+            ->first();
+
+        //Time processing
         $event = Event::where('event_id', '=', $request->event_id)->first();
         $date = strtotime($event->event_start_date);
         $time = date('H:i A', $date);
         $eventDate = date('j F', $date);
         $weekDay = date('l', $date);
 
+        $data = [
+            'time' => $time,
+            'eventDate' => $eventDate,
+            'weekDay' => $weekDay,
+            'creator' => $result->displayname,
+            'icon_path' => $result->icon_path
+        ];
 
+        return json_encode($data);
     }
 
 
@@ -124,7 +142,7 @@ class EventController extends Controller
     {
         $event = Event::where('event_id', '=', 6)->first();
         $date = strtotime($event->event_start_date);
-        $time = date('i:s A', $date);
+        $time = date('H:i A', $date);
         $eventDate = date('j F', $date);
         $weekDay = date('l', $date);
         $data = [
