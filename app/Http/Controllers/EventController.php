@@ -78,9 +78,17 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function joinEvent(Request $request)
     {
-        //
+        $result = Event::where('event_id', '=', $request->event_id)->first();
+        if($result->quota<=0)
+            return json_encode(false);
+        Event::where('event_id', '=', $request->event_id)->decrement('quota',1);
+        $userEvent = new UserEvent();
+        $userEvent->user_id = $request->user_id;
+        $userEvent->event_id = $request->event_id;
+        $userEvent->role = 'participant';
+        $userEvent->save();
     }
 
     /**
@@ -138,15 +146,6 @@ class EventController extends Controller
             'weekDay' => $weekDay
         ];
         return $data;
-
-//        return $event;
-//        $date2 = date('Y-m-d H:i:s');
-//        $date = date( '00:05:30');
-//        $time = strtotime($date);
-//        $date2 = date('i:s', $time);
-//        return $date2;
-//        $date3 = date('2018-01-01'.' '.'00:00:00');
-//        return $date3;
     }
 
 

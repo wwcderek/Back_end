@@ -54,6 +54,7 @@ Route::get('showEvent', 'EventController@show');
 Route::get('test', 'EventController@test');
 Route::post('createEvent', 'EventController@store');
 Route::post('getDetail', 'EventController@getDetail');
+Route::post('joinEvent', 'EventController@joinEvent');
 
 
 
