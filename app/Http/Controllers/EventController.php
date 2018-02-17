@@ -15,6 +15,9 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    const CREATOR = 'creator';
+    const PARTICIPANT = 'participant';
+
     public function index()
     {
         //
@@ -48,7 +51,7 @@ class EventController extends Controller
         $userEvent = new UserEvent();
         $userEvent->user_id = $request->user_id;
         $userEvent->event_id = $event->id;
-        $userEvent->role = $request->role;
+        $userEvent->role = static::CREATOR;
         $userEvent->save();
         return json_encode(true);
     }
@@ -72,12 +75,6 @@ class EventController extends Controller
         return json_encode(false);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function joinEvent(Request $request)
     {
         $result = Event::where('event_id', '=', $request->event_id)->first();
@@ -87,21 +84,26 @@ class EventController extends Controller
         $userEvent = new UserEvent();
         $userEvent->user_id = $request->user_id;
         $userEvent->event_id = $request->event_id;
-        $userEvent->role = 'participant';
+        $userEvent->role = static::PARTICIPANT;
         $userEvent->save();
+        return json_encode(true);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+   public function getStatus(Request $request) {
+        $result = UserEvent::where([
+            ['user_id','=', $request->user_id],
+            ['event_id','=', $request->event_id]
+        ])->first();
+
+       if (count($result) > 0) {
+           if($result->creator==static::CREATOR) {
+               return json_encode(0);
+           } elseif($result->creator==static::PARTICIPANT) {
+               return json_encode(1);
+           }
+       }
+       return json_encode(2);
+   }
 
     public function getDetail(Request $request)
     {
@@ -131,7 +133,6 @@ class EventController extends Controller
 
         return json_encode($data);
     }
-
 
     public function test()
     {
