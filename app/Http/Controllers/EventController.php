@@ -90,8 +90,6 @@ class EventController extends Controller
     }
 
    public function getStatus(Request $request) {
-        if(isNull($request->user_id)||isEmpty($request->user_id))
-            return json_encode(3);
         $result = UserEvent::where([
             ['user_id','=', $request->user_id],
             ['event_id','=', $request->event_id]
