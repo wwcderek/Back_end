@@ -75,6 +75,10 @@ class EventController extends Controller
         return json_encode(false);
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function joinEvent(Request $request)
     {
         $result = Event::where('event_id', '=', $request->event_id)->first();
@@ -89,6 +93,30 @@ class EventController extends Controller
         return json_encode(true);
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function leaveEvent(Request $request)
+    {
+        $result = UserEvent::where([
+            ['user_id','=', $request->user_id],
+            ['event_id','=', $request->event_id]
+        ])->first();
+        if ($result !== null) {
+            if($result->role==static::PARTICIPANT) {
+                $result->delete();
+                return json_encode(true);
+            }
+            return json_encode(false);
+        }
+        return json_encode(false);
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
    public function getStatus(Request $request) {
         $result = UserEvent::where([
             ['user_id','=', $request->user_id],
@@ -105,6 +133,10 @@ class EventController extends Controller
        return json_encode(2);
    }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function getDetail(Request $request)
     {
         $result = DB::table('user_has_event')
