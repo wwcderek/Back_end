@@ -96,6 +96,7 @@ class EventController extends Controller
         ])->first();
 
        if ($result !== null) {
+           return 'Record exist';
            if($result->creator==static::CREATOR) {
                return json_encode(0);
            } elseif($result->creator==static::PARTICIPANT) {
