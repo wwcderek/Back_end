@@ -159,6 +159,20 @@ class EventController extends Controller
         return json_encode($data);
     }
 
+    public function eventUser(Request $request)
+    {
+        $result = DB::table('user_has_event')
+            ->select('users.displayname', 'users.icon_path')
+            ->join('users', 'user_has_event.user_id', '=' ,'users.user_id')
+            ->where([
+                ['user_has_event.event_id', '=', $request->event_id],
+                ['user_has_event.role', '=', 'participant']
+            ])
+            ->get();
+
+        return json_encode($result);
+    }
+
     public function test()
     {
         $event = Event::where('event_id', '=', 6)->first();
