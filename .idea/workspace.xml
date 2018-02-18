@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb6209ee-6ff6-421c-b521-8f30621ac993" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="EventController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+            <state relative-caret-position="423">
+              <caret line="103" column="48" lean-forward="true" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
               <folding>
                 <element signature="e#40#61#0#PHP" expanded="true" />
               </folding>
@@ -54,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="492">
-              <caret line="56" column="54" lean-forward="true" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+              <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -139,8 +137,8 @@
         <option value="$PROJECT_DIR$/app/Models/UserEvent.php" />
         <option value="$PROJECT_DIR$/app/Models/Film.php" />
         <option value="$PROJECT_DIR$/app/Models/Event.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
       </list>
     </option>
   </component>
@@ -330,12 +328,12 @@
       <workItem from="1518678292721" duration="5348000" />
       <workItem from="1518854796648" duration="6313000" />
       <workItem from="1518945607913" duration="4776000" />
-      <workItem from="1518967762684" duration="492000" />
+      <workItem from="1518967762684" duration="1718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276831000" />
+    <option name="totallyTimeSpent" value="278057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="259" y="31" width="1179" height="817" extended-state="0" />
@@ -348,7 +346,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -728,15 +726,15 @@
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="492">
-          <caret line="56" column="54" lean-forward="true" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+        <state relative-caret-position="423">
+          <caret line="103" column="48" lean-forward="true" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
           </folding>

@@ -103,7 +103,8 @@ class EventController extends Controller
             ['user_id','=', $request->user_id],
             ['event_id','=', $request->event_id]
         ])->delete();
-     return json_encode($result);
+        Event::where('event_id', '=', $request->event_id)->increment('quota',1);
+        return json_encode($result);
     }
 
     /**
