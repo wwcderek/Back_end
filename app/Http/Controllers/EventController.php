@@ -95,7 +95,7 @@ class EventController extends Controller
             ['event_id','=', $request->event_id]
         ])->first();
 
-       if (count($result) > 0) {
+       if ($result !== null) {
            if($result->creator==static::CREATOR) {
                return json_encode(0);
            } elseif($result->creator==static::PARTICIPANT) {
