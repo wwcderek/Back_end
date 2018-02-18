@@ -102,15 +102,8 @@ class EventController extends Controller
         $result = UserEvent::where([
             ['user_id','=', $request->user_id],
             ['event_id','=', $request->event_id]
-        ])->first();
-        if ($result !== null) {
-            if($result->role==static::PARTICIPANT) {
-                $result->delete();
-                return json_encode(true);
-            }
-            return json_encode(false);
-        }
-        return json_encode(false);
+        ])->delete();
+     return json_encode($result);
     }
 
     /**
