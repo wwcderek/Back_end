@@ -90,6 +90,8 @@ class EventController extends Controller
     }
 
    public function getStatus(Request $request) {
+        if(isNull($request->user_id)||isEmpty($request->user_id))
+            return json_encode(3);
         $result = UserEvent::where([
             ['user_id','=', $request->user_id],
             ['event_id','=', $request->event_id]
@@ -99,7 +101,7 @@ class EventController extends Controller
            if($result->creator==static::CREATOR) {
                return json_encode(0);
            } elseif($result->creator==static::PARTICIPANT) {
-               return json_encode(1);
+               return json_encode(1)    ;
            }
        }
        return json_encode(2);
