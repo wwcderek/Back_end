@@ -150,6 +150,7 @@ class EventController extends Controller
         $weekDay = date('l', $date);
 
         $data = [
+            'quota' => $event->quota,
             'time' => $time,
             'eventDate' => $eventDate,
             'weekDay' => $weekDay,
