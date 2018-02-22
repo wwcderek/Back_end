@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dislike;
+use App\Models\Favorite;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -164,15 +166,37 @@ class FilmController extends Controller
     }
 
     public function like(Request $request) {
-        $review_id = $request->review_id;
-        Review::where('review_id', $review_id)
-            ->increment('favorite');
+        $record = Favorite::where([
+            ['user', '=', $request->user_id],
+            ['review_id', '=', $request->review_id]
+        ])->first();
+        if ($record == null) {
+            $favorite = new Favorite();
+            $favorite->user_id = $request->user_id;
+            $favorite->review_id = $request->review_id;
+            $favorite->save();
+            Review::where('review_id', $request->review_id)
+                ->increment('favorite');
+            return json_encode(true);
+        }
+        return json_encode(false);
     }
 
     public function dislike(Request $request) {
-        $review_id = $request->review_id;
-        Review::where('review_id', $review_id)
-            ->increment('dislike');
+        $record = Dislike::where([
+            ['user', '=', $request->user_id],
+            ['review_id', '=', $request->review_id]
+        ])->first();
+        if($record == null) {
+            $dislike = new Dislike();
+            $dislike->review_id = $request->review_id;
+            $dislike->user_id = $request->user_id;
+            $dislike->save();
+            Review::where('review_id', $request->review_id)
+                ->increment('dislike');
+            return json_encode(true);
+        }
+        return json_encode(false);
     }
 
 
