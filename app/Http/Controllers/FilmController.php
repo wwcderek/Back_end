@@ -167,7 +167,7 @@ class FilmController extends Controller
 
     public function like(Request $request) {
         $record = Favorite::where([
-            ['user', '=', $request->user_id],
+            ['user_id', '=', $request->user_id],
             ['review_id', '=', $request->review_id]
         ])->first();
         if ($record == null) {
@@ -184,7 +184,7 @@ class FilmController extends Controller
 
     public function dislike(Request $request) {
         $record = Dislike::where([
-            ['user', '=', $request->user_id],
+            ['user_id', '=', $request->user_id],
             ['review_id', '=', $request->review_id]
         ])->first();
         if($record == null) {

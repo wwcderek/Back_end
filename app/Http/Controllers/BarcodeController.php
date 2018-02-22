@@ -16,42 +16,45 @@ class BarcodeController extends Controller
     const DISCOUNT_GIVEN = 1;
     const NO_DISCOUNT = 2;
     const TIME_EXTEND = 3;
+    const NUMBER = array("12345", "23456", "34567");
     //
     public function createCode(Request $request)
     {
-        $data = $request->data;
-        $user_id = $request->user_id;
-        $now = date('Y-m-d H:i:s', strtotime('now +5 minutes'));
-        $time = date("Y-m-d_H-i-s");
-        $url = 'http://101.78.175.101:6780/storage/qr_code/'.$time.'.png';
-        $path = storage_path().'/app/public/qr_code/';
-        if(!is_dir($path))     //check whether the directory exist or not
-        File::makeDirectory($path, $mode = 0777, true, true);
-        $filePath =  storage_path().'/app/public/qr_code/'.$time.'.png'; //It is server's local path, so it is not https
-        $qrcode = new BaconQrCodeGenerator();
-        do {
-            $randomNum = rand(10000, 99999);
-            $record = Barcode::where('value', '=', $randomNum)->get();
-        } while(count($record) > 0);
-        try {
-            $qrcode->format('png')
-                ->size(400)
-                ->color(0, 0, 0)
-                ->margin(1)
-                ->errorCorrection('H')
-                ->generate($randomNum, $filePath);
+        if(in_array($request->data, static::NUMBER)) {
+            $user_id = $request->user_id;
+            $now = date('Y-m-d H:i:s', strtotime('now +5 minutes'));
+            $time = date("Y-m-d_H-i-s");
+            $url = 'http://101.78.175.101:6780/storage/qr_code/' . $time . '.png';
+            $path = storage_path() . '/app/public/qr_code/';
+            if (!is_dir($path))     //check whether the directory exist or not
+                File::makeDirectory($path, $mode = 0777, true, true);
+            $filePath = storage_path() . '/app/public/qr_code/' . $time . '.png'; //It is server's local path, so it is not https
+            $qrcode = new BaconQrCodeGenerator();
+            do {
+                $randomNum = rand(10000, 99999);
+                $record = Barcode::where('value', '=', $randomNum)->get();
+            } while (count($record) > 0);
+            try {
+                $qrcode->format('png')
+                    ->size(400)
+                    ->color(0, 0, 0)
+                    ->margin(1)
+                    ->errorCorrection('H')
+                    ->generate($randomNum, $filePath);
 
-            $barcode = new Barcode();
-            $barcode->value = $randomNum;
-            $barcode->expired_time = $now;
-            $barcode->user_id = $user_id;
-            $barcode->path = $url;
-            $barcode->scan_count = 0;
-            $barcode->save();
-            return json_encode($barcode);
-        }catch(Exception $e){
-            echo "error";
+                $barcode = new Barcode();
+                $barcode->value = $randomNum;
+                $barcode->expired_time = $now;
+                $barcode->user_id = $user_id;
+                $barcode->path = $url;
+                $barcode->scan_count = 0;
+                $barcode->save();
+                return json_encode($barcode);
+            } catch (Exception $e) {
+                echo "error";
+            }
         }
+        return json_encode(false);
     }
 
     public function scanCode(Request $request)
