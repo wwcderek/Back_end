@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb6209ee-6ff6-421c-b521-8f30621ac993" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Dislike.php" afterPath="$PROJECT_DIR$/app/Models/Dislike.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Favorite.php" afterPath="$PROJECT_DIR$/app/Models/Favorite.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilmController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FilmController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="186" column="23" lean-forward="false" selection-start-line="186" selection-start-column="23" selection-end-line="186" selection-end-column="23" />
+            <state relative-caret-position="103">
+              <caret line="175" column="20" lean-forward="true" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
               <folding>
                 <element signature="e#40#63#0#PHP" expanded="true" />
               </folding>
@@ -51,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Favorite.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Favorite.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Favorite.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -179,9 +178,9 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BarcodeController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
         <option value="$PROJECT_DIR$/app/Models/Dislike.php" />
         <option value="$PROJECT_DIR$/app/Models/Favorite.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
       </list>
     </option>
   </component>
@@ -376,12 +375,12 @@
       <workItem from="1519198983593" duration="505000" />
       <workItem from="1519227175660" duration="2327000" />
       <workItem from="1519288829977" duration="2694000" />
-      <workItem from="1519311495395" duration="1355000" />
+      <workItem from="1519311495395" duration="2807000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285814000" />
+    <option name="totallyTimeSpent" value="287266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="259" y="31" width="1179" height="817" extended-state="0" />
@@ -749,16 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="186" column="23" lean-forward="false" selection-start-line="186" selection-start-column="23" selection-end-line="186" selection-end-column="23" />
-          <folding>
-            <element signature="e#40#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BarcodeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
@@ -788,6 +777,16 @@
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="175" column="20" lean-forward="true" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
+          <folding>
+            <element signature="e#40#63#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

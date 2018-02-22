@@ -170,7 +170,11 @@ class FilmController extends Controller
             ['user_id', '=', $request->user_id],
             ['review_id', '=', $request->review_id]
         ])->first();
-        if ($record == null) {
+        $record2 = Dislike::where([
+            ['user_id', '=', $request->user_id],
+            ['review_id', '=', $request->review_id]
+        ])->first();
+        if ($record == null && $record2 == null) {
             $favorite = new Favorite();
             $favorite->user_id = $request->user_id;
             $favorite->review_id = $request->review_id;
@@ -187,7 +191,11 @@ class FilmController extends Controller
             ['user_id', '=', $request->user_id],
             ['review_id', '=', $request->review_id]
         ])->first();
-        if($record == null) {
+        $record2 = Favorite::where([
+            ['user_id', '=', $request->user_id],
+            ['review_id', '=', $request->review_id]
+        ])->first();
+        if($record == null && $record2 == null) {
             $dislike = new Dislike();
             $dislike->review_id = $request->review_id;
             $dislike->user_id = $request->user_id;
