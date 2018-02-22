@@ -8,5 +8,6 @@ class Favorite extends Model
 {
     //
     protected $table = 'favorites';
+    public $timestamps = false;
 
 }

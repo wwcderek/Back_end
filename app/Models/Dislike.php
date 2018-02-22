@@ -8,5 +8,6 @@ class Dislike extends Model
 {
     //
     protected $table = 'dislikes';
+    public $timestamps = false;
 
 }
