@@ -182,7 +182,7 @@ class FilmController extends Controller
             Review::where('review_id', $request->review_id)
                 ->increment('favorite');
             return json_encode(true);
-        } elseif($record !== null) {
+        } elseif($record !== null && $record2 == null) {
             Favorite::where([
                 ['user_id', '=', $request->user_id],
                 ['review_id', '=', $request->review_id]
@@ -210,7 +210,7 @@ class FilmController extends Controller
             Review::where('review_id', $request->review_id)
                 ->increment('dislike');
             return json_encode(true);
-        } elseif ($record !== null) {
+        } elseif ($record !== null && $record2 == null) {
             Dislike::where([
                 ['user_id', '=', $request->user_id],
                 ['review_id', '=', $request->review_id]
