@@ -7,6 +7,7 @@ use App\Http\Requests ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Session;
 
 
 class LoginController extends Controller
@@ -19,20 +20,22 @@ class LoginController extends Controller
      * @param Request $request
      * @return string
      */
-    public function showLoginForm()
+    public function showLoginForm(Request $request)
     {
-        if (auth()->user())
+        if ($request->session()->has('user'))
             return view('/');
         return view('login');
     }
 
-    public function adminLogin()
+    public function adminLogin(Request $request)
     {
         //return request('username');
         if(auth()->attempt(['username' => request('username'), 'password' => request('password'), 'role' => 'admin'])) {
             //return 'user exist';
-            $user = auth()->user();
-            return $user;
+            $request->session()->put('user', auth()->user());
+
+            //$user = auth()->user();
+            //return $user;
         }
         return 'false';
 //        if(! auth()->attempt(request(['username','password']))) {
