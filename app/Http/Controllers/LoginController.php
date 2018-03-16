@@ -23,7 +23,7 @@ class LoginController extends Controller
     public function showLoginForm(Request $request)
     {
         if ($request->session()->has('user'))
-            return view('/');
+            return view('welcome');
         return view('login');
     }
 
@@ -33,7 +33,7 @@ class LoginController extends Controller
         if(auth()->attempt(['username' => request('username'), 'password' => request('password'), 'role' => 'admin'])) {
             //return 'user exist';
             $request->session()->put('user', auth()->user());
-
+            return view('welcome');
             //$user = auth()->user();
             //return $user;
         }
