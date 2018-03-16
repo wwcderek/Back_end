@@ -21,6 +21,8 @@ Route::post('/updateProfile', 'UserController@updateProfile');
 
 
 //Account
+Route::get('/login', 'auth\LoginController@showLoginForm');
+Route::post('/adminLogin', 'auth\LoginController@login');
 Route::post('/login', 'LoginController@login');
 Route::post('/fbLogin', 'LoginController@fbLogin');
 Route::post('/registration', 'LoginController@register');
