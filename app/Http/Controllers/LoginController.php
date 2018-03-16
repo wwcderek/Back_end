@@ -21,6 +21,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+        if (auth()->check()) 
+            return view('/');
         return view('login');
     }
 
