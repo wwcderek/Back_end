@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Requests ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
 class LoginController extends Controller
@@ -18,6 +19,19 @@ class LoginController extends Controller
      * @param Request $request
      * @return string
      */
+    public function showLoginForm()
+    {
+        return view('login');
+    }
+
+    public function adminLogin()
+    {
+        if(! auth()->attempt(request(['username','password']))) {
+            return back();
+        }
+        return redirect();
+    }
+
     public function login(Request $request)
     {
         $username = $request->name;

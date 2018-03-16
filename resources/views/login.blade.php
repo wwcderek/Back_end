@@ -8,7 +8,7 @@
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ action('auth\LoginController@login') }}">
+                    <form class="form-horizontal" method="POST" action="{{ action('LoginController@adminLogin') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">

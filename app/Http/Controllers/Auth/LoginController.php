@@ -42,16 +42,16 @@ class LoginController extends Controller
         return 'username';
     }
 
-    public function showLoginForm()
-    {
-        return view('auth.login');
-    }
-
-    public function login()
-    {
-        if(! auth()->attempt(request(['username','password']))) {
-          return back();
-        }
-        return redirect();
-    }
+//    public function showLoginForm()
+//    {
+//        return view('auth.login');
+//    }
+//
+//    public function login()
+//    {
+//        if(! auth()->attempt(request(['username','password']))) {
+//          return back();
+//        }
+//        return redirect();
+//    }
 }
