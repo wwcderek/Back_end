@@ -21,7 +21,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        if (auth()->check()) 
+        if (auth()->check())
             return view('/');
         return view('login');
     }
@@ -30,7 +30,9 @@ class LoginController extends Controller
     {
         //return request('username');
         if(auth()->attempt(['username' => request('username'), 'password' => request('password'), 'role' => 'admin'])) {
-            return 'user exist';
+            //return 'user exist';
+            $user = auth()->user();
+            return $user;
         }
         return 'false';
 //        if(! auth()->attempt(request(['username','password']))) {
