@@ -26,10 +26,15 @@ class LoginController extends Controller
 
     public function adminLogin()
     {
-        if(! auth()->attempt(request(['username','password']))) {
-            return back();
+        //return request('username');
+        if(auth()->attempt(['username' => request('username'), 'password' => request('password'), 'role' => 'admin'])) {
+            return 'user exist';
         }
-        return redirect();
+        return 'false';
+//        if(! auth()->attempt(request(['username','password']))) {
+//            return back();
+//        }
+//        return redirect();
     }
 
     public function login(Request $request)
