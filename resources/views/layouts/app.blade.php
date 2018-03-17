@@ -36,6 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        &nbsp;<li><a href="/">Home</a></li>
                         &nbsp;<li><a href="/list">Film List</a></li>
                     </ul>
 
@@ -48,7 +49,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Hello <span class="caret"></span>
+                                    Hello Admin<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

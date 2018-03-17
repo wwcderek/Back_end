@@ -12,9 +12,9 @@
 */
 
 Route::get('/', 'LoginController@showLoginForm');
-Route::get('/home', function () {
-    return view('home');
-});
+//Route::get('/home', function () {
+//    return view('home');
+//});
 
 //User
 Route::post('/uploadIcon', 'UserController@uploadIcon');

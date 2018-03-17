@@ -4,7 +4,6 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            {{ $films }}
             <table class="table">
                 <thead>
                 <tr>
@@ -21,7 +20,10 @@
                         Running Time
                     </th>
                     <th>
-                        Publish Time
+                        Published At
+                    </th>
+                    <th>
+                        Created At
                     </th>
                     <th>
                         Actions
@@ -45,6 +47,9 @@
                     </td>
                     <td>
                         {{ empty($film->publish_time) ? "-" : $film->publish_time }}
+                    </td>
+                    <td>
+                        {{ empty($film->created_at) ? "-" : $film->created_at }}
                     </td>
                     <td>
                         <button
