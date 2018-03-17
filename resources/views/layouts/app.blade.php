@@ -14,11 +14,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-@include('left-menu')
-<!-- /.sidebar -->
-</aside>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -41,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        &nbsp;See
                     </ul>
 
                     <!-- Right Side Of Navbar -->
