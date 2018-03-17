@@ -177,42 +177,46 @@
         </h3>
     </div>
     <div class="row" style="margin: 30px;">
-        <div class="col-md-4">
-            <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="http://101.78.175.101:6780/storage/2018-01-05-23-57-43.jpg"  style="width: 350px;height: 200px;" />
+        @foreach ($films as $film)
+            {{ empty($film['title']) ? "-" : $film['title'] }}
+        @endforeach
 
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="http://101.78.175.101:6780/storage/2018-01-05-23-57-43.jpg"  style="width: 350px;height: 200px;" />
+        {{--<div class="col-md-4">--}}
+            {{--<img class="card-img-top" alt="Bootstrap Thumbnail Third" src="http://101.78.175.101:6780/storage/2018-01-05-23-57-43.jpg"  style="width: 350px;height: 200px;" />--}}
 
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
-            </p>
-        </div>
+            {{--<h2>--}}
+                {{--Heading--}}
+            {{--</h2>--}}
+            {{--<p>--}}
+                {{--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.--}}
+            {{--</p>--}}
+            {{--<p>--}}
+                {{--<a class="btn" href="#">View details »</a>--}}
+            {{--</p>--}}
+        {{--</div>--}}
+        {{--<div class="col-md-4">--}}
+            {{--<img class="card-img-top" alt="Bootstrap Thumbnail Third" src="http://101.78.175.101:6780/storage/2018-01-05-23-57-43.jpg"  style="width: 350px;height: 200px;" />--}}
+
+            {{--<h2>--}}
+                {{--Heading--}}
+            {{--</h2>--}}
+            {{--<p>--}}
+                {{--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.--}}
+            {{--</p>--}}
+            {{--<p>--}}
+                {{--<a class="btn" href="#">View details »</a>--}}
+            {{--</p>--}}
+        {{--</div>--}}
+        {{--<div class="col-md-4">--}}
+            {{--<h2>--}}
+                {{--Heading--}}
+            {{--</h2>--}}
+            {{--<p>--}}
+                {{--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.--}}
+            {{--</p>--}}
+            {{--<p>--}}
+                {{--<a class="btn" href="#">View details »</a>--}}
+            {{--</p>--}}
+        {{--</div>--}}
     </div>
 @endsection

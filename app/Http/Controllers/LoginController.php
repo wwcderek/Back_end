@@ -22,8 +22,11 @@ class LoginController extends Controller
      */
     public function showLoginForm(Request $request)
     {
-        if ($request->session()->has('user'))
-            return view('welcome');
+        if ($request->session()->has('user')) {
+            $film = new FilmController();
+            $record = $film->latestFilm();
+            return view('home', ['films' => $record]);
+        }
         return view('login');
     }
 
