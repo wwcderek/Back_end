@@ -73,7 +73,7 @@
                              <a class="btn" href="#">View details »</a>
                         </div>
                         <div class="col-md-4">
-                            <a id="{{ $film->film_id  }}" href="#123" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+                            <a id="{{ $film->film_id  }}" href="{{ "#123"  }}" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
                         </div>
                     </div>
                 </p>
