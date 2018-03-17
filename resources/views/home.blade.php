@@ -179,7 +179,18 @@
     <div class="row" style="margin: 30px;">
         @if (is_array($films) || is_object($films))
         @foreach ($films as $film)
-            {{ $film->title }}
+                <div class="col-md-4">
+                <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;" />
+                <h2>
+                {{ empty($film->title) ? "-" : $film->title }}
+                </h2>
+                <p>
+                    {{ empty($film->description) ? "-" : $film->description  }}
+                </p>
+                <p>
+                <a class="btn" href="#">View details »</a>
+                </p>
+                </div>
         @endforeach
         @endif
         {{--<div class="col-md-4">--}}
