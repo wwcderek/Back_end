@@ -64,51 +64,52 @@
                 <h2>
                 {{ empty($film->title) ? "-" : $film->title }}
                 </h2>
-                <p style="height:100px;">
+                <p style="height:80px;">
                     {{ empty($film->description) ? "-" : $film->description  }}
                 </p>
                 <p>
-                <a class="btn" href="#">View details »</a>
+                    <div class="row">
+                        <div class="col-md-6">
+                             <a class="btn" href="#">View details »</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a id="{{ $film->film_id  }}" href="#{{ $film->film_id }}" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+                        </div>
+                    </div>
                 </p>
                 </div>
-        @endforeach
-        @endif
-        {{--<div class="col-md-4">--}}
-            {{--<img class="card-img-top" alt="Bootstrap Thumbnail Third" src="http://101.78.175.101:6780/storage/2018-01-05-23-57-43.jpg"  style="width: 350px;height: 200px;" />--}}
 
-            {{--<h2>--}}
-                {{--Heading--}}
-            {{--</h2>--}}
-            {{--<p>--}}
-                {{--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.--}}
-            {{--</p>--}}
-            {{--<p>--}}
-                {{--<a class="btn" href="#">View details »</a>--}}
-            {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="col-md-4">--}}
-            {{--<img class="card-img-top" alt="Bootstrap Thumbnail Third" src="http://101.78.175.101:6780/storage/2018-01-05-23-57-43.jpg"  style="width: 350px;height: 200px;" />--}}
+            <div class="col-md-12">
+                <div class="modal fade" id="{{ $film->film_id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
 
-            {{--<h2>--}}
-                {{--Heading--}}
-            {{--</h2>--}}
-            {{--<p>--}}
-                {{--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.--}}
-            {{--</p>--}}
-            {{--<p>--}}
-                {{--<a class="btn" href="#">View details »</a>--}}
-            {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="col-md-4">--}}
-            {{--<h2>--}}
-                {{--Heading--}}
-            {{--</h2>--}}
-            {{--<p>--}}
-                {{--Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.--}}
-            {{--</p>--}}
-            {{--<p>--}}
-                {{--<a class="btn" href="#">View details »</a>--}}
-            {{--</p>--}}
-        {{--</div>--}}
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    Modal title
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    Save changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @endforeach
+            @endif
     </div>
 @endsection

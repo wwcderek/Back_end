@@ -53,13 +53,13 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="64" column="48" lean-forward="true" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+            <state relative-caret-position="56">
+              <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
               <folding>
                 <element signature="e#3129#3198#0#HTML" expanded="true" />
                 <element signature="e#3270#3291#0#HTML" expanded="true" />
                 <element signature="e#3518#3553#0#HTML" expanded="true" />
-                <element signature="e#3682#3703#0#HTML" expanded="true" />
+                <element signature="e#3682#3702#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,8 +187,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="259" />
+    <option name="x" value="-19" />
+    <option name="y" value="25" />
     <option name="width" value="1440" />
     <option name="height" value="824" />
   </component>
@@ -398,15 +398,15 @@
       <workItem from="1521017332344" duration="41000" />
       <workItem from="1521173244920" duration="7297000" />
       <workItem from="1521216203550" duration="3599000" />
-      <workItem from="1521268187788" duration="7145000" />
+      <workItem from="1521268187788" duration="7761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309318000" />
+    <option name="totallyTimeSpent" value="309934000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="259" width="1440" height="824" extended-state="0" />
+    <frame x="-19" y="25" width="1440" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2167382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -817,13 +817,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="64" column="48" lean-forward="true" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+        <state relative-caret-position="56">
+          <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
           <folding>
             <element signature="e#3129#3198#0#HTML" expanded="true" />
             <element signature="e#3270#3291#0#HTML" expanded="true" />
             <element signature="e#3518#3553#0#HTML" expanded="true" />
-            <element signature="e#3682#3703#0#HTML" expanded="true" />
+            <element signature="e#3682#3702#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
