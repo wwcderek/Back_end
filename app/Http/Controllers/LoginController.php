@@ -25,7 +25,8 @@ class LoginController extends Controller
         if ($request->session()->has('user')) {
             $film = new FilmController();
             $record = $film->latestFilm();
-            return view('home', ['films' => $record]);
+            return $record;
+            //return view('home', ['films' => $record]);
         }
         return view('login');
     }
