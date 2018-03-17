@@ -64,7 +64,7 @@
                 <h2>
                 {{ empty($film->title) ? "-" : $film->title }}
                 </h2>
-                <p style="height:200px;">
+                <p style="height:150px;">
                     {{ empty($film->description) ? "-" : $film->description  }}
                 </p>
                 <p>
