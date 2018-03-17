@@ -243,6 +243,6 @@ class FilmController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(6)
             ->get();
-        return json_encode($films);
+        return $films;
     }
 }
