@@ -58,58 +58,38 @@
     </div>
     <div class="row" style="margin: 30px;">
         @if (is_array($films) || is_object($films))
-        @foreach ($films as $film)
-                <div class="col-md-4">
-                <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;" />
-                <h2>
-                {{ empty($film->title) ? "-" : $film->title }}
-                </h2>
-                <p style="height:100px;">
-                    {{ empty($film->description) ? "-" : $film->description  }}
-                </p>
-                <p>
-                    <div class="row">
-                        <div class="col-md-6">
-                             <a class="btn" href="#">View details »</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a id="{{ $film->film_id  }}" href="{{ "#".$film->film_id  }}" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-                        </div>
+            @foreach ($films as $film)
+                    <div class="col-md-4">
+                        <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;" />
+                        <h2>
+                        {{ empty($film->title) ? "-" : $film->title }}
+                        </h2>
+                        <p style="height:100px;">
+                            {{ empty($film->description) ? "-" : $film->description  }}
+                        </p>
+                        <p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                     <a class="btn" href="#">View details »</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <button
+                                            type="button"
+                                            class="btn btn-primary"
+                                            data-toggle="modal"
+                                            data-target="#film-{{ $film->film_id }}"
+                                    >Info
+                                    </button>
+                                </div>
+                            </div>
+                        </p>
                     </div>
-                </p>
-                </div>
-
-
-                <div class="modal fade" id="{{ $film->film_id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    ×
-                                </button>
-                                <h4 class="modal-title" id="myModalLabel">
-                                   {{ $film->title }}
-                                </h4>
-                            </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                    Close
-                                </button>
-                                <button type="button" class="btn btn-primary">
-                                    Save changes
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            @endforeach
+                @endforeach
+            @endif
+            @if (is_array($films) || is_object($films))
+                @foreach ($films as $film)
+                    @include('detail', $film)
+                @endforeach
             @endif
     </div>
 @endsection
