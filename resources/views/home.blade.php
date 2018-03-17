@@ -86,10 +86,9 @@
                     </div>
                 @endforeach
             @endif
-            @if (is_array($films) || is_object($films))
-                @foreach ($films as $film)
-                    @include('detail', $film)
-                @endforeach
-            @endif
     </div>
+
+    @foreach ($films as $film)
+        @include('detail', $film)
+    @endforeach
 @endsection

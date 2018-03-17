@@ -53,8 +53,8 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="83" column="31" lean-forward="true" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+            <state relative-caret-position="504">
+              <caret line="90" column="30" lean-forward="true" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
               <folding>
                 <element signature="e#3129#3198#0#HTML" expanded="true" />
                 <element signature="e#3270#3291#0#HTML" expanded="true" />
@@ -127,6 +127,7 @@
       <find>$now</find>
       <find>$user_id</find>
       <find>test</find>
+      <find>2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,8 +198,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="177" />
-    <option name="y" value="45" />
+    <option name="x" value="44" />
+    <option name="y" value="123" />
     <option name="width" value="1440" />
     <option name="height" value="824" />
   </component>
@@ -408,15 +409,15 @@
       <workItem from="1521017332344" duration="41000" />
       <workItem from="1521173244920" duration="7297000" />
       <workItem from="1521216203550" duration="3599000" />
-      <workItem from="1521268187788" duration="10290000" />
+      <workItem from="1521268187788" duration="10628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312463000" />
+    <option name="totallyTimeSpent" value="312801000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="177" y="45" width="1440" height="824" extended-state="0" />
+    <frame x="44" y="123" width="1440" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2167382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -828,8 +829,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="83" column="31" lean-forward="true" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+        <state relative-caret-position="504">
+          <caret line="90" column="30" lean-forward="true" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
           <folding>
             <element signature="e#3129#3198#0#HTML" expanded="true" />
             <element signature="e#3270#3291#0#HTML" expanded="true" />
