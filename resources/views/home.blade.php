@@ -178,7 +178,7 @@
     </div>
     <div class="row" style="margin: 30px;">
         @foreach ($films as $film)
-            {{ $film }}
+             See?
         @endforeach
 
         {{--<div class="col-md-4">--}}
