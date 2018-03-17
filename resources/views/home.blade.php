@@ -73,14 +73,14 @@
                              <a class="btn" href="#">View details »</a>
                         </div>
                         <div class="col-md-4">
-                            <a id="{{ $film->film_id  }}" href="{{ "#".$film->film_id  }}" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+                            <a id="{{ $film->film_id  }}" href="#123" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
                         </div>
                     </div>
                 </p>
                 </div>
 
 
-                <div class="modal fade" id="{{ $film->film_id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="123" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -89,7 +89,7 @@
                                     ×
                                 </button>
                                 <h4 class="modal-title" id="myModalLabel">
-                                    Modal title
+                                   {{ $film->title }}
                                 </h4>
                             </div>
                             <div class="modal-body">
