@@ -177,10 +177,11 @@
         </h3>
     </div>
     <div class="row" style="margin: 30px;">
+        @if (is_array($films) || is_object($films))
         @foreach ($films as $film)
             {{ $film->title }}
         @endforeach
-
+        @endif
         {{--<div class="col-md-4">--}}
             {{--<img class="card-img-top" alt="Bootstrap Thumbnail Third" src="http://101.78.175.101:6780/storage/2018-01-05-23-57-43.jpg"  style="width: 350px;height: 200px;" />--}}
 
