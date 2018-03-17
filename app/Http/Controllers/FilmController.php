@@ -245,4 +245,9 @@ class FilmController extends Controller
             ->get();
         return $films;
     }
+
+    public function filmList()
+    {
+        return view('list');
+    }
 }
