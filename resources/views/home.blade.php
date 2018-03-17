@@ -72,10 +72,9 @@
                                 <div class="col-md-6">
                                      <a class="btn">View details</a>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <button
                                             type="button"
-                                            class="btn btn-primary"
                                             data-toggle="modal"
                                             data-target="#film-{{ $film->film_id }}"
                                     >Info
