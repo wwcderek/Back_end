@@ -69,10 +69,7 @@
                         </p>
                         <p>
                             <div class="row">
-                                <div class="col-md-6">
-                                     <a class="btn">View details</a>
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <button
                                             type="button"
                                             class="btn btn-primary"

@@ -5,29 +5,35 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myModalLabel">Company</h4>
+                <h4 class="modal-title" id="myModalLabel">Film</h4>
             </div>
             <div class="modal-body">
                 <table class="table table-striped">
                     <tbody>
-                    {{--@if(isset($user['company']))--}}
-                        {{--<tr>--}}
-                            {{--<td width="50%">Company Name</td>--}}
-                            {{--<td width="50%">{{ $user['company']['name'] }}</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td width="50%">Company Address</td>--}}
-                            {{--<td width="50%">{{ $user['company']['address'] }}</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td width="50%">Contact Name</td>--}}
-                            {{--<td width="50%">{{ $user['company']['contact_name'] }}</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td width="50%">Contact Mobile</td>--}}
-                            {{--<td width="50%">{{ $user['company']['contact_mobile'] }}</td>--}}
-                        {{--</tr>--}}
-                    {{--@endif--}}
+                        <tr>
+                            <td width="50%">Film Title</td>
+                            <td width="50%">{{ $film->title }}</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">Film Language</td>
+                            <td width="50%">{{ $film->language }}</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">Film Rating</td>
+                            <td width="50%">{{ $film->rating }}</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">Film Running Time</td>
+                            <td width="50%">{{ $film->running_time }}</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">Film Publish Time</td>
+                            <td width="50%">{{ $film->publish_time }}</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">Film Description</td>
+                            <td width="50%">{{ $film->description }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
