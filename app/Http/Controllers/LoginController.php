@@ -34,11 +34,8 @@ class LoginController extends Controller
     {
         //return request('username');
         if(auth()->attempt(['username' => request('username'), 'password' => request('password'), 'role' => 'admin'])) {
-            //return 'user exist';
             $request->session()->put('user', auth()->user());
-            return view('welcome');
-            //$user = auth()->user();
-            //return $user;
+            return redirect()->route('/');
         }
         return 'false';
 //        if(! auth()->attempt(request(['username','password']))) {
