@@ -88,7 +88,7 @@
             @endif
     </div>
 
-    @foreach ($films as $film)
-        @include('detail', $film)
-    @endforeach
+    {{--@foreach ($films as $film)--}}
+        {{--@include('detail', $film)--}}
+    {{--@endforeach--}}
 @endsection

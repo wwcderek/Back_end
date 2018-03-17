@@ -54,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
-              <caret line="90" column="30" lean-forward="true" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+              <caret line="90" column="2" lean-forward="false" selection-start-line="90" selection-start-column="2" selection-end-line="92" selection-end-column="19" />
               <folding>
                 <element signature="e#3129#3198#0#HTML" expanded="true" />
                 <element signature="e#3270#3291#0#HTML" expanded="true" />
@@ -409,12 +409,12 @@
       <workItem from="1521017332344" duration="41000" />
       <workItem from="1521173244920" duration="7297000" />
       <workItem from="1521216203550" duration="3599000" />
-      <workItem from="1521268187788" duration="10628000" />
+      <workItem from="1521268187788" duration="10764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312801000" />
+    <option name="totallyTimeSpent" value="312937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="123" width="1440" height="824" extended-state="0" />
@@ -454,7 +454,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage/framework/views/6b0bb0dae2c93e0a9a7729de73f8712cbc7071fe.php" />
     <entry file="file://$PROJECT_DIR$/storage/framework/views/a40785963ea7516fb6ae1348ad61b5d070f58fcc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -827,10 +826,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2075">
+          <caret line="4416" column="49" lean-forward="false" selection-start-line="4416" selection-start-column="49" selection-end-line="4416" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
-          <caret line="90" column="30" lean-forward="true" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+          <caret line="90" column="2" lean-forward="false" selection-start-line="90" selection-start-column="2" selection-end-line="92" selection-end-column="19" />
           <folding>
             <element signature="e#3129#3198#0#HTML" expanded="true" />
             <element signature="e#3270#3291#0#HTML" expanded="true" />
