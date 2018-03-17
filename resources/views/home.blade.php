@@ -70,7 +70,7 @@
                         <p>
                             <div class="row">
                                 <div class="col-md-6">
-                                     <a class="btn" href="#">View details »</a>
+                                     <a class="btn">View details</a>
                                 </div>
                                 <div class="col-md-4">
                                     <button
