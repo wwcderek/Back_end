@@ -177,6 +177,7 @@
         </h3>
     </div>
     <div class="row" style="margin: 30px;">
+        {{ $films  }}
         {{--@foreach ($films as $film)--}}
             {{--{{ empty($film['title']) ? "-" : $film['title'] }}--}}
         {{--@endforeach--}}
