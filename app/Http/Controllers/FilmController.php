@@ -119,11 +119,11 @@ class FilmController extends Controller
 
 
     public function review(Request $request){
-         $user_id = $request->user_id;
-         $film_id = $request->film_id;
-         $title = $request->title;
-         $film_review = $request->review;
-         $rating = $request->rating;
+        $user_id = $request->user_id;
+        $film_id = $request->film_id;
+        $title = $request->title;
+        $film_review = $request->review;
+        $rating = $request->rating;
         $review = new Review();
         $review->title = $title;
         $review->description = $film_review;
@@ -235,5 +235,14 @@ class FilmController extends Controller
             ])
             ->get();
         return json_encode($record);
+    }
+
+    public function latestFilm()
+    {
+        $films = DB::table('films')
+            ->orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
+        return json_encode($films);
     }
 }
