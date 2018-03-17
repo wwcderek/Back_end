@@ -221,7 +221,6 @@ class FilmController extends Controller
         }
     }
 
-
     public function show(Request $request)
     {
         $film_id = $request->film_id;
