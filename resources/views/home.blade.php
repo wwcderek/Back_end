@@ -64,7 +64,7 @@
                 <h2>
                 {{ empty($film->title) ? "-" : $film->title }}
                 </h2>
-                <p style="height:80px;">
+                <p style="height:100px;">
                     {{ empty($film->description) ? "-" : $film->description  }}
                 </p>
                 <p>
@@ -79,7 +79,7 @@
                 </p>
                 </div>
 
-            <div class="col-md-12">
+
                 <div class="modal fade" id="{{ $film->film_id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
 
             @endforeach
             @endif
