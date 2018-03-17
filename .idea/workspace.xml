@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb6209ee-6ff6-421c-b521-8f30621ac993" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FilmController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FilmController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="439">
@@ -32,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+            <state relative-caret-position="292">
+              <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -178,10 +174,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/resources/views/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -408,12 +404,12 @@
       <workItem from="1521017332344" duration="41000" />
       <workItem from="1521173244920" duration="7297000" />
       <workItem from="1521216203550" duration="3599000" />
-      <workItem from="1521268187788" duration="2015000" />
+      <workItem from="1521268187788" duration="2166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304188000" />
+    <option name="totallyTimeSpent" value="304339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="0" />
@@ -791,14 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -835,6 +823,14 @@
           <folding>
             <element signature="e#40#63#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
