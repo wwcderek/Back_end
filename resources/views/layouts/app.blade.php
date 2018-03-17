@@ -42,7 +42,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @if (auth()->guest())
+                        @if (!session()->exists('user'))
                             <li><a>Login</a></li>
                             <li><a>Register</a></li>
                         @else
