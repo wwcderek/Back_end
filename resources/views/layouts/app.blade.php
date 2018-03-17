@@ -14,6 +14,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+@include('left-menu')
+<!-- /.sidebar -->
+</aside>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
