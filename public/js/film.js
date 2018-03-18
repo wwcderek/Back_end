@@ -4,9 +4,9 @@ function searchFilm() {
     var value = document.getElementById("search_value").value.trim();
     if (value === "") {
         var url = 'http://101.78.175.101:6780/list/'+parameter;
-        window.location.assign(url.toString());
     } else {
         var url = 'http://101.78.175.101:6780/list/'+parameter+'/'+toString(value);
-        window.location.assign(url.toString());
     }
+    window.location.assign(url.toString());
+
 }
