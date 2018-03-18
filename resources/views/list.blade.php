@@ -28,7 +28,7 @@
                     <td style="padding: 5px">
                         <input id="search_value" name="search_value"
                                class="form-control"
-                               placeholder="Input single keyword here"
+                               placeholder="Input film name here"
                                type="text"
                                autocomplete="off"
                                style="position: relative;"
