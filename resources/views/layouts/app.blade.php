@@ -54,7 +54,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a
+                                        <a href="/logout"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout

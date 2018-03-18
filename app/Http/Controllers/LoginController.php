@@ -32,16 +32,18 @@ class LoginController extends Controller
 
     public function adminLogin(Request $request)
     {
-        //return request('username');
         if(auth()->attempt(['username' => request('username'), 'password' => request('password'), 'role' => 'admin'])) {
             $request->session()->put('user', auth()->user());
             return redirect('/');
         }
         return 'false';
-//        if(! auth()->attempt(request(['username','password']))) {
-//            return back();
-//        }
-//        return redirect();
+    }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->forget('user');
+        return redirect('/');
     }
 
     public function login(Request $request)
