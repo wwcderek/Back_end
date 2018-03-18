@@ -9,7 +9,8 @@
             </div>
             <div class="modal-body" style="  padding:0px; margin:0 auto; left: 0; right: 0; text-align: center;">
                 <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;padding:0px; left: 0; right: 0; text-align: center; margin-bottom: 20px; margin-left: 100px; margin-right: 100px" />
-                <form id="{{ csrf_field() }}" action="{{ action('FilmController@updateFilm') }}" method="POST" style="display: none;">
+                <form id="update-form" action="{{ action('FilmController@updateFilm') }}" method="POST" style="display: none;" >
+                    {{ csrf_field() }}
                 <table class="table table-striped">
                     <tbody>
                     <tr>
