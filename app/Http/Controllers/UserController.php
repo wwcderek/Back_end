@@ -62,9 +62,8 @@ class UserController extends Controller
     {
         if(isset($request->username))
         {
-
+           return $request->username;
         }
-
         $users = User::all();
         return view('userList')->with(['users' => $users]);
     }
