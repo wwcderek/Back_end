@@ -37,7 +37,7 @@
                     <td>
                         <button id="user_search_btn"
                                 class="btn btn-bitbucket fa fa-search"
-                                type="submit" value="" onclick=""
+                                type="submit" value="" onclick="searchFilm()"
                         >
                             Search
                         </button>
@@ -110,4 +110,9 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+    <script src="{{ asset('js/film.js') }}"></script>
 @endsection
