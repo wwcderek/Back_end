@@ -11,7 +11,7 @@
                 <table class="table table-striped">
                     <tbody>
                     <tr>
-                        <td width="100%">
+                        <td style="text-align: center;margin: 0;">
                             <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 300px;height: 150px;" />
                         </td>
                     </tr>
