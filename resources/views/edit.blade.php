@@ -18,23 +18,19 @@
                     </tr>
                     <tr>
                         <td width="30%">Film Language</td>
-                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->language }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" name='language' id="language" value="{{ $film->language }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Rating</td>
-                        <td width="70%"><input type="text" class="form-control" id="rating" value="{{ $film->rating }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" name='rating' id="rating" value="{{ $film->rating }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Running Time</td>
-                        <td width="70%"><input type="text" class="form-control" id="running" value="{{ $film->running_time }}"/></td>
-                    </tr>
-                    <tr>
-                        <td width="50%">Film Publish Time</td>
-                        <td width="70%"><input type="text" class="form-control" id="publish" value="{{ $film->publish_time }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" name='running' id="running" value="{{ $film->running_time }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Description</td>
-                        <td width="70%"><input type="text" class="form-control" id="description" value="{{ $film->description }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" name='description' id="description" value="{{ $film->description }}"/></td>
                     </tr>
                     </tbody>
                 </table>

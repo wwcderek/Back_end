@@ -276,9 +276,16 @@ class FilmController extends Controller
         return view('list')->with(['films' => $record]);
     }
 
-    public function updateFilm(Request $request)
+    public function updateFilm()
     {
-        $name = $request->input('name');
-        return $name;
+        Film::where('title', '=', request('title'))
+            ->update([
+                ['title' => request('title')],
+                ['language' => request('language')],
+                ['rating' => intval(request('rating'))],
+                ['running' => intval(request('running'))],
+                ['description' => request('description')]
+            ]);
+        return redirect()->route('list');
     }
 }
