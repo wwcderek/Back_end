@@ -38,11 +38,11 @@
                     </tr>
                     </tbody>
                 </table>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" id="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">close</span></button>
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" id="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">close</span></button>
-                <button type="submit" class="btn btn-success" id="update-film">Update</button>
             </div>
         </div>
     </div>
