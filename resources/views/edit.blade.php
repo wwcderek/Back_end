@@ -11,7 +11,7 @@
                 <table class="table table-striped">
                     <tbody>
                     <tr>
-                        <td>
+                        <td width="100%">
                             <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 300px;height: 150px;" />
                         </td>
                     </tr>
@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <td width="50%">Film Running Time</td>
-                        <td width="50%">{{ $film->running_time }}</td>
+                        <td width="50%">{{ $film->running_time.' mins' }}</td>
                     </tr>
                     <tr>
                         <td width="50%">Film Publish Time</td>
