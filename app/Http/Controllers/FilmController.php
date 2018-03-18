@@ -245,10 +245,8 @@ class FilmController extends Controller
         return $films;
     }
 
-    public function filmList($category)
+    public function filmList($category = 1)
     {
-        if(isNull($category))
-            $category = 1;
         $record = DB::table('films')
             ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
