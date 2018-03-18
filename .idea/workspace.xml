@@ -93,8 +93,8 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="10" column="216" lean-forward="false" selection-start-line="10" selection-start-column="216" selection-end-line="10" selection-end-column="216" />
+            <state relative-caret-position="150">
+              <caret line="10" column="130" lean-forward="false" selection-start-line="10" selection-start-column="130" selection-end-line="10" selection-end-column="130" />
               <folding />
             </state>
           </provider>
@@ -391,12 +391,12 @@
       <workItem from="1521173244920" duration="7297000" />
       <workItem from="1521216203550" duration="3599000" />
       <workItem from="1521268187788" duration="18410000" />
-      <workItem from="1521355258092" duration="7274000" />
+      <workItem from="1521355258092" duration="7327000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327857000" />
+    <option name="totallyTimeSpent" value="327910000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="135" width="1331" height="697" extended-state="0" />
@@ -820,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="10" column="216" lean-forward="false" selection-start-line="10" selection-start-column="216" selection-end-line="10" selection-end-column="216" />
+        <state relative-caret-position="150">
+          <caret line="10" column="130" lean-forward="false" selection-start-line="10" selection-start-column="130" selection-end-line="10" selection-end-column="130" />
           <folding />
         </state>
       </provider>
