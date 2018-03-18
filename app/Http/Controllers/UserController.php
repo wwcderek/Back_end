@@ -80,6 +80,7 @@ class UserController extends Controller
                 'email' => request('email'),
                 'role' => request('role')
             ]);
-        return redirect()->route('/userList');
+        return redirect()->route('userList');
+
     }
 }
