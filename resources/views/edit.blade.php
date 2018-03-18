@@ -8,7 +8,7 @@
                 <h4 class="modal-title" id="myModalLabel">Film Information</h4>
             </div>
             <div class="modal-body">
-                <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;padding:0px; margin:0 auto; left: 0; right: 0; text-align: center; margin-bottom: 20px; margin-left: 120px" />
+                <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;padding:0px; margin:0 auto; left: 0; right: 0; text-align: center; margin-bottom: 20px; margin-left: 110px" />
                 <table class="table table-striped">
                     <tbody>
                     <tr>
