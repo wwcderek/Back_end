@@ -7,8 +7,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title" id="myModalLabel">Film Information</h4>
             </div>
-            <div class="modal-body" style="  padding:0px; margin:0 auto; left: 0; right: 0; text-align: center;">
-                <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;padding:0px; left: 0; right: 0; text-align: center; margin-bottom: 20px; margin-left: 100px; margin-right: 100px" />
+            <div class="modal-body">
                 <form id="update-form" action="{{ action('FilmController@updateFilm') }}" method="POST" >
                     {{ csrf_field() }}
                 <table class="table table-striped">
@@ -43,7 +42,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" id="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">close</span></button>
-                <button type="button" class="btn btn-success" id="update-settlement" value="123">Update</button>
+                <button type="submit" class="btn btn-success" id="update-film">Update</button>
             </div>
         </div>
     </div>
