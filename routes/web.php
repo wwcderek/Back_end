@@ -37,6 +37,7 @@ Route::get('showFilm','FilmController@showFilm');
 Route::get('mostPopular','FilmController@mostPopular');
 Route::get('specificFilms', 'FilmController@specificFilms');
 Route::get('show','FilmController@show');
+Route::post('updateFilm', 'FilmController@updateFilm');
 Route::post('popularReview', 'FilmController@popularReview');
 Route::post('latestReview', 'FilmController@latestReview');
 Route::post('search', 'FilmController@search');

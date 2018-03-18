@@ -275,4 +275,10 @@ class FilmController extends Controller
             ->get();
         return view('list')->with(['films' => $record]);
     }
+
+    public function updateFilm(Request $request)
+    {
+        $name = $request->input('name');
+        return $name;
+    }
 }

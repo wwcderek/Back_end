@@ -9,11 +9,12 @@
             </div>
             <div class="modal-body" style="  padding:0px; margin:0 auto; left: 0; right: 0; text-align: center;">
                 <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;padding:0px; left: 0; right: 0; text-align: center; margin-bottom: 20px; margin-left: 100px; margin-right: 100px" />
+                <form id="update-form" action="{{ action('FilmController@updateFilm') }}" method="POST" style="display: none;">
                 <table class="table table-striped">
                     <tbody>
                     <tr>
                         <td width="30%">Film Title</td>
-                        <td width="70%"><input type="text" class="form-control" id="title" value="{{ $film->title }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" name='title' id="title" value="{{ $film->title }}"/></td>
                     </tr>
                     <tr>
                         <td width="30%">Film Language</td>
@@ -21,25 +22,27 @@
                     </tr>
                     <tr>
                         <td width="50%">Film Rating</td>
-                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->rating }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" id="rating" value="{{ $film->rating }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Running Time</td>
-                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->running_time }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" id="running" value="{{ $film->running_time }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Publish Time</td>
-                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->publish_time }}"/></td>
+                        <td width="70%"><input type="text" class="form-control" id="publish" value="{{ $film->publish_time }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Description</td>
-                        <textarea name="description" id="description" cols="8" rows="8" value="{{ $film->description }}"></textarea>
+                        <td width="70%"><input type="text" class="form-control" id="description" value="{{ $film->description }}"/></td>
                     </tr>
                     </tbody>
                 </table>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" id="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">close</span></button>
+                <button type="button" class="btn btn-success" id="update-settlement" value="{{ $settlement['id'] }}">Update</button>
             </div>
         </div>
     </div>
