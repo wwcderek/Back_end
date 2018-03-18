@@ -5,7 +5,7 @@ function searchFilm() {
     if (value === "") {
         var url = 'http://101.78.175.101:6780/list/'+parameter;
     } else {
-        var url = 'http://101.78.175.101:6780/list/'+parameter+'/'+toString(value);
+        var url = 'http://101.78.175.101:6780/list/'+parameter+'/'+value;
     }
     window.location.assign(url.toString());
 
