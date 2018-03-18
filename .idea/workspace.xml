@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eb6209ee-6ff6-421c-b521-8f30621ac993" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="FilmController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="250" column="24" lean-forward="false" selection-start-line="250" selection-start-column="24" selection-end-line="250" selection-end-column="24" />
+            <state relative-caret-position="269">
+              <caret line="248" column="5" lean-forward="false" selection-start-line="248" selection-start-column="5" selection-end-line="248" selection-end-column="5" />
               <folding>
                 <element signature="e#40#63#0#PHP" expanded="true" />
               </folding>
@@ -372,12 +371,12 @@
       <workItem from="1521173244920" duration="7297000" />
       <workItem from="1521216203550" duration="3599000" />
       <workItem from="1521268187788" duration="18410000" />
-      <workItem from="1521355258092" duration="3343000" />
+      <workItem from="1521355258092" duration="3424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="323926000" />
+    <option name="totallyTimeSpent" value="324007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="236" y="134" width="1331" height="697" extended-state="0" />
@@ -797,8 +796,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="250" column="24" lean-forward="false" selection-start-line="250" selection-start-column="24" selection-end-line="250" selection-end-column="24" />
+        <state relative-caret-position="269">
+          <caret line="248" column="5" lean-forward="false" selection-start-line="248" selection-start-column="5" selection-end-line="248" selection-end-column="5" />
           <folding>
             <element signature="e#40#63#0#PHP" expanded="true" />
           </folding>
