@@ -278,13 +278,13 @@ class FilmController extends Controller
 
     public function updateFilm()
     {
-        Film::where('title', '=', request('title'))
+        Film::where('title', request('title'))
             ->update([
-                ['title' => request('title')],
-                ['language' => request('language')],
-                ['rating' => intval(request('rating'))],
-                ['running' => intval(request('running'))],
-                ['description' => request('description')]
+                'title' => request('title'),
+                'language' => request('language'),
+                'rating' => intval(request('rating')),
+                'running' => intval(request('running')),
+                'description' => request('description')
             ]);
         return redirect()->route('list');
     }
