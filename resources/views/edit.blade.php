@@ -8,13 +8,9 @@
                 <h4 class="modal-title" id="myModalLabel">Film Information</h4>
             </div>
             <div class="modal-body">
+                <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 300px;height: 150px;text-align: center" />
                 <table class="table table-striped">
                     <tbody>
-                    <tr>
-                        <td style="text-align: center;margin: 0;colspan:2">
-                            <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 300px;height: 150px;" />
-                        </td>
-                    </tr>
                     <tr>
                         <td width="30%">Film Title</td>
                         <td width="70%"><input type="text" class="form-control" id="title" value="{{ $film->title }}"/></td>
