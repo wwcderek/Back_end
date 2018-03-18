@@ -71,6 +71,9 @@
                             Published At
                         </th>
                         <th>
+                            Created At
+                        </th>
+                        <th>
                             Actions
                         </th>
                     </tr>
@@ -95,6 +98,9 @@
                         </td>
                         <td>
                             {{ empty($film->publish_time) ? "-" : $film->publish_time }}
+                        </td>
+                        <td>
+                            {{ empty($film->created_at) ? "-" : $film->created_at }}
                         </td>
                         <td>
                             <button

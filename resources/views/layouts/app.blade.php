@@ -36,8 +36,11 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        @if (!session()->exists('user'))
                         &nbsp;<li><a href="/">Home</a></li>
-                        &nbsp;<li><a href="/list">Film List</a></li>
+                            &nbsp;<li><a href="/userList">User List</a></li>
+                            &nbsp;<li><a href="/list">Film List</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

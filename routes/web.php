@@ -17,6 +17,7 @@ Route::get('/', 'LoginController@showLoginForm');
 //});
 
 //User
+Route::get('/userList', 'UserController@userList');
 Route::post('/uploadIcon', 'UserController@uploadIcon');
 Route::post('/updateProfile', 'UserController@updateProfile');
 
