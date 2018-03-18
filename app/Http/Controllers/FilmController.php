@@ -247,15 +247,31 @@ class FilmController extends Controller
 
     public function filmList($category = 1, $name = null)
     {
+        if(isNull($name)) {
+            $record = DB::table('films')
+                ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+                    , DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
+                ->groupBy('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
+                ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
+                ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
+                ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
+                ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+                ->where('film_genre.genre_id', '=', $category)
+                ->get();
+            return view('list')->with(['films' => $record]);
+        }
         $record = DB::table('films')
             ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
-                ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
+                , DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
             ->groupBy('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('role_has_film', 'role_has_film.film_id', '=', 'films.film_id')
             ->join('roles', 'role_has_film.role_id', '=', 'roles.role_id')
             ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
-            ->where('film_genre.genre_id', '=', $category)
+            ->where([
+                ['films.title', '=', $name],
+                ['film_genre.genre_id', '=', $category]
+            ])
             ->get();
         return view('list')->with(['films' => $record]);
     }
