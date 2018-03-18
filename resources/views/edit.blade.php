@@ -7,7 +7,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title" id="myModalLabel">Film Information</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="  padding:0px; margin:0 auto; left: 0; right: 0; text-align: center;">
                 <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;padding:0px; left: 0; right: 0; text-align: center; margin-bottom: 20px; margin-left: 100px; margin-right: 100px" />
                 <table class="table table-striped">
                     <tbody>
@@ -21,19 +21,19 @@
                     </tr>
                     <tr>
                         <td width="50%">Film Rating</td>
-                        <td width="50%">{{ $film->rating }}</td>
+                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->rating }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Running Time</td>
-                        <td width="50%">{{ $film->running_time.' mins' }}</td>
+                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->running_time }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Publish Time</td>
-                        <td width="50%">{{ $film->publish_time }}</td>
+                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->publish_time }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Description</td>
-                        <td width="50%">{{ $film->description }}</td>
+                        <textarea name="description" id="description" cols="8" rows="8" value="{{ $film->description }}"></textarea>
                     </tr>
                     </tbody>
                 </table>
