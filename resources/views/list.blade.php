@@ -4,6 +4,51 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
+            <table>
+                <thead>
+                <tr>
+                    <th style="padding-left: 5px">Search</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <select id="search_type" class="btn btn-bitbucket dropdown-toggle" >
+                            <option value=1>Action</option>
+                            <option value=2>Horror</option>
+                            <option value=3>Drama</option>
+                            <option value=4>Fiction</option>
+                            <option value=5>War</option>
+                            <option value=6>Thriller</option>
+                            <option value=7>Animation</option>
+                            <option value=8>History</option>
+                            <option value=9>Romance</option>
+                        </select>
+                    </td>
+                    <td style="padding: 5px">
+                        <input id="search_value" name="search_value"
+                               class="form-control"
+                               placeholder="Input single keyword here"
+                               type="text"
+                               autocomplete="off"
+                               style="position: relative;"
+                        />
+                    </td>
+                    <td>
+                        <button id="user_search_btn"
+                                class="btn btn-bitbucket fa fa-search"
+                                type="submit" value="" onclick=""
+                        >
+                            Search
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-md-12">
             <table class="table">
                 <thead>
                 <tr>
@@ -20,10 +65,10 @@
                         Running Time
                     </th>
                     <th>
-                        Published At
+                        Category
                     </th>
                     <th>
-                        Created At
+                        Published At
                     </th>
                     <th>
                         Actions
@@ -46,10 +91,10 @@
                         {{ empty($film->running_time) ? "-" : $film->running_time." mins" }}
                     </td>
                     <td>
-                        {{ empty($film->publish_time) ? "-" : $film->publish_time }}
+                        {{ empty($film->type) ? "-" : $film->type }}
                     </td>
                     <td>
-                        {{ empty($film->created_at) ? "-" : $film->created_at }}
+                        {{ empty($film->publish_time) ? "-" : $film->publish_time }}
                     </td>
                     <td>
                         <button
