@@ -71,8 +71,15 @@ class UserController extends Controller
         return view('userList')->with(['users' => $users]);
     }
 
-
-
-
-
+    public function updateUser()
+    {
+        User::where('user_id', request('user_id'))
+            ->update([
+                'username' => request('username'),
+                'displayname' => request('displayname'),
+                'email' => request('email'),
+                'role' => request('role')
+            ]);
+        return redirect()->route('userList');
+    }
 }
