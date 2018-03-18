@@ -283,7 +283,7 @@ class FilmController extends Controller
                 'title' => request('title'),
                 'language' => request('language'),
                 'rating' => intval(request('rating')),
-                'running' => intval(request('running')),
+                'running_time' => intval(request('running')),
                 'description' => request('description')
             ]);
         return redirect()->route('list');
