@@ -58,12 +58,15 @@ class UserController extends Controller
         return json_encode($data);
     }
 
-    public function userList(Request $request)
+    public function userList(Request $request, $username = null)
     {
-        if(isset($request->username))
-        {
-           return $request->username;
-        }
+        if (!$request->session()->has('user'))
+            return redirect('/');
+
+       if($username!=null) {
+           $users = User::where('username', $username)->get();
+           return view('userList')->with(['users' => $users]);
+       }
         $users = User::all();
         return view('userList')->with(['users' => $users]);
     }
