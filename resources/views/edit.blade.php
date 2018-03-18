@@ -12,16 +12,16 @@
                     <tbody>
                     <tr>
                         <td>
-                            <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 350px;height: 200px;" />
+                            <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 500px;height: 300px;" />
                         </td>
                     </tr>
                     <tr>
-                        <td width="50%">Film Title</td>
-                        <td width="50%"><input type="text" class="form-control" id="title" value="{{ $film->title }}"/></td>
+                        <td width="30%">Film Title</td>
+                        <td width="70%"><input type="text" class="form-control" id="title" value="{{ $film->title }}"/></td>
                     </tr>
                     <tr>
-                        <td width="50%">Film Language</td>
-                        <td width="50%"><input type="text" class="form-control" id="language" value="{{ $film->language }}"/></td>
+                        <td width="30%">Film Language</td>
+                        <td width="70%"><input type="text" class="form-control" id="language" value="{{ $film->language }}"/></td>
                     </tr>
                     <tr>
                         <td width="50%">Film Rating</td>
