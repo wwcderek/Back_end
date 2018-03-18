@@ -42,7 +42,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" id="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">close</span></button>
-                <button type="button" class="btn btn-success" id="update-settlement" value="{{ $settlement['id'] }}">Update</button>
+                <button type="button" class="btn btn-success" id="update-settlement" value="123">Update</button>
             </div>
         </div>
     </div>
