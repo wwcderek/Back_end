@@ -281,7 +281,7 @@ class FilmController extends Controller
 
     public function updateFilm()
     {
-        Film::where('title', request('title'))
+        Film::where('film_id', request('film_id'))
             ->update([
                 'title' => request('title'),
                 'language' => request('language'),

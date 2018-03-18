@@ -10,7 +10,8 @@
             <div class="modal-body">
                 <form id="update-form" action="{{ action('FilmController@updateFilm') }}" method="POST" >
                     {{ csrf_field() }}
-                <table class="table table-striped">
+                    <input type="hidden" name="film_id" id="film_id" value="{{ $film->film_id }}}">
+                    <table class="table table-striped">
                     <tbody>
                     <tr>
                         <td width="30%">Film Title</td>
