@@ -20,7 +20,7 @@ Route::get('/', 'LoginController@showLoginForm');
 Route::get('/userList/{username?}', 'UserController@userList');
 Route::post('/uploadIcon', 'UserController@uploadIcon');
 Route::post('/updateProfile', 'UserController@updateProfile');
-Route::post('updateUser', 'UserController@updateUser');
+Route::post('/updateUser', 'UserController@updateUser');
 
 
 //Account
