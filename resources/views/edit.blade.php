@@ -12,7 +12,7 @@
                     <tbody>
                     <tr>
                         <td>
-                            <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 500px;height: 300px;" />
+                            <img class="card-img-top" alt="Bootstrap Thumbnail Third" src="{{ $film->path }}"  style="width: 300px;height: 150px;" />
                         </td>
                     </tr>
                     <tr>
