@@ -276,12 +276,17 @@ class FilmController extends Controller
 
     public function getChart()
     {
-        $data = DB::table('reviews')
-            ->join('films', 'films.film_id', '=', 'reviews.film_id')
-            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
-            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
-            ->where('genres.name', '=', 'action')
-            ->count();
-        return json_encode($data);
+        $category = ['Action', 'Horror', 'Drama', 'Fiction', 'Animation'];
+        $count = [];
+        foreach ($category as $type) {
+            $num = DB::table('reviews')
+                ->join('films', 'films.film_id', '=', 'reviews.film_id')
+                ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
+                ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+                ->where('genres.name', '=', $type)
+                ->count();
+            array_push($count, $num);
+        }
+        return json_encode($count);
     }
 }
