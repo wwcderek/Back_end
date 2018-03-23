@@ -4,20 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Dislike;
 use App\Models\Favorite;
-use App\Models\Role;
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Film;
-use App\Models\Account;
 use App\Models\Review;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Storage;
-use PhpParser\Node\Scalar\String_;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\DB;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
-use Exception;
 
 
 class FilmController extends Controller
@@ -27,7 +17,6 @@ class FilmController extends Controller
     {
         return view('upload');
     }
-
 
     public function store(Request $request)
     {
@@ -57,10 +46,8 @@ class FilmController extends Controller
         return  $request->all();
     }
 
-
     public function mostPopular()
     {
-       //$film = Film::where('rating','>=',8)->get();
         $record = DB::table('films')
             ->select('films.film_id','films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
@@ -80,10 +67,8 @@ class FilmController extends Controller
         return json_encode($film);
     }
 
-
     public function specificFilms(Request $request)
     {
-        //$record = DB::table('film_genre')->join('films', 'film_genre.film_id', '=', 'films.film_id')->where('genre_id', '=', $request->category)->get();
         $record = DB::table('films')
             ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
                 ,DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
@@ -116,8 +101,6 @@ class FilmController extends Controller
         return json_encode(false);
     }
 
-
-
     public function review(Request $request){
         $user_id = $request->user_id;
         $film_id = $request->film_id;
@@ -135,7 +118,6 @@ class FilmController extends Controller
         $review->save();
         return json_encode(true);
     }
-
 
     public function popularReview(Request $request) {
         $film_id = $request->film_id;
@@ -290,5 +272,16 @@ class FilmController extends Controller
                 'description' => request('description')
             ]);
         return redirect()->route('list');
+    }
+
+    public function getChart()
+    {
+        $data = DB::table('reviews')
+            ->join('films', 'films.film_id', '=', 'reviews.film_id')
+            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
+            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+            ->where('genres.name', '=', 'action')
+            ->count();
+        return json_encode($data);
     }
 }
