@@ -309,7 +309,7 @@ class FilmController extends Controller
         }
         $target = $category[array_search(max($count), $count)];
         $result = DB::table('films')
-            ->select('films.film_id', 'films.title', 'films.description')
+            ->select('films.film_id', 'films.title', 'films.description', 'films.path')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
             ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
             ->where('genres.name', '=', $target)
