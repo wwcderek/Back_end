@@ -49,6 +49,8 @@ Route::post('film','FilmController@store');
 Route::post('review','FilmController@review');
 Route::post('like','FilmController@like');
 Route::post('dislike','FilmController@dislike');
+Route::post('getRecommendation','FilmController@getRecommendation');
+
 
 //Barcode
 Route::post('createCode','BarcodeController@createCode');

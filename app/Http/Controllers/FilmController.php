@@ -289,4 +289,33 @@ class FilmController extends Controller
         }
         return json_encode($count);
     }
+
+    public function getRecommendation(Request $request)
+    {
+        $user_id = $request->user_id;
+        $category = ['Action', 'Horror', 'Drama', 'Fiction', 'Animation'];
+        $count = [];
+        foreach ($category as $type) {
+            $num = DB::table('reviews')
+                ->join('films', 'films.film_id', '=', 'reviews.film_id')
+                ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
+                ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+                ->where([
+                    ['genres.name', '=', $type],
+                    ['reviews.user_id', '=', $user_id]
+                ])
+                ->count();
+            array_push($count, $num);
+        }
+        $target = $category[array_search(max($count), $count)];
+        $result = DB::table('films')
+            ->select('films.film_id', 'films.title', 'films.description')
+            ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
+            ->join('genres', 'genres.genre_id', '=', 'film_genre.genre_id')
+            ->where('genres.name', '=', $target)
+            ->orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
+        return json_encode($result);
+    }
 }

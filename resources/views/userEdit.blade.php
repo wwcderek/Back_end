@@ -29,6 +29,7 @@
                             <td width="50%">Role</td>
                             <td width="70%"><select name="role" id="role" class="btn btn-bitbucket dropdown-toggle" >
                                     <option value='user'>user</option>
+                                    <option value='user'>staff</option>
                                     <option value='admin'>admin</option>
                                 </select>
                             </td>
