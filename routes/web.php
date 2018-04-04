@@ -55,6 +55,7 @@ Route::post('getRecommendation','FilmController@getRecommendation');
 //Barcode
 Route::post('createCode','BarcodeController@createCode');
 Route::post('scanCode','BarcodeController@scanCode');
+Route::post('checkCode','BarcodeController@checkCode');
 Route::get('getCode','BarcodeController@getCode');
 
 //Discount

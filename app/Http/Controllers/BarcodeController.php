@@ -16,7 +16,7 @@ class BarcodeController extends Controller
     const DISCOUNT_GIVEN = 1;
     const NO_DISCOUNT = 2;
     const TIME_EXTEND = 3;
-    const NUMBER = array("12345", "23456", "34567");
+    const NUMBER = array(1 => "12345", 3 => "23456", 8 => "34567");
     //
     public function createCode(Request $request)
     {
@@ -48,6 +48,7 @@ class BarcodeController extends Controller
                 $barcode->user_id = $user_id;
                 $barcode->path = $url;
                 $barcode->scan_count = 0;
+                $barcode->film_id = array_search($request->data, static::NUMBER);
                 $barcode->save();
                 return json_encode($barcode);
             } catch (Exception $e) {
@@ -141,16 +142,27 @@ class BarcodeController extends Controller
         }
     }
 
-    public function test()
+    public function checkCode(Request $request)
     {
         $now = strtotime(date('Y-m-d H:i:s'));
-        //$time2 = date('Y-m-d H:i:s', strtotime($now .'+120 minutes'));
-        $time2 =   strtotime(date('Y-m-d H:i:s', strtotime('now +6 minutes')));
-        $seconds_diff = $time2 - $now;
-        $time = ($seconds_diff/60);
-//        return $seconds_diff;
-        return $time;
+        $results = Barcode::where([
+            ['user_id', '=',  $request->user_id],
+            ['film_id', '=',  $request->film_id],
+            ['scan_count', '!=', 0]
+        ])->get();
+
+        if(count($results) > 0) {
+            foreach ($results as $result) {
+                $extented_time = date('Y-m-d H:i:s', strtotime($result->created_at.'+180 minutes'));
+                $remain_time = strtotime($extented_time) - $now;
+                if($remain_time>0)
+                    return json_encode(true);
+            }
+            return json_encode(false);
+        }
+        return json_encode(false);
     }
+
 
 
 }
