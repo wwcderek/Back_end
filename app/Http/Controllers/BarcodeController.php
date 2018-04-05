@@ -152,14 +152,13 @@ class BarcodeController extends Controller
         ])->get();
 
         if(count($results) > 0) {
-//            foreach ($results as $result) {
-//                $extented_time = date('Y-m-d H:i:s', strtotime($result->created_at.'+180 minutes'));
-//                $remain_time = strtotime($extented_time) - $now;
-//                if($remain_time>0)
-//                    return json_encode(true);
-//            }
-//            return json_encode(false);
-            return json_encode(true);
+            foreach ($results as $result) {
+                $extented_time = date('Y-m-d H:i:s', strtotime($result->created_at.'+180 minutes'));
+                $remain_time = strtotime($extented_time) - $now;
+                if($remain_time>0)
+                    return json_encode(true);
+            }
+            return json_encode(false);
         }
         return json_encode(false);
     }
