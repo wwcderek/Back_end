@@ -146,8 +146,8 @@ class BarcodeController extends Controller
     {
         $now = strtotime(date('Y-m-d H:i:s'));
         $results = Barcode::where([
-            ['user_id', '=',  $request->user_id],
-            ['film_id', '=',  $request->film_id],
+            ['user_id', '=',  intval($request->user_id)],
+            ['film_id', '=',  intval($request->film_id)],
             ['scan_count', '!=', 0]
         ])->get();
 
