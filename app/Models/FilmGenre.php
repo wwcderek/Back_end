@@ -8,4 +8,5 @@ class FilmGenre extends Model
 {
     //
     protected $table = 'film_genre';
+    public $timestamps = false;
 }
