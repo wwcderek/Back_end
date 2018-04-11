@@ -45,7 +45,7 @@ class FilmController extends Controller
             $film->path = $path;
             $film->save();
             $genre = new FilmGenre();
-            $genre->film_id = $film->film_id;
+            $genre->film_id = $film->id;
             $genre->genre_id = $request->category;
             $genre->save();
             return 'Success';
