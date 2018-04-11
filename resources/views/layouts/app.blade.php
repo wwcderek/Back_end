@@ -40,6 +40,7 @@
                         &nbsp;<li><a href="/">Home</a></li>
                             <li><a href="/userList">User List</a></li>
                             &nbsp;<li><a href="/list">Film List</a></li>
+                            &nbsp;<li><a href="/film">Create Film</a></li>
                         @endif
                     </ul>
 

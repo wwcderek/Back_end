@@ -33,7 +33,6 @@
                         <input type="text" class="form-control" id="run" name="run" />
                     </div>
                     <div class="form-group">
-
                         <label for="publish">
                             Publish Time
                         </label>
@@ -43,6 +42,23 @@
                                autocomplete="off"
                                style="position: relative;"
                         />
+                    </div>
+                    <div class="form-group">
+                        <label for="publish">
+                            Category
+                        </label>
+                        <select name="category" id="category" class="btn btn-bitbucket dropdown-toggle" >
+                            <option value="" selected disabled hidden>Choose here</option>
+                            <option value=1>Action</option>
+                            <option value=2>Horror</option>
+                            <option value=3>Drama</option>
+                            <option value=4>Fiction</option>
+                            <option value=5>War</option>
+                            <option value=6>Thriller</option>
+                            <option value=7>Animation</option>
+                            <option value=8>History</option>
+                            <option value=9>Romance</option>
+                        </select>
                     </div>
                     <div class="form-group">
 

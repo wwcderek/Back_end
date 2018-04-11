@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FilmRequest;
 use App\Models\Dislike;
 use App\Models\Favorite;
+use App\Models\FilmGenre;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Review;
@@ -13,14 +15,15 @@ use Illuminate\Support\Facades\DB;
 class FilmController extends Controller
 {
     //
-    public function route()
+    public function route(Request $request)
     {
+        if (!$request->session()->has('user'))
+            return redirect('/');
         return view('upload');
     }
 
-    public function store(Request $request)
+    public function store(FilmRequest $request)
     {
-
         if($request->hasFile('file')) {
             $fileName = date('Y-m-d-H-i-s');
             $fileSize = filesize($request->file);
@@ -41,6 +44,10 @@ class FilmController extends Controller
             $film->file_name = $fileName;
             $film->path = $path;
             $film->save();
+            $genre = new FilmGenre();
+            $genre->film_id = $film->film_id;
+            $genre->genre_id = $request->category;
+            $genre->save();
             return 'Success';
         }
         return  $request->all();

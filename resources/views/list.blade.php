@@ -14,6 +14,7 @@
                     <tr>
                         <td>
                             <select id="search_type" class="btn btn-bitbucket dropdown-toggle" >
+                                <option value="" selected disabled hidden>Choose here</option>
                                 <option value=1>Action</option>
                                 <option value=2>Horror</option>
                                 <option value=3>Drama</option>
