@@ -48,6 +48,7 @@
                         </label>
                         <select name="category" id="category" class="btn btn-bitbucket dropdown-toggle" >
                             <option value="" selected disabled hidden>Choose here</option>
+
                             <option value=1>Action</option>
                             <option value=2>Horror</option>
                             <option value=3>Drama</option>
@@ -68,6 +69,12 @@
                         <p class="help-block">
                             Example block-level help text here.
                         </p>
+                    </div>
+                    <div class="checkbox">
+
+                        <label>
+                            <input type="checkbox" /> Check me out
+                        </label>
                     </div>
                     <button type="submit" class="btn btn-default">
                         Submit
