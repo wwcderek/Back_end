@@ -1,5 +1,7 @@
 @extends('layouts.app')
+@extends('layouts.master')
 @section('content')
+@section('content2')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -12,6 +14,7 @@
                         <input type="text" class="form-control" id="title" name="title" />
                     </div>
                     <div class="form-group">
+
                         <label for="description">
                             Description
                         </label>
@@ -81,8 +84,15 @@
                     </button>
                 </form>
             </div>
+            {{--<div>--}}
+                {{--<h2>Show Image</h2>--}}
+                {{--<img src="{{ asset('storage/publish/upload/') }}"/>--}}
+            {{--</div>--}}
         </div>
     </div>
+
+@endsection
+
 @endsection
 
 @section('scripts')
