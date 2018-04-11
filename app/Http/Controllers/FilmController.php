@@ -48,7 +48,7 @@ class FilmController extends Controller
             $genre->film_id = $film->id;
             $genre->genre_id = $request->category;
             $genre->save();
-            return 'Success';
+            return redirect('/');
         }
         return  $request->all();
     }
@@ -241,7 +241,7 @@ class FilmController extends Controller
 
             if($name==null) {
             $record = DB::table('films')
-                ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+                ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'films.created_at', 'genres.name as type'
                     , DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
                 ->groupBy('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
                 ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
@@ -253,7 +253,7 @@ class FilmController extends Controller
             return view('list')->with(['films' => $record]);
         }
         $record = DB::table('films')
-            ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name as type'
+            ->select('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'films.created_at', 'genres.name as type'
                 , DB::raw("(group_concat(roles.name SEPARATOR ', ')) as 'role_name'"))
             ->groupBy('films.film_id', 'films.title', 'films.description', 'films.language', 'films.rating', 'films.running_time', 'films.publish_time', 'films.path', 'genres.name')
             ->join('film_genre', 'film_genre.film_id', '=', 'films.film_id')
@@ -277,6 +277,10 @@ class FilmController extends Controller
                 'rating' => intval(request('rating')),
                 'running_time' => intval(request('running')),
                 'description' => request('description')
+            ]);
+        FilmGenre::where('film_id', request('film_id'))
+            ->update([
+                'genre_id' => intval(request('category'))
             ]);
         return redirect()->route('list');
     }

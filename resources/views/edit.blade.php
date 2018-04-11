@@ -18,6 +18,23 @@
                         <td width="70%"><input type="text" class="form-control" name='title' id="title" value="{{ $film->title }}"/></td>
                     </tr>
                     <tr>
+                        <td width="30%">Category</td>
+                        <td width="70%">
+                            <select name="category" id="category" class="btn btn-bitbucket dropdown-toggle" >
+                                <option value="" selected disabled hidden>{{ $film->type }}</option>
+                                <option value=1>Action</option>
+                                <option value=2>Horror</option>
+                                <option value=3>Drama</option>
+                                <option value=4>Fiction</option>
+                                <option value=5>War</option>
+                                <option value=6>Thriller</option>
+                                <option value=7>Animation</option>
+                                <option value=8>History</option>
+                                <option value=9>Romance</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td width="30%">Film Language</td>
                         <td width="70%"><input type="text" class="form-control" name='language' id="language" value="{{ $film->language }}"/></td>
                     </tr>

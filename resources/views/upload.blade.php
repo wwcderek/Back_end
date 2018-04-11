@@ -12,7 +12,6 @@
                         <input type="text" class="form-control" id="title" name="title" />
                     </div>
                     <div class="form-group">
-
                         <label for="description">
                             Description
                         </label>
@@ -70,21 +69,11 @@
                             Example block-level help text here.
                         </p>
                     </div>
-                    <div class="checkbox">
-
-                        <label>
-                            <input type="checkbox" /> Check me out
-                        </label>
-                    </div>
                     <button type="submit" class="btn btn-default">
                         Submit
                     </button>
                 </form>
             </div>
-            {{--<div>--}}
-                {{--<h2>Show Image</h2>--}}
-                {{--<img src="{{ asset('storage/publish/upload/') }}"/>--}}
-            {{--</div>--}}
         </div>
     </div>
 @endsection

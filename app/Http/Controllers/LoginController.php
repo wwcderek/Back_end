@@ -136,30 +136,4 @@ class LoginController extends Controller
         return json_encode($data);
     }
 
-    /**post data
-     * @param Request $request
-     * @return string
-     */
-public function test2(Request $request) {
-        //dd($request->username);
-    $data[] = array(
-        'accountName' => 'derek',
-        'amount' => 'try',
-        'data' => $request->username
-    );
-
-//    $account = new Account();
-//    $account->accountName = "UserTesting";
-//    $account->password = '123123123';
-//    $account->username = 'derek';
-//    $account->update
-//    $account->role_id = 1;
-//    $account->save();
-    $permission = new Permission();
-    $permission->name = "write";
-    $permission->remember_token = "do it";
-    $permission->save();
-    return json_encode($data);
-}
-
 }
