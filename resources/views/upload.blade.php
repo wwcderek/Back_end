@@ -1,7 +1,5 @@
-@extends('layouts.app')
 @extends('layouts.master')
 @section('content')
-@section('content2')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -90,11 +88,9 @@
             {{--</div>--}}
         </div>
     </div>
-
-@endsection
-
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/upload.js') }}"></script>
 @endsection
